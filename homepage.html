@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bertil Braun</title>
+  <meta name="description" content="Bertil Braun - Applied ML Research Engineer working across reinforcement learning, computer vision, LLM systems, and graph-based control.">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fb;
+      --panel: #ffffff;
+      --text: #182033;
+      --muted: #657086;
+      --line: #d9dee8;
+      --accent: #16615a;
+      --accent-soft: #e6f2ef;
+      --shadow: 0 16px 40px rgba(22, 32, 51, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+
+    .page {
+      width: min(1040px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 56px 0 64px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: start;
+      padding-bottom: 34px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.15rem, 5vw, 4.25rem);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .intro {
+      max-width: 720px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+      min-width: 220px;
+    }
+
+    .link,
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 8px 13px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--text);
+      font-size: 0.92rem;
+      font-weight: 650;
+      box-shadow: 0 4px 12px rgba(22, 32, 51, 0.04);
+    }
+
+    .link.primary,
+    .project-link.primary {
+      border-color: transparent;
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    main { padding-top: 36px; }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 1.18rem;
+      letter-spacing: 0;
+    }
+
+    .note {
+      max-width: 580px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .profile-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .profile-item {
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .profile-value {
+      display: block;
+      color: var(--text);
+      font-size: 1rem;
+      font-weight: 750;
+    }
+
+    .profile-label {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .project {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: transform 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
+    }
+
+    .project.wide { grid-column: span 2; }
+
+    .project-toggle {
+      display: block;
+      width: 100%;
+      min-height: 230px;
+      padding: 20px;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .project.wide .project-toggle { min-height: 190px; }
+
+    .project-toggle:hover,
+    .project-toggle:focus-visible {
+      outline: none;
+      background: #fbfcfe;
+    }
+
+    .project:hover,
+    .project:focus-within {
+      transform: translateY(-2px);
+      border-color: #b9c4d4;
+      box-shadow: 0 20px 48px rgba(22, 32, 51, 0.12);
+    }
+
+    .project-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.76rem;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 1.08rem;
+      line-height: 1.32;
+      letter-spacing: 0;
+    }
+
+    .project p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 18px;
+    }
+
+    .fact {
+      padding: 5px 8px;
+      border-radius: 6px;
+      background: #f0f3f7;
+      color: #445066;
+      font-size: 0.78rem;
+      font-weight: 650;
+    }
+
+    .project-detail {
+      display: none;
+    }
+
+    .project-detail ul {
+      margin: 14px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .project-detail li + li { margin-top: 6px; }
+
+    .media {
+      display: grid;
+      align-content: start;
+      gap: 9px;
+    }
+
+    .project:not(.wide) .media {
+      margin-top: 16px;
+    }
+
+    .media img {
+      display: block;
+      width: 100%;
+      max-height: 210px;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #eef1f6;
+    }
+
+    .caption {
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 16px;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 40;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      background: rgba(15, 23, 42, 0.34);
+      backdrop-filter: blur(8px);
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal {
+      width: min(920px, 100%);
+      max-height: min(820px, calc(100vh - 56px));
+      overflow: auto;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: 0 28px 90px rgba(8, 15, 30, 0.34);
+    }
+
+    .modal-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 22px 24px 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .modal-title {
+      margin: 0;
+      font-size: 1.32rem;
+      line-height: 1.28;
+    }
+
+    .modal-close {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    .modal-body {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
+      gap: 22px;
+      padding: 22px 24px 24px;
+    }
+
+    .modal-body p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .modal-body ul {
+      margin: 14px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .modal-body li + li {
+      margin-top: 6px;
+    }
+
+    .modal-media {
+      display: grid;
+      align-content: start;
+      gap: 9px;
+    }
+
+    .modal-media img {
+      display: block;
+      width: 100%;
+      max-height: 280px;
+      object-fit: contain;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #eef1f6;
+    }
+
+    .modal-media.square img {
+      aspect-ratio: 1 / 1;
+      max-height: none;
+      object-fit: contain;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 820px) {
+      .page {
+        width: min(100% - 28px, 1040px);
+        padding-top: 34px;
+      }
+
+      header {
+        grid-template-columns: 1fr;
+      }
+
+      .links {
+        justify-content: flex-start;
+      }
+
+      .section-header {
+        display: block;
+      }
+
+      .note {
+        margin-top: 8px;
+      }
+
+      .profile-strip,
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .project.wide {
+        grid-column: span 1;
+      }
+
+      .modal-backdrop {
+        padding: 14px;
+      }
+
+      .modal {
+        max-height: calc(100vh - 28px);
+      }
+
+      .modal-head {
+        padding: 18px 18px 12px;
+      }
+
+      .modal-body {
+        display: block;
+        padding: 18px;
+      }
+
+      .modal-media {
+        margin-top: 16px;
+      }
+
+      footer {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div>
+        <p class="eyebrow">Applied ML Research Engineer</p>
+        <h1>Bertil Braun</h1>
+        <p class="intro">
+          I build end-to-end machine learning systems across reinforcement learning,
+          computer vision, LLM systems, and graph-based control, with a focus on
+          problems where modeling, infrastructure, and evaluation all matter.
+        </p>
+      </div>
+      <nav class="links" aria-label="Contact and profiles">
+        <a class="link primary" href="mailto:hi@bertil-braun.de">hi@bertil-braun.de</a>
+        <a class="link" href="https://github.com/BertilBraun">GitHub</a>
+        <a class="link" href="https://www.linkedin.com/in/bertil-braun">LinkedIn</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="section-header">
+        <h2>Projects</h2>
+        <p class="note">
+          Selected work from independent research, applied ML systems, and LLM evaluation.
+        </p>
+      </div>
+
+      <section class="profile-strip" aria-label="Project profile">
+        <div class="profile-item">
+          <span class="profile-value">RL</span>
+          <span class="profile-label">self-play, graph control, GPU systems</span>
+        </div>
+        <div class="profile-item">
+          <span class="profile-value">CV</span>
+          <span class="profile-label">YOLO, tracking, video pipelines</span>
+        </div>
+        <div class="profile-item">
+          <span class="profile-value">LLM</span>
+          <span class="profile-label">evaluation, agents, durable workflows</span>
+        </div>
+        <div class="profile-item">
+          <span class="profile-value">Systems</span>
+          <span class="profile-label">deployment, observability, orchestration</span>
+        </div>
+      </section>
+
+      <section class="projects" aria-label="Selected projects">
+        <article class="project wide">
+          <button class="project-toggle" type="button" aria-haspopup="dialog">
+            <div class="project-top">
+              <h3>AlphaZero-Style Chess Engine</h3>
+              <span class="tag">RL</span>
+            </div>
+            <p>
+              General self-play reinforcement learning framework for chess and board games,
+              with MCTS, batched GPU inference, distributed self-play, and evaluation.
+            </p>
+            <div class="facts">
+              <span class="fact">Python/C++</span>
+              <span class="fact">96 CPUs / 4x A10 GPUs</span>
+              <span class="fact">~2000-2100 Elo</span>
+              <span class="fact">~$13 final run</span>
+            </div>
+          </button>
+          <div class="project-detail" data-media-layout="square">
+            <div>
+              <p>
+                A personal AlphaZero implementation that scaled from simple board games to chess.
+                The repo README reports a compact chess run of roughly 280k self-play games over
+                100k update steps, using an 8x96 neural network and optimized C++ MCTS.
+              </p>
+              <ul>
+                <li>Extensible game framework for Tic-Tac-Toe, Connect Four, Checkers, Hex, and Chess.</li>
+                <li>Optimized C++ MCTS and batched GPU inference for self-play and evaluation.</li>
+                <li>Benchmarking against Stockfish skill levels and Elo-limited opponents.</li>
+              </ul>
+              <div class="project-actions">
+                <a class="project-link primary" href="https://github.com/BertilBraun/Advanced-Techniques-in-Chess-Engines">GitHub repo</a>
+              </div>
+            </div>
+            <div class="media">
+              <img alt="Chess engine example game animation" src="https://raw.githubusercontent.com/BertilBraun/Advanced-Techniques-in-Chess-Engines/master/documentation/chess_results/Example%20Game.gif">
+              <span class="caption">Example game from the project documentation.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <button class="project-toggle" type="button" aria-haspopup="dialog">
+            <div class="project-top">
+              <h3>GybeLock</h3>
+              <span class="tag">CV</span>
+            </div>
+            <p>
+              Windsurfing video intelligence platform with custom YOLO models,
+              multi-object tracking, stabilization, focused playback, and full-stack deployment.
+            </p>
+            <div class="facts">
+              <span class="fact">YOLO</span>
+              <span class="fact">Tracking</span>
+              <span class="fact">FastAPI</span>
+              <span class="fact">React</span>
+            </div>
+          </button>
+          <div class="project-detail">
+            <div>
+              <p>
+                The repo describes GybeLock as a production MVP web app plus the underlying Python
+                video processing pipeline. It turns shore-shot windsurf footage into rider detections,
+                tracks, stabilization transforms, and an interactive focused-view player.
+              </p>
+              <ul>
+                <li>React/Firebase frontend with FastAPI backend and Modal-powered GPU processing.</li>
+                <li>YOLO-based detection and pose tooling with training and optimization runs.</li>
+                <li>Interactive review flow for selecting riders and generating stable playback.</li>
+              </ul>
+              <div class="project-actions">
+                <a class="project-link primary" href="https://gybelock.bertil-braun.de">GybeLock site</a>
+                <a class="project-link" href="https://github.com/BertilBraun/Windsurf-Analysis">GitHub repo</a>
+              </div>
+            </div>
+            <div class="media">
+              <img alt="GybeLock processed windsurfing demo" src="https://raw.githubusercontent.com/BertilBraun/Windsurf-Analysis/master/documentation/processed.gif">
+              <span class="caption">Processed demo from the Windsurf Analysis documentation.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <button class="project-toggle" type="button" aria-haspopup="dialog">
+            <div class="project-top">
+              <h3>LLM Systems & Evaluation</h3>
+              <span class="tag">LLM</span>
+            </div>
+            <p>
+              Agentic systems and evaluation infrastructure, including durable coding workflows,
+              multi-agent orchestration, synthetic data, and automated LLM evaluation.
+            </p>
+            <div class="facts">
+              <span class="fact">A2A/MCP</span>
+              <span class="fact">Temporal-Light</span>
+              <span class="fact">ACL 2025</span>
+            </div>
+          </button>
+          <div class="project-detail">
+            <div>
+              <p>
+                This combines the durable coding runtime, Temporal-Light, and LLM evaluation work.
+                The coding runtime uses workflow orchestration to turn a natural-language task into
+                a reviewed diff, while the thesis/paper work focuses on scalable LLM evaluation.
+              </p>
+              <ul>
+                <li>Agent runtime where model decisions are checked against diffs, tests, command outputs, and review verdicts.</li>
+                <li>Temporal-Light provides durable sequencing, retries, signals, child workflows, and SSE streams.</li>
+                <li>Master's thesis and ACL 2025 workshop paper on automated evaluation with large language models.</li>
+              </ul>
+              <div class="project-actions">
+                <a class="project-link primary" href="https://github.com/BertilBraun/Durable-Agentic-Coding-Runtime">Coding runtime</a>
+                <a class="project-link" href="https://github.com/BertilBraun/Temporal-Light">Temporal-Light</a>
+                <a class="project-link" href="https://github.com/BertilBraun/Master-Thesis">LLM evaluation</a>
+              </div>
+            </div>
+            <div class="media">
+              <img alt="Temporal-Light dashboard" src="https://raw.githubusercontent.com/BertilBraun/Temporal-Light/master/documentation/dashboard.png">
+              <span class="caption">Temporal-Light dashboard from the project documentation.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <button class="project-toggle" type="button" aria-haspopup="dialog">
+            <div class="project-top">
+              <h3>GNN-Based Traffic Signal Control</h3>
+              <span class="tag">Graph RL</span>
+            </div>
+            <p>
+              Graph reinforcement learning project for SUMO traffic control, combining
+              GATv2 policies, DAgger imitation learning, PPO, and transfer to arbitrary road networks.
+            </p>
+            <div class="facts">
+              <span class="fact">GATv2</span>
+              <span class="fact">DAgger</span>
+              <span class="fact">PPO</span>
+              <span class="fact">SUMO/TraCI</span>
+            </div>
+          </button>
+          <div class="project-detail">
+            <div>
+              <p>
+                In-progress graph RL system for traffic-signal control. The public repo description
+                frames the current direction as movement-level phase scoring for transfer across
+                arbitrary OpenStreetMap city networks.
+              </p>
+              <ul>
+                <li>Built SUMO/TraCI environments with a GATv2 policy controlling junctions jointly.</li>
+                <li>Uses DAgger imitation learning followed by PPO with phased transitions.</li>
+                <li>Current work focuses on lane-to-lane movement scoring for arbitrary OSM junctions.</li>
+              </ul>
+              <div class="project-actions">
+                <a class="project-link primary" href="https://github.com/BertilBraun/GNN-Traffic-Signal-Control">GitHub repo</a>
+              </div>
+            </div>
+            <div class="media">
+              <span class="caption">No public visual asset in the repo yet; this is the one project card that would benefit most from a small diagram or training plot later.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <button class="project-toggle" type="button" aria-haspopup="dialog">
+            <div class="project-top">
+              <h3>JAX GPU-Resident RL System</h3>
+              <span class="tag">Systems</span>
+            </div>
+            <p>
+              Standalone reinforcement learning research system designed to keep training
+              on the GPU, reducing host-device transfers and improving throughput.
+            </p>
+            <div class="facts">
+              <span class="fact">JAX</span>
+              <span class="fact">GPU optimization</span>
+              <span class="fact">27.6x speedup</span>
+              <span class="fact">5,248 updates/sec</span>
+            </div>
+          </button>
+          <div class="project-detail">
+            <div>
+              <p>
+                From-scratch Soft Actor-Critic implementation in pure JAX. The project demonstrates
+                a fully GPU-resident RL pipeline with vectorized environments, GPU replay buffer,
+                neural networks, and training loop.
+              </p>
+              <ul>
+                <li>Zero host-device transfers during training.</li>
+                <li>Up to 4096 parallel CartPole environments stepped as one batched operation.</li>
+                <li>Reported 5,248 parameter updates/sec on RTX 3060 with 100% GPU utilization.</li>
+              </ul>
+              <div class="project-actions">
+                <a class="project-link primary" href="https://github.com/BertilBraun/RL-entirely-on-GPU">GitHub repo</a>
+                <a class="project-link" href="https://deepwiki.com/BertilBraun/RL-entirely-on-GPU">DeepWiki</a>
+              </div>
+            </div>
+            <div class="media">
+              <img alt="GPU-resident RL performance benchmarks" src="https://raw.githubusercontent.com/BertilBraun/RL-entirely-on-GPU/master/documentation/performance_benchmarks.png">
+              <span class="caption">Performance benchmark plot from the project documentation.</span>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <span>Karlsruhe, Germany</span>
+      <span>Last updated 2026</span>
+    </footer>
+  </div>
+
+  <div class="modal-backdrop" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title" hidden>
+    <div class="modal">
+      <div class="modal-head">
+        <h2 class="modal-title" id="project-modal-title"></h2>
+        <button class="modal-close" type="button" aria-label="Close project details">&times;</button>
+      </div>
+      <div class="modal-body" id="project-modal-body"></div>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('project-modal');
+    const modalTitle = document.getElementById('project-modal-title');
+    const modalBody = document.getElementById('project-modal-body');
+    const modalClose = modal.querySelector('.modal-close');
+    let lastFocusedProject = null;
+
+    for (const project of document.querySelectorAll('.project')) {
+      const toggle = project.querySelector('.project-toggle');
+
+      toggle.addEventListener('click', () => {
+        const title = project.querySelector('h3').textContent;
+        const detail = project.querySelector('.project-detail');
+        const cloned = detail.cloneNode(true);
+        cloned.className = '';
+
+        const media = cloned.querySelector('.media');
+        if (media) {
+          media.className = detail.dataset.mediaLayout === 'square' ? 'modal-media square' : 'modal-media';
+        }
+
+        modalTitle.textContent = title;
+        modalBody.replaceChildren(...cloned.children);
+        modal.hidden = false;
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        lastFocusedProject = toggle;
+        modalClose.focus();
+      });
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.hidden = true;
+      modalBody.replaceChildren();
+      document.body.style.overflow = '';
+      if (lastFocusedProject) {
+        lastFocusedProject.focus();
+      }
+    }
+
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !modal.hidden) {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>
