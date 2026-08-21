@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="470" viewBox="0 0 1100 470" role="img" aria-label="Streaming cascade timeline: microphone, streaming ASR, turn detector, LLM prefill and generation, TTS and playback, overlapping so that first audio follows the user turn by under half a second">
+<rect width="1100" height="470" fill="#ffffff"/>
+<text x="24.0" y="32.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#16181d" text-anchor="start">A streaming cascade, not a pipeline of waits</text>
+<text x="24.0" y="52.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="400" fill="#6a7180" text-anchor="start">Every stage starts before the one above it finishes.</text>
+<line x1="700" y1="62" x2="700" y2="406" stroke="#16615a" stroke-width="1.6" stroke-dasharray="5 4"/>
+<text x="708.0" y="58.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="10.5" font-weight="700" fill="#16615a" text-anchor="start">user stops speaking</text>
+<rect x="250" y="70" width="450" height="336" fill="#f4f2ec"/>
+<text x="260.0" y="84.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="10" font-weight="600" fill="#6a7180" text-anchor="start">user is still speaking</text>
+<line x1="250" y1="128.3" x2="1058" y2="128.3" stroke="#dcd8cf" stroke-width="1"/>
+<line x1="250" y1="182.7" x2="1058" y2="182.7" stroke="#dcd8cf" stroke-width="1"/>
+<line x1="250" y1="237.0" x2="1058" y2="237.0" stroke="#dcd8cf" stroke-width="1"/>
+<line x1="250" y1="291.3" x2="1058" y2="291.3" stroke="#dcd8cf" stroke-width="1"/>
+<line x1="250" y1="345.7" x2="1058" y2="345.7" stroke="#dcd8cf" stroke-width="1"/>
+<line x1="250" y1="400.0" x2="1058" y2="400.0" stroke="#dcd8cf" stroke-width="1"/>
+<text x="234.0" y="100.2" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="end">Microphone + VAD</text>
+<text x="234.0" y="113.2" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.5" font-weight="400" fill="#6a7180" text-anchor="end">Silero</text>
+<text x="234.0" y="154.5" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="end">Streaming ASR</text>
+<text x="234.0" y="167.5" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.5" font-weight="400" fill="#6a7180" text-anchor="end">Nemotron 0.6B · 160 ms chunks</text>
+<text x="234.0" y="208.8" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="end">Turn detector</text>
+<text x="234.0" y="221.8" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.5" font-weight="400" fill="#6a7180" text-anchor="end">trained adapter — still training</text>
+<text x="234.0" y="263.2" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="end">LLM</text>
+<text x="234.0" y="276.2" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.5" font-weight="400" fill="#6a7180" text-anchor="end">Qwen</text>
+<text x="234.0" y="317.5" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="end">Streaming TTS</text>
+<text x="234.0" y="330.5" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.5" font-weight="400" fill="#6a7180" text-anchor="end">Kyutai</text>
+<text x="234.0" y="371.8" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="end">Playback</text>
+<text x="234.0" y="384.8" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.5" font-weight="400" fill="#6a7180" text-anchor="end">full duplex, interruptible</text>
+<rect x="250.0" y="90.2" width="450.0" height="22" rx="4" fill="#b9d7d2"/>
+<text x="475.0" y="104.7" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.6" font-weight="650" fill="#16181d" text-anchor="middle">audio frames</text>
+<rect x="280.0" y="144.5" width="438.0" height="22" rx="4" fill="#b9d7d2"/>
+<text x="499.0" y="159.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.6" font-weight="650" fill="#16181d" text-anchor="middle">partial transcripts, revised as they stabilise</text>
+<rect x="604.0" y="198.8" width="112.0" height="22" rx="4" fill="#ffffff" stroke="#d8cfae" stroke-dasharray="4 3"/>
+<text x="660.0" y="213.3" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.6" font-weight="650" fill="#16181d" text-anchor="middle">commit?</text>
+<rect x="400.0" y="253.2" width="300.0" height="22" rx="4" fill="#b9d7d2"/>
+<text x="550.0" y="267.7" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.6" font-weight="650" fill="#16181d" text-anchor="middle">prefill on stable prefix</text>
+<rect x="716.0" y="253.2" width="134.0" height="22" rx="4" fill="#16615a"/>
+<text x="783.0" y="267.7" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.6" font-weight="650" fill="#ffffff" text-anchor="middle">generate</text>
+<rect x="792.0" y="307.5" width="138.0" height="22" rx="4" fill="#16615a"/>
+<text x="861.0" y="322.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.6" font-weight="650" fill="#ffffff" text-anchor="middle">first chunk</text>
+<rect x="850.0" y="361.8" width="208.0" height="22" rx="4" fill="#16615a"/>
+<text x="954.0" y="376.3" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.6" font-weight="650" fill="#ffffff" text-anchor="middle">assistant speaks</text>
+<line x1="700" y1="430" x2="1058" y2="430" stroke="#6a7180" stroke-width="1"/>
+<line x1="700" y1="425" x2="700" y2="435" stroke="#6a7180" stroke-width="1"/>
+<line x1="1058" y1="425" x2="1058" y2="435" stroke="#6a7180" stroke-width="1"/>
+<text x="879.0" y="421.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="10.5" font-weight="650" fill="#16181d" text-anchor="middle">target: first assistant audio in under 500 ms</text>
+<text x="24.0" y="436.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="10.5" font-weight="650" fill="#16181d" text-anchor="start">Tool calls ride the same trick:</text>
+<text x="24.0" y="451.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="10.5" font-weight="400" fill="#6a7180" text-anchor="start">a fine-tuned bridge (“let me check that”)</text>
+<text x="24.0" y="466.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="10.5" font-weight="400" fill="#6a7180" text-anchor="start">plays while the call runs, so the pause never lands.</text>
+</svg>

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="470" viewBox="0 0 1100 470" role="img" aria-label="Layered architecture: browser, API layer, five A2A agent services, four MCP tool servers, data stores and provider services">
+<rect width="1100" height="470" fill="#ffffff"/>
+<rect x="150" y="16" width="924" height="52" rx="7" fill="#f4f2ec" stroke="#dcd8cf"/>
+<text x="138.0" y="35.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="700" fill="#6a7180" text-anchor="end">CLIENT</text>
+<rect x="168.0" y="26" width="200.0" height="32" rx="5" fill="#e7f0ee" stroke="#16615a"/>
+<text x="268.0" y="40.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="middle">Browser</text>
+<text x="268.0" y="55.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.5" font-weight="400" fill="#6a7180" text-anchor="middle">React · TypeScript</text>
+<text x="390.0" y="47.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="10.5" font-weight="500" fill="#6a7180" text-anchor="start">REST + Server-Sent Events</text>
+<line x1="268.0" y1="68" x2="268.0" y2="89" stroke="#16615a" stroke-width="1.6"/>
+<path d="M263.5,89 L272.5,89 L268.0,96 Z" fill="#16615a"/>
+<rect x="150" y="96" width="924" height="52" rx="7" fill="#f4f2ec" stroke="#dcd8cf"/>
+<text x="138.0" y="115.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="700" fill="#6a7180" text-anchor="end">API LAYER</text>
+<rect x="168.0" y="106" width="200.0" height="32" rx="5" fill="#e7f0ee" stroke="#16615a"/>
+<text x="268.0" y="120.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="middle">FastAPI</text>
+<text x="268.0" y="135.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.5" font-weight="400" fill="#6a7180" text-anchor="middle">JWT · Alembic · SSE</text>
+<rect x="390.0" y="106" width="150.0" height="32" rx="5" fill="#ffffff" stroke="#dcd8cf"/>
+<text x="465.0" y="120.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="middle">Redis</text>
+<text x="465.0" y="135.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.5" font-weight="400" fill="#6a7180" text-anchor="middle">pub/sub · cache</text>
+<line x1="368" y1="122" x2="390" y2="122" stroke="#6a7180" stroke-width="1.4" stroke-dasharray="3 3"/>
+<text x="560.0" y="126.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="10.5" font-weight="500" fill="#6a7180" text-anchor="start">dispatches each message to exactly one agent</text>
+<line x1="268.0" y1="148" x2="268.0" y2="179" stroke="#16615a" stroke-width="1.6"/>
+<path d="M263.5,179 L272.5,179 L268.0,186 Z" fill="#16615a"/>
+<text x="277.0" y="170.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.5" font-weight="600" fill="#6a7180" text-anchor="start">A2A</text>
+<rect x="150" y="186" width="924" height="62" rx="7" fill="#f4f2ec" stroke="#dcd8cf"/>
+<text x="138.0" y="205.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="700" fill="#6a7180" text-anchor="end">AGENT LAYER</text>
+<text x="138.0" y="220.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="10" font-weight="400" fill="#6a7180" text-anchor="end">Google A2A</text>
+<rect x="168.0" y="196" width="172.0" height="42" rx="5" fill="#e7f0ee" stroke="#16615a"/>
+<text x="254.0" y="215.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="middle">dm-agent</text>
+<text x="254.0" y="230.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.5" font-weight="400" fill="#6a7180" text-anchor="middle">:8012</text>
+<rect x="348.0" y="196" width="172.0" height="42" rx="5" fill="#e7f0ee" stroke="#16615a"/>
+<text x="434.0" y="215.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="middle">npc-agent</text>
+<text x="434.0" y="230.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.5" font-weight="400" fill="#6a7180" text-anchor="middle">:8013</text>
+<rect x="528.0" y="196" width="172.0" height="42" rx="5" fill="#ffffff" stroke="#dcd8cf"/>
+<text x="614.0" y="215.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="middle">character-creator</text>
+<text x="614.0" y="230.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.5" font-weight="400" fill="#6a7180" text-anchor="middle">:8010</text>
+<rect x="708.0" y="196" width="172.0" height="42" rx="5" fill="#ffffff" stroke="#dcd8cf"/>
+<text x="794.0" y="215.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="middle">campaign-designer</text>
+<text x="794.0" y="230.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.5" font-weight="400" fill="#6a7180" text-anchor="middle">:8011</text>
+<rect x="888.0" y="196" width="172.0" height="42" rx="5" fill="#ffffff" stroke="#dcd8cf"/>
+<text x="974.0" y="215.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="middle">memory-agent</text>
+<text x="974.0" y="230.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.5" font-weight="400" fill="#6a7180" text-anchor="middle">:8014</text>
+<line x1="268.0" y1="248" x2="268.0" y2="279" stroke="#16615a" stroke-width="1.6"/>
+<path d="M263.5,279 L272.5,279 L268.0,286 Z" fill="#16615a"/>
+<text x="277.0" y="270.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.5" font-weight="600" fill="#6a7180" text-anchor="start">MCP</text>
+<rect x="150" y="286" width="924" height="62" rx="7" fill="#f4f2ec" stroke="#dcd8cf"/>
+<text x="138.0" y="305.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="700" fill="#6a7180" text-anchor="end">TOOL SERVERS</text>
+<text x="138.0" y="320.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="10" font-weight="400" fill="#6a7180" text-anchor="end">MCP over HTTP</text>
+<rect x="168.0" y="296" width="218.0" height="42" rx="5" fill="#ffffff" stroke="#dcd8cf"/>
+<text x="277.0" y="315.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="middle">state-mcp</text>
+<text x="277.0" y="330.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.5" font-weight="400" fill="#6a7180" text-anchor="middle">PostgreSQL</text>
+<rect x="394.0" y="296" width="218.0" height="42" rx="5" fill="#ffffff" stroke="#dcd8cf"/>
+<text x="503.0" y="315.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="middle">memory-mcp</text>
+<text x="503.0" y="330.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.5" font-weight="400" fill="#6a7180" text-anchor="middle">Qdrant vectors</text>
+<rect x="620.0" y="296" width="218.0" height="42" rx="5" fill="#ffffff" stroke="#dcd8cf"/>
+<text x="729.0" y="315.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="middle">knowledge-mcp</text>
+<text x="729.0" y="330.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.5" font-weight="400" fill="#6a7180" text-anchor="middle">Neo4j graph</text>
+<rect x="846.0" y="296" width="218.0" height="42" rx="5" fill="#ffffff" stroke="#dcd8cf"/>
+<text x="955.0" y="315.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="middle">media-mcp</text>
+<text x="955.0" y="330.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.5" font-weight="400" fill="#6a7180" text-anchor="middle">images · TTS · STT</text>
+<line x1="277.0" y1="348" x2="277.0" y2="379" stroke="#16615a" stroke-width="1.6"/>
+<path d="M272.5,379 L281.5,379 L277.0,386 Z" fill="#16615a"/>
+<line x1="955.0" y1="348" x2="955.0" y2="379" stroke="#16615a" stroke-width="1.6"/>
+<path d="M950.5,379 L959.5,379 L955.0,386 Z" fill="#16615a"/>
+<rect x="150" y="386" width="924" height="62" rx="7" fill="#f4f2ec" stroke="#dcd8cf"/>
+<text x="138.0" y="405.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="700" fill="#6a7180" text-anchor="end">PROVIDERS</text>
+<text x="138.0" y="420.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="10" font-weight="400" fill="#6a7180" text-anchor="end">swappable backends</text>
+<rect x="168.0" y="396" width="218.0" height="42" rx="5" fill="#ffffff" stroke="#dcd8cf"/>
+<text x="277.0" y="415.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="middle">llm-service</text>
+<text x="277.0" y="430.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.5" font-weight="400" fill="#6a7180" text-anchor="middle">Gemini · OpenAI · Anthropic</text>
+<rect x="394.0" y="396" width="218.0" height="42" rx="5" fill="#ffffff" stroke="#dcd8cf"/>
+<text x="503.0" y="421.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="middle">image-service</text>
+<rect x="620.0" y="396" width="218.0" height="42" rx="5" fill="#ffffff" stroke="#dcd8cf"/>
+<text x="729.0" y="421.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="middle">tts-service</text>
+<rect x="846.0" y="396" width="218.0" height="42" rx="5" fill="#ffffff" stroke="#dcd8cf"/>
+<text x="955.0" y="421.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="middle">stt-service</text>
+</svg>

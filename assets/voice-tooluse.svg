@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="470" viewBox="0 0 1100 470" role="img" aria-label="Spoken tool-use turn: the model speaks a natural bridge, emits a structured call, uses the result, and continues; and a second path where no tool is called. Holdout scores before and after fine-tuning.">
+<rect width="1100" height="470" fill="#ffffff"/>
+<text x="26.0" y="34.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#16181d" text-anchor="start">One spoken tool-use turn</text>
+<text x="26.0" y="54.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="400" fill="#6a7180" text-anchor="start">What the adapter had to learn: say something natural first, call the tool correctly, use the result — and stay quiet when no tool is needed.</text>
+<text x="26.0" y="92.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="10" font-weight="700" fill="#6a7180" text-anchor="start">TOOL PATH</text>
+<rect x="26" y="104" width="200" height="74" rx="6" fill="#ffffff" stroke="#dcd8cf"/>
+<text x="126.0" y="126.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="middle">User speaks</text>
+<text x="126.0" y="143.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.8" font-weight="400" fill="#6a7180" text-anchor="middle" font-style="italic">“What's the weather</text>
+<text x="126.0" y="156.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.8" font-weight="400" fill="#6a7180" text-anchor="middle">in Karlsruhe tomorrow?”</text>
+<rect x="258" y="104" width="200" height="74" rx="6" fill="#e7f0ee" stroke="#16615a"/>
+<text x="358.0" y="126.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="middle">Spoken bridge</text>
+<text x="358.0" y="143.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.8" font-weight="400" fill="#6a7180" text-anchor="middle" font-style="italic">“Let me check that</text>
+<text x="358.0" y="156.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.8" font-weight="400" fill="#6a7180" text-anchor="middle">for you.”</text>
+<rect x="490" y="104" width="200" height="74" rx="6" fill="#e7f0ee" stroke="#16615a"/>
+<text x="590.0" y="126.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="middle">Structured call</text>
+<text x="590.0" y="143.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.8" font-weight="400" fill="#6a7180" text-anchor="middle">get_forecast</text>
+<text x="590.0" y="156.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.8" font-weight="400" fill="#6a7180" text-anchor="middle">{ city, date }</text>
+<rect x="722" y="104" width="150" height="74" rx="6" fill="#ffffff" stroke="#dcd8cf"/>
+<text x="797.0" y="126.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="middle">Tool result</text>
+<text x="797.0" y="143.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.8" font-weight="400" fill="#6a7180" text-anchor="middle">returned to</text>
+<text x="797.0" y="156.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.8" font-weight="400" fill="#6a7180" text-anchor="middle">the model</text>
+<rect x="904" y="104" width="170" height="74" rx="6" fill="#e7f0ee" stroke="#16615a"/>
+<text x="989.0" y="126.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="middle">Continues</text>
+<text x="989.0" y="143.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.8" font-weight="400" fill="#6a7180" text-anchor="middle">same conversation,</text>
+<text x="989.0" y="156.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.8" font-weight="400" fill="#6a7180" text-anchor="middle">no restart</text>
+<line x1="226" y1="141" x2="251" y2="141" stroke="#16615a" stroke-width="1.6"/>
+<path d="M251,136 L251,146 L258,141 Z" fill="#16615a"/>
+<line x1="458" y1="141" x2="483" y2="141" stroke="#16615a" stroke-width="1.6"/>
+<path d="M483,136 L483,146 L490,141 Z" fill="#16615a"/>
+<line x1="690" y1="141" x2="715" y2="141" stroke="#16615a" stroke-width="1.6"/>
+<path d="M715,136 L715,146 L722,141 Z" fill="#16615a"/>
+<line x1="872" y1="141" x2="897" y2="141" stroke="#16615a" stroke-width="1.6"/>
+<path d="M897,136 L897,146 L904,141 Z" fill="#16615a"/>
+<text x="26.0" y="216.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="10" font-weight="700" fill="#6a7180" text-anchor="start">NO-TOOL PATH</text>
+<rect x="26" y="228" width="200" height="56" rx="6" fill="#ffffff" stroke="#dcd8cf"/>
+<text x="126.0" y="250.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="middle">Ordinary dialogue</text>
+<text x="126.0" y="267.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.8" font-weight="400" fill="#6a7180" text-anchor="middle" font-style="italic">“That sounds nice.”</text>
+<rect x="258" y="228" width="200" height="56" rx="6" fill="#ffffff" stroke="#dcd8cf" stroke-dasharray="4 3"/>
+<text x="358.0" y="250.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="650" fill="#16181d" text-anchor="middle">No call emitted</text>
+<text x="358.0" y="267.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.8" font-weight="400" fill="#6a7180" text-anchor="middle">answers directly</text>
+<line x1="226" y1="256" x2="251" y2="256" stroke="#16615a" stroke-width="1.6"/>
+<path d="M251,252 L251,260 L258,256 Z" fill="#16615a"/>
+<text x="478.0" y="254.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="400" fill="#6a7180" text-anchor="start">The base model called a tool anyway in 30% of these.</text>
+<text x="478.0" y="270.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="650" fill="#16181d" text-anchor="start">After fine-tuning: 0%.</text>
+<line x1="26" y1="316" x2="1074" y2="316" stroke="#dcd8cf" stroke-width="1"/>
+<text x="26.0" y="344.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="600" fill="#6a7180" text-anchor="start">80-record balanced holdout, free generation</text>
+<rect x="800" y="334" width="10" height="10" rx="2.5" fill="#b9d7d2"/>
+<text x="816.0" y="343.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="10" font-weight="400" fill="#6a7180" text-anchor="start">Base model</text>
+<rect x="910" y="334" width="10" height="10" rx="2.5" fill="#16615a"/>
+<text x="926.0" y="343.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="10" font-weight="400" fill="#6a7180" text-anchor="start">After fine-tuning</text>
+<text x="120.0" y="392.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.8" font-weight="600" fill="#6a7180" text-anchor="middle">Correct tool decision</text>
+<rect x="66" y="399" width="86.4" height="7" rx="3.5" fill="#b9d7d2"/>
+<rect x="66" y="410" width="102.8" height="7" rx="3.5" fill="#16615a"/>
+<text x="157.4" y="406.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9" font-weight="600" fill="#6a7180" text-anchor="start">80.0%</text>
+<text x="173.8" y="417.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9" font-weight="700" fill="#16181d" text-anchor="start">95.2%</text>
+<text x="390.0" y="392.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.8" font-weight="600" fill="#6a7180" text-anchor="middle">Exact tool name</text>
+<rect x="336" y="399" width="84.9" height="7" rx="3.5" fill="#b9d7d2"/>
+<rect x="336" y="410" width="101.8" height="7" rx="3.5" fill="#16615a"/>
+<text x="425.9" y="406.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9" font-weight="600" fill="#6a7180" text-anchor="start">78.6%</text>
+<text x="442.8" y="417.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9" font-weight="700" fill="#16181d" text-anchor="start">94.3%</text>
+<text x="660.0" y="392.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.8" font-weight="600" fill="#6a7180" text-anchor="middle">Concise spoken bridge</text>
+<rect x="606" y="399" width="8.2" height="7" rx="3.5" fill="#b9d7d2"/>
+<rect x="606" y="410" width="101.8" height="7" rx="3.5" fill="#16615a"/>
+<text x="619.2" y="406.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9" font-weight="600" fill="#6a7180" text-anchor="start">7.6%</text>
+<text x="712.8" y="417.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9" font-weight="700" fill="#16181d" text-anchor="start">94.3%</text>
+<text x="950.0" y="392.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9.8" font-weight="600" fill="#6a7180" text-anchor="middle">Correct no-tool behaviour</text>
+<rect x="896" y="399" width="75.6" height="7" rx="3.5" fill="#b9d7d2"/>
+<rect x="896" y="410" width="108.0" height="7" rx="3.5" fill="#16615a"/>
+<text x="976.6" y="406.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9" font-weight="600" fill="#6a7180" text-anchor="start">70.0%</text>
+<text x="1009.0" y="417.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="9" font-weight="700" fill="#16181d" text-anchor="start">100.0%</text>
+<text x="26.0" y="452.0" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="10" font-weight="400" fill="#6a7180" text-anchor="start">Qwen3-1.7B · BF16 rank-16 LoRA · 3,919 synthetic segments</text>
+</svg>
