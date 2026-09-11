@@ -686,12 +686,12 @@
             A self-play reinforcement learning runtime for chess and Go. Native C++ owns the game
             rules, packed encoding, batched inference, and tree search; Python owns experiment
             composition, memory-mapped replay, distributed training, and evaluation. Three days on
-            rented consumer GPUs reached superhuman strength for about $50 — and you can play the
+            rented consumer GPUs reached superhuman strength for $52.08 — and you can play the
             saved model in your browser.
           </p>
           <div class="stats">
             <span class="stat"><b>3,037</b><span>benchmark Elo at 10,000 searches</span></span>
-            <span class="stat"><b>≈ $50</b><span>training compute</span></span>
+            <span class="stat"><b>$52.08</b><span>three-day training-node cost</span></span>
             <span class="stat"><b>3 days</b><span>on 8× RTX 4070 SUPER</span></span>
           </div>
           <div class="chips">
@@ -932,7 +932,7 @@
           </tbody>
         </table>
         <ul>
-          <li>The saved generation-1465 checkpoint cost approximately <strong>$50</strong> to train for three days on 8× RTX 4070 SUPER GPUs, with self-play and training sharing the cards.</li>
+          <li>The saved generation-1465 checkpoint cost <strong>$52.08</strong> to train for exactly three days on 8× RTX 4070 SUPER GPUs, with self-play and training sharing the cards.</li>
           <li>Native C++ owns rules, packed encoding, batched inference, and MCTS. For scale: a deliberately unoptimised single-game Python PUCT baseline runs at about 81 simulations per second.</li>
           <li>Each headline chess result comes from 400 games over 200 balanced opening pairs against Stockfish 13 at a fixed node budget.</li>
           <li>Two deployments share the same interactive engine: the browser client, and a Lichess bot driven through a UCI launcher.</li>
