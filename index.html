@@ -686,12 +686,13 @@
             A self-play reinforcement learning runtime for chess and Go. Native C++ owns the game
             rules, packed encoding, batched inference, and tree search; Python owns experiment
             composition, memory-mapped replay, distributed training, and evaluation. Three days on
-            rented consumer GPUs took it past 2,800 Elo — and you can play it in your browser.
+            rented consumer GPUs reached superhuman strength for about $50 — and you can play the
+            saved model in your browser.
           </p>
           <div class="stats">
-            <span class="stat"><b>2,806</b><span>Elo at 10,000 searches</span></span>
-            <span class="stat"><b>≈ $32</b><span>total training cost</span></span>
-            <span class="stat"><b>3 days</b><span>on 8× RTX 3060</span></span>
+            <span class="stat"><b>3,037</b><span>benchmark Elo at 10,000 searches</span></span>
+            <span class="stat"><b>≈ $50</b><span>training compute</span></span>
+            <span class="stat"><b>3 days</b><span>on 8× RTX 4070 SUPER</span></span>
           </div>
           <div class="chips">
             <span class="chip demo">Live demo</span>
@@ -905,7 +906,7 @@
         <a href="https://github.com/BertilBraun" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.linkedin.com/in/bertil-braun" target="_blank" rel="noopener">LinkedIn</a>
       </span>
-      <span>Last updated August 2026</span>
+      <span>Last updated September 2026</span>
     </footer>
   </div>
 
@@ -925,25 +926,23 @@
         <table class="facts-table">
           <thead><tr><th>Search budget</th><th>Approx. calibrated Elo</th></tr></thead>
           <tbody>
-            <tr><td>64 searches</td><td><b>1,949</b> <span style="color:var(--muted)">[1,843–2,027]</span></td></tr>
-            <tr><td>1,000 searches</td><td><b>2,522</b> <span style="color:var(--muted)">[2,400–2,646]</span></td></tr>
-            <tr><td>10,000 searches</td><td><b>2,806</b> <span style="color:var(--muted)">[2,709–2,908]</span></td></tr>
-            <tr><td>1 second per move</td><td><b>2,584</b> <span style="color:var(--muted)">[2,512–2,646]</span></td></tr>
-            <tr><td>5 seconds per move</td><td><b>2,688</b> <span style="color:var(--muted)">[2,564–2,806]</span></td></tr>
+            <tr><td>64 searches</td><td><b>2,265</b> <span style="color:var(--muted)">[2,236–2,298]</span></td></tr>
+            <tr><td>10,000 searches</td><td><b>3,037</b> <span style="color:var(--muted)">[3,012–3,061]</span></td></tr>
+            <tr><td>80,000 searches</td><td><b>3,174</b> <span style="color:var(--muted)">[3,144–3,206]</span></td></tr>
           </tbody>
         </table>
         <ul>
-          <li>The three-day baseline run cost about <strong>$32</strong> — roughly $0.45/hr for 72 hours on 8× RTX 3060 12 GiB, 64 vCPUs and ~188 GiB RAM.</li>
+          <li>The saved generation-1465 checkpoint cost approximately <strong>$50</strong> to train for three days on 8× RTX 4070 SUPER GPUs, with self-play and training sharing the cards.</li>
           <li>Native C++ owns rules, packed encoding, batched inference, and MCTS. For scale: a deliberately unoptimised single-game Python PUCT baseline runs at about 81 simulations per second.</li>
-          <li>Strength is measured, not asserted — paired matches against Stockfish ladders, and KataGo for Go.</li>
+          <li>Each headline chess result comes from 400 games over 200 balanced opening pairs against Stockfish 13 at a fixed node budget.</li>
           <li>Two deployments share the same interactive engine: the browser client, and a Lichess bot driven through a UCI launcher.</li>
           <li>Lichess&#39; own computer analysis of that game gives the model <strong>99% accuracy</strong> with zero inaccuracies, mistakes or blunders and 6 average centipawn loss, against 91% and 34 centipawns for Stockfish.</li>
         </ul>
         <div class="note">
-          Elo is read off a calibrated Stockfish 13 fixed-node ladder, so it is an interpolation on
-          that engine's published curve rather than a FIDE or online rating. The intervals cover
-          match sampling only, not uncertainty in the calibration itself. Repository documentation
-          is still being brought up to date after the platform rework.
+          The 3,037 and 3,174 figures are Stockfish-13 ladder Elo on historical SSDF-derived anchors,
+          not FIDE or online ratings. They are strong evidence of superhuman strength under that
+          calibration. Current full-strength engines remain far ahead. The intervals cover paired
+          match sampling conditional on the fixed anchors, not uncertainty in the calibration.
         </div>
         <div class="refs">
           <h5>Playing it</h5>
@@ -958,7 +957,7 @@
         <div class="actions">
           <a class="btn primary" href="https://chess.bertil-braun.de/" target="_blank" rel="noopener">Play the bot</a>
           <a class="btn" href="https://github.com/BertilBraun/Advanced-Techniques-in-Chess-Engines" target="_blank" rel="noopener">GitHub repo</a>
-          <a class="btn" href="https://github.com/BertilBraun/Advanced-Techniques-in-Chess-Engines/releases/tag/v1.0" target="_blank" rel="noopener">Model weights</a>
+          <a class="btn" href="https://huggingface.co/BertilBraun/alphazero-chess" target="_blank" rel="noopener">Model weights</a>
         </div>
       </div>
       <div class="modal-media">
