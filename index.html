@@ -252,6 +252,26 @@
     .chip.paper { border-color: #d8cfae; background: #fdf7e4; color: #6b5410; }
     .chip.demo { border-color: #b6d8cf; background: var(--accent-soft); color: var(--accent-ink); }
 
+    a.chip.demo {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    a.chip.demo:hover { background: var(--accent-ink); border-color: var(--accent-ink); }
+
+    .chip.demo .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #7ee0b8;
+      box-shadow: 0 0 0 3px rgba(126, 224, 184, 0.25);
+    }
+
     .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
 
     figure { margin: 0; }
@@ -382,8 +402,6 @@
     .tile p { margin: 10px 0 0; color: var(--muted); font-size: 0.9rem; }
 
     .tile .chips { margin-top: auto; padding-top: 18px; }
-
-    .tile .actions { margin-top: 14px; }
 
     .cue { margin-top: 13px; color: var(--accent); font-size: 0.79rem; font-weight: 650; }
 
@@ -786,14 +804,11 @@
               <h4>Voice-Light — Low-Latency Cascaded Voice Agent</h4>
               <p>An end-to-end voice-agent project spanning synthetic data, automatic conversational labeling, model training, causal turn-taking, evaluation, and a deployed full-duplex streaming demo.</p>
               <div class="chips">
+                <a class="chip demo" href="https://voice.bertil-braun.de" target="_blank" rel="noopener" data-stop>
+                  <span class="dot" aria-hidden="true"></span> Live demo
+                </a>
                 <span class="chip">Synthetic data</span>
                 <span class="chip">Causal turn-taking</span>
-                <span class="chip">Live demo</span>
-              </div>
-              <div class="actions">
-                <a class="btn primary" href="https://voice.bertil-braun.de" target="_blank" rel="noopener" data-stop>
-                  <span class="dot" aria-hidden="true"></span> Try the live demo
-                </a>
               </div>
               <span class="cue">Project details, results &amp; artifacts →</span>
             </div>
