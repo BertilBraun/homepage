@@ -470,6 +470,7 @@
     /* ---------------- also built ---------------- */
 
     .also-head { margin: 64px 0 0; }
+    .also-head[hidden], .also[hidden] { display: none; }
 
     .also {
       display: grid;
@@ -480,6 +481,7 @@
     }
 
     .also a { display: block; padding: 14px 0; border-bottom: 1px solid var(--rule); text-decoration: none; transition: color 140ms ease; }
+    .also a[hidden] { display: none; }
     .also a:hover { color: var(--accent); }
     .also .name { display: block; font-weight: 650; font-size: 0.94rem; }
     .also .what { display: block; margin-top: 1px; color: var(--muted); font-size: 0.83rem; }
@@ -682,9 +684,37 @@
       .contact { justify-content: flex-start; }
       .hero { grid-template-columns: 1fr; gap: 26px; padding: 26px 22px; }
       .hero > figure { order: 2; }
-      .mosaic { grid-template-columns: 1fr; }
-      .tile.wide, .tile.wide.media-right { grid-column: span 1; grid-template-columns: 1fr; gap: 22px; padding: 22px; }
-      .tile.wide .tile-media, .tile.wide.media-right .tile-media { order: 0; }
+      .work-head { align-items: stretch; }
+      .filters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
+      .filter { min-width: 0; text-align: center; }
+      .mosaic { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+      .tile { min-width: 0; }
+      .tile.wide, .tile.wide.media-right, .tile.wide.span2 {
+        grid-column: 1 / -1;
+        display: flex;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+        padding: 0;
+      }
+      .tile.wide .tile-media, .tile.wide.media-right .tile-media, .tile.wide.span2 .tile-media {
+        order: 0;
+        height: 184px;
+        padding: 12px;
+        border-bottom: 1px solid var(--rule);
+        background: var(--bg-tint);
+      }
+      .tile.wide .tile-media img, .tile.wide.span2 .tile-media img {
+        width: 100%;
+        height: 100%;
+        max-height: none;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        object-fit: contain;
+      }
+      .tile.wide .tile-body, .tile.wide.span2 .tile-body { padding: 20px 20px 22px; }
+      .thumb { height: 184px; }
+      .tile p, .tile.wide p, .tile.wide.span2 p { font-size: 0.9rem; line-height: 1.55; }
       .backdrop { padding: 0; }
       .modal { max-height: 100vh; height: 100%; border-radius: 0; }
       .modal-body > .cols { grid-template-columns: 1fr; gap: 22px; }
@@ -743,9 +773,6 @@
             <span class="stat"><b>3 days</b><span>on 8× RTX 4070 SUPER</span></span>
           </div>
           <div class="chips">
-            <a class="chip live" href="https://chess.bertil-braun.de/" target="_blank" rel="noopener" data-stop>
-              <span class="dot" aria-hidden="true"></span> Live demo
-            </a>
             <span class="chip">Self-play RL</span>
             <span class="chip">MCTS</span>
             <span class="chip">C++ / CUDA</span>
@@ -773,17 +800,17 @@
       <section class="work" aria-labelledby="work-title">
         <div class="work-head">
           <h3 class="section-title" id="work-title">Selected work</h3>
-          <div class="filters" role="group" aria-label="Filter projects by area">
-            <button class="filter" type="button" data-filter="all" aria-pressed="true">All</button>
-            <button class="filter" type="button" data-filter="llm" aria-pressed="false">LLM &amp; agents</button>
-            <button class="filter" type="button" data-filter="research" aria-pressed="false">Papers</button>
-            <button class="filter" type="button" data-filter="systems" aria-pressed="false">Systems</button>
+          <div class="filters" role="group" aria-label="Filter selected and additional work">
+            <button class="filter" type="button" data-filter="all" aria-pressed="true">All work</button>
+            <button class="filter" type="button" data-filter="language" aria-pressed="false">Language models</button>
+            <button class="filter" type="button" data-filter="publication" aria-pressed="false">Papers &amp; reports</button>
+            <button class="filter" type="button" data-filter="live" aria-pressed="false">Live applications</button>
           </div>
         </div>
 
         <div class="mosaic" id="mosaic">
 
-          <article class="tile wide" data-open="llm-light" data-tags="llm research systems">
+          <article class="tile wide" data-open="llm-light" data-tags="language publication">
             <figure class="tile-media">
               <button class="shot" type="button" data-stop
                       data-src="assets/llm-light.webp"
@@ -812,7 +839,7 @@
             </div>
           </article>
 
-          <article class="tile" data-open="agentic" data-tags="llm systems">
+          <article class="tile" data-open="agentic" data-tags="language">
             <span class="thumb fit"><img src="assets/agentic.svg" alt="Layered architecture diagram: browser, FastAPI and Redis, five A2A agent services, four MCP tool servers, and provider services" loading="lazy" decoding="async"></span>
             <div class="tile-body">
               <span class="kicker">LLM systems · Agents &amp; orchestration</span>
@@ -827,12 +854,12 @@
             </div>
           </article>
 
-          <article class="tile" data-open="voice-light" data-tags="llm research">
+          <article class="tile" data-open="voice-light" data-tags="language publication live">
             <span class="thumb fit"><img src="assets/voice-light-demo.png" alt="Light-themed Voice Light browser demo showing a spoken conversation and live turn-taking probabilities" loading="lazy" decoding="async"></span>
             <div class="tile-body">
               <span class="kicker">Speech · Real-time systems</span>
               <h4>Voice-Light — Low-Latency Cascaded Voice Agent</h4>
-              <p>A full-duplex voice-agent system spanning synthetic data, automatic conversational labeling, adapter training, causal turn-taking, and streaming deployment. Its eight-turn microphone evaluation completed every turn with 677 ms median speech-end-to-browser-PCM latency; six turns were below 800 ms.</p>
+              <p>A full-duplex voice-agent system spanning synthetic data, automatic conversational labeling, adapter training, causal turn-taking, and streaming deployment. Its eight-turn microphone evaluation completed every turn with 677 ms median speech-end-to-browser-PCM latency.</p>
               <div class="chips">
                 <a class="chip live" href="https://voice.bertil-braun.de" target="_blank" rel="noopener" data-stop>
                   <span class="dot" aria-hidden="true"></span> Live demo
@@ -845,7 +872,7 @@
             </div>
           </article>
 
-          <article class="tile" data-open="llm-eval" data-tags="research llm">
+          <article class="tile" data-open="llm-eval" data-tags="language publication">
             <span class="thumb fit"><img src="assets/llm-eval.webp" alt="Data-flow diagram of the competency extraction pipeline" loading="lazy" decoding="async"></span>
             <div class="tile-body">
               <span class="kicker">Research · KIT</span>
@@ -860,7 +887,7 @@
             </div>
           </article>
 
-          <article class="tile wide media-right" data-open="gybelock" data-tags="systems">
+          <article class="tile wide media-right" data-open="gybelock" data-tags="live">
             <figure class="tile-media">
               <button class="shot" type="button" data-stop
                       data-src="assets/gybelock.webp"
@@ -889,7 +916,7 @@
             </div>
           </article>
 
-          <article class="tile wide span2" data-open="gnn" data-tags="research rl">
+          <article class="tile wide span2" data-open="gnn" data-tags="publication">
             <figure class="tile-media">
               <button class="shot" type="button" data-stop
                       data-src="assets/gnn-results.webp"
@@ -917,7 +944,7 @@
             </div>
           </article>
 
-          <article class="tile" data-open="aws-light" data-tags="systems">
+          <article class="tile" data-open="aws-light" data-tags="">
             <span class="thumb"><img src="assets/aws-light.webp" alt="AWS-Light dashboard showing running services and replicas" loading="lazy" decoding="async"></span>
             <div class="tile-body">
               <span class="kicker">Infrastructure</span>
@@ -935,21 +962,21 @@
           <p class="empty" id="empty" hidden>No projects in that area.</p>
         </div>
 
-        <div class="also-head">
+        <div class="also-head" id="also-head">
           <h3 class="section-title">Also built</h3>
         </div>
-        <div class="also">
-          <a href="https://pyro.vote/" target="_blank" rel="noopener"><span class="name">Pyro</span><span class="what">Crowd song voting for bars &amp; clubs — 1M+ parties hosted</span></a>
-          <a href="https://github.com/BertilBraun/RL-entirely-on-GPU" target="_blank" rel="noopener"><span class="name">GPU-Resident RL</span><span class="what">Soft Actor-Critic entirely in pure JAX</span></a>
-          <a href="https://github.com/BertilBraun/CaRL" target="_blank" rel="noopener"><span class="name">CaRL</span><span class="what">DQN racing agent, 100s of parallel cars</span></a>
-          <a href="https://github.com/BertilBraun/Advanced-Improvement-in-Speech-Translation" target="_blank" rel="noopener"><span class="name">Speech Translation</span><span class="what">Cascaded ASR → MT on CoVoST 2</span></a>
-          <a href="https://github.com/BertilBraun/Jigsaw-Puzzle-Solver" target="_blank" rel="noopener"><span class="name">Jigsaw Solver</span><span class="what">OpenCV + CLIP piece placement</span></a>
-          <a href="https://github.com/BertilBraun/Meeting-Summarizer" target="_blank" rel="noopener"><span class="name">Meeting Summarizer</span><span class="what">Whisper + speaker diarization</span></a>
-          <a href="https://github.com/BertilBraun/BachelorsThesis" target="_blank" rel="noopener"><span class="name">Bachelor's Thesis</span><span class="what">Verifying BlockQuickSort with JJBMC</span></a>
-          <a href="https://github.com/BertilBraun/Freediver" target="_blank" rel="noopener"><span class="name">Freediver</span><span class="what">Garmin Connect IQ dive logger</span></a>
-          <a href="https://github.com/BertilBraun/Van-Tour-Tracker" target="_blank" rel="noopener"><span class="name">Travel Tales</span><span class="what">Flutter trip tracker &amp; route export</span></a>
-          <a href="https://github.com/BertilBraun/MyClone" target="_blank" rel="noopener"><span class="name">MyClone</span><span class="what">Minecraft clone in C++ / OpenGL</span></a>
-          <a href="https://github.com/BertilBraun/Console-Pacman" target="_blank" rel="noopener"><span class="name">Console Pacman</span><span class="what">Pacman in the Windows console</span></a>
+        <div class="also" id="also">
+          <a href="https://pyro.vote/" target="_blank" rel="noopener" data-tags="live"><span class="name">Pyro</span><span class="what">Crowd song voting for bars &amp; clubs — 1M+ parties hosted</span></a>
+          <a href="https://github.com/BertilBraun/RL-entirely-on-GPU" target="_blank" rel="noopener" data-tags=""><span class="name">GPU-Resident RL</span><span class="what">Soft Actor-Critic entirely in pure JAX</span></a>
+          <a href="https://github.com/BertilBraun/CaRL" target="_blank" rel="noopener" data-tags=""><span class="name">CaRL</span><span class="what">DQN racing agent, 100s of parallel cars</span></a>
+          <a href="https://github.com/BertilBraun/Advanced-Improvement-in-Speech-Translation" target="_blank" rel="noopener" data-tags="language"><span class="name">Speech Translation</span><span class="what">Cascaded ASR → MT on CoVoST 2</span></a>
+          <a href="https://github.com/BertilBraun/Jigsaw-Puzzle-Solver" target="_blank" rel="noopener" data-tags=""><span class="name">Jigsaw Solver</span><span class="what">OpenCV + CLIP piece placement</span></a>
+          <a href="https://github.com/BertilBraun/Meeting-Summarizer" target="_blank" rel="noopener" data-tags="language"><span class="name">Meeting Summarizer</span><span class="what">Whisper + speaker diarization</span></a>
+          <a href="https://github.com/BertilBraun/BachelorsThesis" target="_blank" rel="noopener" data-tags="publication"><span class="name">Bachelor's Thesis</span><span class="what">Verifying BlockQuickSort with JJBMC</span></a>
+          <a href="https://github.com/BertilBraun/Freediver" target="_blank" rel="noopener" data-tags=""><span class="name">Freediver</span><span class="what">Garmin Connect IQ dive logger</span></a>
+          <a href="https://github.com/BertilBraun/Van-Tour-Tracker" target="_blank" rel="noopener" data-tags=""><span class="name">Travel Tales</span><span class="what">Flutter trip tracker &amp; route export</span></a>
+          <a href="https://github.com/BertilBraun/MyClone" target="_blank" rel="noopener" data-tags=""><span class="name">MyClone</span><span class="what">Minecraft clone in C++ / OpenGL</span></a>
+          <a href="https://github.com/BertilBraun/Console-Pacman" target="_blank" rel="noopener" data-tags=""><span class="name">Console Pacman</span><span class="what">Pacman in the Windows console</span></a>
         </div>
       </section>
     </main>
@@ -1207,8 +1234,8 @@
           <h3>Evaluation and limitations</h3>
           <p class="cite">
             The final eight-turn human microphone run completed every turn, including live tool use
-            and conversational follow-ups. Median speech-end-to-browser-PCM latency was 677 ms; six
-            of eight turns were below 800 ms. Separately, the original 80-record synthetic tool-use
+            and conversational follow-ups. Median speech-end-to-browser-PCM latency was 677 ms.
+            Separately, the original 80-record synthetic tool-use
             holdout improved correct tool decisions from 80.0% to 95.2% and concise spoken bridges
             from 7.6% to 94.3%. Those synthetic results are reported as task-specific evidence, not
             as a claim of general model superiority.
@@ -1681,20 +1708,32 @@
 
       var filters = Array.prototype.slice.call(document.querySelectorAll('.filter'));
       var tiles = Array.prototype.slice.call(document.querySelectorAll('.tile'));
+      var alsoItems = Array.prototype.slice.call(document.querySelectorAll('.also a'));
+      var also = document.getElementById('also');
+      var alsoHead = document.getElementById('also-head');
       var empty = document.getElementById('empty');
 
       filters.forEach(function (btn) {
         btn.addEventListener('click', function () {
           var want = btn.dataset.filter;
           filters.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
-          var shown = 0;
+          var shownTiles = 0;
           tiles.forEach(function (tile) {
             var tags = (tile.dataset.tags || '').split(' ');
             var show = want === 'all' || tags.indexOf(want) !== -1;
             tile.hidden = !show;
-            if (show) shown++;
+            if (show) shownTiles++;
           });
-          empty.hidden = shown !== 0;
+          var shownAlso = 0;
+          alsoItems.forEach(function (item) {
+            var tags = (item.dataset.tags || '').split(' ');
+            var show = want === 'all' || tags.indexOf(want) !== -1;
+            item.hidden = !show;
+            if (show) shownAlso++;
+          });
+          also.hidden = shownAlso === 0;
+          alsoHead.hidden = shownAlso === 0;
+          empty.hidden = shownTiles + shownAlso !== 0;
         });
       });
 
