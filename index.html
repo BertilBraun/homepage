@@ -690,7 +690,7 @@
             superhuman benchmark strength for $52, and the resulting model is available to play online.
           </p>
           <div class="stats">
-            <span class="stat"><b>3,174</b><span>benchmark Elo at 80,000 searches</span></span>
+            <span class="stat"><b>3,167</b><span>benchmark Elo at 80,000 searches</span></span>
             <span class="stat"><b>$52</b><span>three-day training-node cost</span></span>
             <span class="stat"><b>3 days</b><span>on 8× RTX 4070 SUPER</span></span>
           </div>
@@ -928,13 +928,14 @@
           <tbody>
             <tr><td>64 searches</td><td><b>2,265</b> <span style="color:var(--muted)">[2,236–2,297]</span></td></tr>
             <tr><td>10,000 searches</td><td><b>3,037</b> <span style="color:var(--muted)">[3,012–3,061]</span></td></tr>
-            <tr><td>80,000 searches</td><td><b>3,174</b> <span style="color:var(--muted)">[3,144–3,206]</span></td></tr>
+            <tr><td>80,000 searches</td><td><b>3,167</b> <span style="color:var(--muted)">[3,143–3,193]</span></td></tr>
           </tbody>
         </table>
         <ul>
           <li>The saved generation-1465 checkpoint was trained from scratch through self-play for three days on 8× RTX 4070 SUPER GPUs. The GPUs were shared between self-play and training, and the node cost was <strong>$52</strong>.</li>
           <li>Native C++ owns rules, packed encoding, batched inference, and MCTS. For scale: a deliberately unoptimised single-game Python PUCT baseline runs at about 81 simulations per second.</li>
           <li>Each headline chess result comes from 400 games over 200 balanced opening pairs against Stockfish 13 at a fixed node budget.</li>
+          <li>At 80,000 searches, saturated batched throughput averages 5.31 seconds per move on one RTX 4070 SUPER.</li>
           <li>Two deployments share the same interactive engine: the browser client, and a Lichess bot driven through a UCI launcher.</li>
           <li>Lichess&#39; own computer analysis of that game gives the model <strong>99% accuracy</strong> with zero inaccuracies, mistakes or blunders and 6 average centipawn loss, against 91% and 34 centipawns for Stockfish.</li>
         </ul>
