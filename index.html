@@ -383,6 +383,8 @@
 
     .tile .chips { margin-top: auto; padding-top: 18px; }
 
+    .tile .actions { margin-top: 14px; }
+
     .cue { margin-top: 13px; color: var(--accent); font-size: 0.79rem; font-weight: 650; }
 
     /* --- wide tiles: media beside text, side alternates --- */
@@ -788,7 +790,12 @@
                 <span class="chip">Causal turn-taking</span>
                 <span class="chip">Live demo</span>
               </div>
-              <span class="cue">Demo, results &amp; artifacts →</span>
+              <div class="actions">
+                <a class="btn primary" href="https://voice.bertil-braun.de" target="_blank" rel="noopener" data-stop>
+                  <span class="dot" aria-hidden="true"></span> Try the live demo
+                </a>
+              </div>
+              <span class="cue">Project details, results &amp; artifacts →</span>
             </div>
           </article>
 
@@ -1133,7 +1140,9 @@
           remain dependent on microphone, network, browser, and Modal host conditions.
         </div>
         <div class="actions">
-          <a class="btn primary" href="https://voice.bertil-braun.de" target="_blank" rel="noopener">Open live demo</a>
+          <a class="btn primary" href="https://voice.bertil-braun.de" target="_blank" rel="noopener">
+            <span class="dot" aria-hidden="true"></span> Try the live demo
+          </a>
           <a class="btn" href="https://github.com/BertilBraun/Voice-Light" target="_blank" rel="noopener">GitHub &amp; docs</a>
           <a class="btn" href="https://huggingface.co/BertilBraun/qwen3-1.7b-voice-light-tool-use-lora" target="_blank" rel="noopener">Models</a>
           <a class="btn" href="https://huggingface.co/datasets/BertilBraun/voice-light-tool-use-synthetic" target="_blank" rel="noopener">Datasets</a>
