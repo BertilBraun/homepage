@@ -383,7 +383,7 @@
       transform: translateY(-2px);
     }
 
-    .tile[hidden] { display: none; }
+    [hidden] { display: none !important; }
 
     .thumb {
       height: 172px;
@@ -764,8 +764,8 @@
             A production-oriented AlphaZero-style system for chess and Go, with native C++ rules,
             encoding, batched inference, and tree search; Python manages experiments, replay,
             distributed training, and evaluation. Training entirely from self-play reached
-            superhuman playing strength in the three-day, $52 run summarized below, and the
-            resulting model is available as a live application.
+            superhuman strength under the project’s Stockfish 13 calibration in the run summarized
+            below, and the resulting model is available as a live application.
           </p>
           <div class="stats">
             <span class="stat"><b>3,167</b><span>estimated Stockfish 13-calibrated Elo at 80,000 searches</span></span>
@@ -825,8 +825,9 @@
                 An artifact-addressed PyTorch pipeline turns self-contained experiment configurations
                 into reusable data, training, and evaluation stages, then executes only the missing
                 work locally or across distributed jobs. It produced the public 2.19M-example
-                TinyPython dataset and validated 42 runs across 29 experiment families, with the
-                strongest model reaching 88.14% final pass rate and documented throughput tradeoffs.
+                TinyPython dataset; in a documented 42-run sweep across 29 experiment families,
+                the strongest recorded model reached an 88.14% final Python-completion pass rate,
+                with substantially lower throughput than the dense control.
               </p>
               <div class="chips">
                 <span class="chip paper">Technical report</span>
@@ -859,7 +860,7 @@
             <div class="tile-body">
               <span class="kicker">Speech · Real-time systems</span>
               <h4>Voice-Light — Low-Latency Cascaded Voice Agent</h4>
-              <p>A full-duplex voice-agent system spanning synthetic data, automatic conversational labeling, adapter training, causal turn-taking, and streaming deployment. Its eight-turn microphone evaluation completed every turn with 677 ms median speech-end-to-browser-PCM latency.</p>
+              <p>A full-duplex voice-agent system spanning synthetic data, automatic conversational labeling, adapter training, causal turn-taking, and streaming deployment. In a final eight-turn acceptance trace, first browser audio began 677 ms after speech end at the median—evidence of promising warm interactive latency, not a population estimate.</p>
               <div class="chips">
                 <a class="chip live" href="https://voice.bertil-braun.de" target="_blank" rel="noopener" data-stop>
                   <span class="dot" aria-hidden="true"></span> Live demo
@@ -877,7 +878,7 @@
             <div class="tile-body">
               <span class="kicker">Research · KIT</span>
               <h4>Scalable Automated Evaluation with LLMs</h4>
-              <p>A research pipeline evaluates open-ended LLM outputs through multi-model pairwise comparison and Elo aggregation, alongside domain-agnostic competency extraction and DPO. The work became a master’s thesis and an accepted paper, with automatic rankings that correlated well with expert judgements.</p>
+              <p>A research pipeline evaluates open-ended LLM outputs through multi-model pairwise comparison and Elo aggregation, alongside domain-agnostic competency extraction and DPO. In a 20-expert study, its best multi-model setting reached mean Spearman ρ = 0.83 and Kendall τ = 0.78; the accepted paper treats these as preliminary results.</p>
               <div class="chips">
                 <span class="chip paper">Accepted paper</span>
                 <span class="chip">Pairwise Elo</span>
@@ -932,7 +933,7 @@
                 matrices assemble each junction’s variable-sized legal phase set, decoupling policy
                 parameters from topology. One policy ran across networks with 41–84 controlled
                 junctions and 2–12 phases each; on an unseen 6×6 grid it beat max pressure at all
-                three demand levels by 3.5, 6.6, and 10.6 completion points.
+                three demand levels by 3.5, 6.6, and 10.6 completion-rate percentage points.
               </p>
               <div class="chips">
                 <span class="chip paper">Technical report</span>
@@ -1017,9 +1018,10 @@
             </tbody>
           </table>
           <p class="note">
-            The saved generation-1465 checkpoint reached superhuman playing strength after three
-            days on 8× RTX 4070 SUPER GPUs shared between self-play and training. The rented
-            training node cost $52.
+            The saved generation-1465 checkpoint reached superhuman strength under this benchmark’s
+            calibration after three days on 8× RTX 4070 SUPER GPUs shared between self-play and
+            training. The rented training node cost $52; that excludes separate evaluation compute
+            and abandoned or restarted run segments.
           </p>
         </section>
         <section class="detail-section">
@@ -1029,7 +1031,8 @@
             workers publish trajectories, a coordinator drains them into fixed-slot memory-mapped
             replay, symmetric DDP ranks train from that replay, and rank zero publishes the next
             checkpoint plus a trimmed inference artifact. At 80,000 searches, saturated batched
-            throughput averaged 5.31 seconds per move on one RTX 4070 SUPER.
+            service averaged 5.31 seconds per searched position across 400 positions on one RTX
+            4070 SUPER; this is a throughput measurement, not isolated-game response latency.
           </p>
         </section>
         <section class="detail-section">
@@ -1135,6 +1138,10 @@
 
         <section class="detail-section">
           <h3>Repositories</h3>
+        <p class="note">
+          The evidence here is the working architecture and reproducible implementations; these
+          projects do not claim a comparative agent benchmark or user study.
+        </p>
         <div class="actions">
           <a class="btn primary" href="https://github.com/BertilBraun/Agentic-LLM-DnD-GM" target="_blank" rel="noopener">Story narrator</a>
           <a class="btn" href="https://github.com/BertilBraun/Durable-Agentic-Coding-Runtime" target="_blank" rel="noopener">Coding runtime</a>
@@ -1179,8 +1186,13 @@
           <li>Covers the full pipeline: dataset ingestion, synthetic data generation, tokenizer training, packed autoregressive shards, dense and mixture-of-experts GPT models, distributed training, evaluation, and artifact export.</li>
           <li>Completed stages survive a relaunch, and interrupted pretraining continues from its recorded checkpoint.</li>
           <li>Validated on TinyPython — a synthetic task-to-function dataset of roughly 2.19 million examples, generated by this project and published on Hugging Face.</li>
-          <li>The architecture sweep covers 42 runs across 29 experiment families, reported as mean ± standard deviation so reruns compare directly. Best final pass rate: 88.14% for a deep modern MoE at ~10M active parameters, just ahead of the dense control at 86.86% — but at much lower throughput.</li>
+          <li>The documented architecture sweep covers 42 selected runs across 29 experiment families. Its strongest recorded configuration—a single deep modern-MoE run at ~10M active parameters—reached an 88.14% final Python-completion pass rate, just ahead of the dense control at 86.86%, but at much lower throughput.</li>
         </ul>
+        <div class="note">
+          The technical report validates artifact identity, exclusive production, GPU allocation,
+          relaunch selection, export, and checkpoint restoration. Historical runs demonstrate reuse,
+          but do not establish aggregate time savings, utilisation, or multi-node scaling.
+        </div>
         </section>
         <section class="detail-section">
           <h3>Report and artifacts</h3>
@@ -1234,8 +1246,11 @@
           <h3>Evaluation and limitations</h3>
           <p class="cite">
             The final eight-turn human microphone run completed every turn, including live tool use
-            and conversational follow-ups. Median speech-end-to-browser-PCM latency was 677 ms.
-            Separately, the original 80-record synthetic tool-use
+            and conversational follow-ups. Median time from speech end to first browser audio was
+            677 ms—roughly two-thirds of a second before the response became audible—with a measured
+            range of 593–1,451 ms. This is one warm-system acceptance trace, not a latency
+            distribution or a population p50 estimate. Separately, the original 80-record
+            synthetic tool-use
             holdout improved correct tool decisions from 80.0% to 95.2% and concise spoken bridges
             from 7.6% to 94.3%. Those synthetic results are reported as task-specific evidence, not
             as a claim of general model superiority.
@@ -1294,7 +1309,8 @@
           <li>Multi-phase extraction pipeline for scientific and technical documents, designed to be domain-agnostic rather than tuned to one corpus.</li>
           <li>Fine-tuning workflow built on synthetic preference data and Direct Preference Optimization.</li>
           <li>Evaluation by pairwise comparison across multiple LLMs, aggregated into an Elo rating so rankings stay stable and interpretable, with adjustable agreement thresholds from full unanimity down to majority vote.</li>
-          <li>Automatically derived rankings correlated well with expert judgements on competency profiles extracted from scientific abstracts, cutting the need for manual review.</li>
+          <li>Across rankings supplied by 20 experts, the best multi-model setting reached mean Spearman ρ = 0.83 and Kendall τ = 0.78 against expert judgements.</li>
+          <li>The paper presents these results as preliminary: the expert pool is limited in size and diversity, pairwise evaluation scales quadratically, and human review remains important.</li>
         </ul>
         </section>
         <section class="detail-section">
@@ -1401,6 +1417,10 @@
         </section>
         <section class="detail-section">
           <h3>Repository</h3>
+        <p class="note">
+          AWS-Light demonstrates cloud control-plane mechanics locally; it is not presented as a
+          production cloud substitute or a performance comparison with AWS.
+        </p>
         <div class="actions">
           <a class="btn primary" href="https://github.com/BertilBraun/AWS-Light" target="_blank" rel="noopener">GitHub repo</a>
         </div>
@@ -1425,7 +1445,7 @@
         <p>
           A computer vision product for turning raw beach-shot windsurfing footage into usable rider
           views. The repository covers the whole path: training the detectors, running the video
-          pipeline on GPU workers, and shipping the interactive player people actually use.
+          pipeline on GPU workers, and deploying the interactive player available in the live demo.
         </p>
         </section>
         <section class="detail-section">
@@ -1439,6 +1459,10 @@
         </section>
         <section class="detail-section">
           <h3>Demo and repository</h3>
+        <p class="note">
+          This is a deployed MVP and end-to-end systems demonstration. No held-out detection,
+          tracking, or pose benchmark is currently published with the repository.
+        </p>
         <div class="actions">
           <a class="btn live" href="https://gybelock.bertil-braun.de" target="_blank" rel="noopener"><span class="dot" aria-hidden="true"></span> Live demo</a>
           <a class="btn" href="https://github.com/BertilBraun/Windsurf-Analysis" target="_blank" rel="noopener">GitHub repo</a>
