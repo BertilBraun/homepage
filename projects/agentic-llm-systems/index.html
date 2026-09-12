@@ -803,14 +803,14 @@
       <!-- ============ hero project ============ -->
       <article class="hero" data-open="chess">
         <div>
-          <span class="kicker">Proudest build · Self-play RL &amp; systems</span>
+          <span class="kicker">Featured research system · Distributed self-play RL</span>
           <h2>AlphaZero-Style Chess &amp; Go Engine</h2>
           <p>
-            A production-oriented AlphaZero-style system for chess and Go, with native C++ rules,
-            encoding, batched inference, and tree search; Python manages experiments, replay,
-            distributed training, and evaluation. Training entirely from self-play reached
-            superhuman strength under the project’s Stockfish 13 calibration in the run summarized
-            below, and the resulting model is available as a live application.
+            An end-to-end AlphaZero-style research platform that trains and serves neural chess and
+            Go agents entirely from self-play. Performance-critical C++ implements the games,
+            encoding, batched CUDA inference, and MCTS; Python orchestrates replay, multi-GPU DDP
+            training, automated evaluation, and live deployment. The three-day run below reached
+            superhuman strength under the project’s Stockfish 13 calibration.
           </p>
           <div class="stats">
             <span class="stat"><b>3,167</b><span>estimated Stockfish 13-calibrated Elo at 80,000 searches</span></span>
@@ -867,12 +867,11 @@
               <span class="kicker">LLM systems · Technical report</span>
               <h4>LLM-Light — Artifact-Addressed Training</h4>
               <p>
-                An artifact-addressed PyTorch pipeline turns self-contained experiment configurations
-                into reusable data, training, and evaluation stages, then executes only the missing
-                work locally or across distributed jobs. It produced the public 2.19M-example
-                TinyPython dataset; in a documented 42-run sweep across 29 experiment families,
-                the strongest recorded model reached an 88.14% final Python-completion pass rate,
-                with substantially lower throughput than the dense control.
+                A typed execution engine for building, training, and evaluating dense and MoE
+                language models without recomputing shared work. Artifact-addressed stages provide
+                deterministic reuse, concurrent GPU scheduling, and checkpoint recovery; the system
+                produced the public 2.19M-example TinyPython dataset and a 42-run model sweep whose
+                strongest configuration reached an 88.14% Python-completion pass rate.
               </p>
               <div class="chips">
                 <span class="chip paper">Technical report</span>
@@ -890,7 +889,7 @@
             <div class="tile-body">
               <span class="kicker">LLM systems · Agents &amp; orchestration</span>
               <h4>Agentic LLM Systems</h4>
-              <p>These systems orchestrate multi-agent conversations and evidence-gated coding work across A2A/MCP services, durable workflows, model providers, and data stores. A story narrator exercises five agents and four tool servers; a separate coding runtime turns tasks into reviewed diffs on a crash-resilient workflow engine.</p>
+              <p>An end-to-end agent stack for multi-agent interaction and evidence-gated software engineering, built across A2A/MCP services, model providers, retrieval stores, and durable execution. It powers a voice-first story world with five specialised agents and four tool servers, plus a coding runtime that turns tasks into tested, reviewed diffs and survives worker crashes.</p>
               <div class="chips">
                 <span class="chip">Multi-agent</span>
                 <span class="chip">A2A / MCP</span>
@@ -905,7 +904,7 @@
             <div class="tile-body">
               <span class="kicker">Speech · Real-time systems</span>
               <h4>Voice-Light — Low-Latency Cascaded Voice Agent</h4>
-              <p>A full-duplex voice-agent system spanning synthetic data, automatic conversational labeling, adapter training, causal turn-taking, and streaming deployment. In a final eight-turn acceptance trace, first browser audio began 677 ms after speech end at the median—evidence of promising warm interactive latency, not a population estimate.</p>
+              <p>A deployed full-duplex voice agent that listens and speaks concurrently, handles interruptions and backchannels, executes tools, and streams ASR, LLM, and TTS work across two GPUs. The project spans synthetic-data generation, automatic conversation labeling, two trained adapters, causal evaluation, and a measured 677 ms median from speech end to first browser audio in its final warm-system acceptance run.</p>
               <div class="chips">
                 <a class="chip live" href="https://voice.bertil-braun.de" target="_blank" rel="noopener" data-stop>
                   <span class="dot" aria-hidden="true"></span> Live demo
@@ -923,7 +922,7 @@
             <div class="tile-body">
               <span class="kicker">Research · KIT</span>
               <h4>Scalable Automated Evaluation with LLMs</h4>
-              <p>A research pipeline evaluates open-ended LLM outputs through multi-model pairwise comparison and Elo aggregation, alongside domain-agnostic competency extraction and DPO. In a 20-expert study, its best multi-model setting reached mean Spearman ρ = 0.83 and Kendall τ = 0.78; the accepted paper treats these as preliminary results.</p>
+              <p>An accepted research framework for evaluating open-ended LLM output when no reference answer exists. Multiple evaluator models perform bidirectional pairwise comparisons and aggregate them into robust Elo rankings; against rankings from 20 domain experts, the strongest setting reached mean Spearman ρ = 0.83 and Kendall τ = 0.78.</p>
               <div class="chips">
                 <span class="chip paper">Accepted paper</span>
                 <span class="chip">Pairwise Elo</span>
@@ -945,10 +944,11 @@
               <span class="kicker">Computer vision · Live demo</span>
               <h4>GybeLock — Windsurfing Video Intelligence</h4>
               <p>
-                GybeLock turns shore-shot windsurfing footage into rider detections, tracks,
-                stabilisation transforms, and clickable focused views using specialised YOLO
-                detection and pose models. The complete React, Firebase, FastAPI, and Modal MVP is
-                deployed as a live application, with a local path for reproducing the GPU pipeline.
+                A deployed computer-vision system that turns difficult shore-shot windsurfing video
+                into selectable, stabilised rider footage. Specialised YOLO detection and pose
+                models feed multi-object tracking and camera stabilisation, while React, Firebase,
+                FastAPI, and Modal carry the workflow from video upload through GPU processing to
+                an interactive live player.
               </p>
               <div class="chips">
                 <a class="chip live" href="https://gybelock.bertil-braun.de" target="_blank" rel="noopener" data-stop>
@@ -974,11 +974,12 @@
               <span class="kicker">Graph RL · Technical report</span>
               <h4>Graph-Based Traffic Signal Control</h4>
               <p>
-                A shared graph network scores traffic movements while deterministic incidence
-                matrices assemble each junction’s variable-sized legal phase set, decoupling policy
-                parameters from topology. One policy ran across networks with 41–84 controlled
-                junctions and 2–12 phases each; on an unseen 6×6 grid it beat max pressure at all
-                three demand levels by 3.5, 6.6, and 10.6 completion-rate percentage points.
+                A topology-flexible reinforcement-learning controller for heterogeneous urban
+                traffic networks. Its graph policy scores road movements while deterministic
+                incidence matrices construct each junction’s legal actions, allowing one parameter
+                set to control networks with 41–84 junctions and 2–12 phases each; on an unseen 6×6
+                grid it beat max pressure at every tested demand level by 3.5–10.6 completion-rate
+                percentage points.
               </p>
               <div class="chips">
                 <span class="chip paper">Technical report</span>
@@ -995,7 +996,7 @@
             <div class="tile-body">
               <span class="kicker">Infrastructure</span>
               <h4>AWS-Light — A Cloud Platform, Small Enough to Read</h4>
-              <p>A readable local cloud simulator implements declarative deployments through a control plane, reconciler, ingress proxy, health checker, managed storage and databases, and an autoscaler. One manifest brings up a multi-service Docker stack with Postgres state, Redis routing and metrics, and isolated service networks.</p>
+              <p>A cloud control plane implemented from first principles in a compact, inspectable codebase. Declarative manifests drive reconciliation, container orchestration, service discovery, ingress policy, health checking, managed storage and databases, autoscaling, and a live dashboard across Docker, Postgres, and Redis.</p>
               <div class="chips">
                 <span class="chip">Control plane</span>
                 <span class="chip">Docker orchestration</span>
@@ -1046,10 +1047,11 @@
         <section class="detail-section">
           <h3>Overview</h3>
           <p>
-            A production-oriented AlphaZero-style runtime for learning chess, 7×7 Go, and 9×9 Go
-            entirely from self-play. Native C++ handles rules, packed encoding, batched inference,
-            and tree search; Python owns reproducible experiments, replay, distributed training,
-            evaluation, and artifacts.
+            A complete distributed reinforcement-learning system that takes chess, 7×7 Go, and
+            9×9 Go from self-play generation to trained models, reproducible evaluation, and live
+            play. It combines a performance-critical native C++ engine with Python orchestration for
+            replay, multi-GPU training, experiment tracking, artifact publication, and deployment.
+            It is the full research loop in one system rather than a standalone game-playing model.
           </p>
         </section>
         <section class="detail-section">
@@ -1063,22 +1065,20 @@
             </tbody>
           </table>
           <p class="note">
-            The saved generation-1465 checkpoint reached superhuman strength under this benchmark’s
-            calibration after three days on 8× RTX 4070 SUPER GPUs shared between self-play and
-            training. The rented training node cost $52; that excludes separate evaluation compute
-            and abandoned or restarted run segments.
+            Trained from self-play alone, the saved generation-1465 checkpoint reached superhuman
+            strength under this benchmark’s calibration after three days on 8× RTX 4070 SUPER GPUs
+            shared between self-play and training. The rented training node cost $52.
           </p>
         </section>
         <section class="detail-section">
           <h3>System and training architecture</h3>
-          <p>
-            One resolved experiment configuration drives the lifecycle: persistent native-search
-            workers publish trajectories, a coordinator drains them into fixed-slot memory-mapped
-            replay, symmetric DDP ranks train from that replay, and rank zero publishes the next
-            checkpoint plus a trimmed inference artifact. At 80,000 searches, saturated batched
-            service averaged 5.31 seconds per searched position across 400 positions on one RTX
-            4070 SUPER; this is a throughput measurement, not isolated-game response latency.
-          </p>
+          <ul>
+            <li><strong>Native search engine.</strong> C++ implements chess and Go rules, packed neural encodings, MCTS, and batched CUDA inference behind Python bindings.</li>
+            <li><strong>Continuous self-play.</strong> Persistent search workers consume published checkpoints and stream complete trajectories back without restarting the training system.</li>
+            <li><strong>Bounded replay.</strong> A coordinator validates trajectories and drains them into fixed-slot memory-mapped replay, keeping a large evolving dataset shareable without loading it into each process.</li>
+            <li><strong>Distributed learning.</strong> Symmetric DDP ranks train from replay while rank zero publishes the next checkpoint and a trimmed inference artifact for workers and deployment.</li>
+            <li><strong>Reproducible lifecycle.</strong> One resolved experiment configuration connects self-play, training, evaluation, provenance, and artifact publication. At 80,000 searches, saturated batched service averaged 5.31 seconds per searched position across 400 positions on one RTX 4070 SUPER.</li>
+          </ul>
         </section>
         <section class="detail-section">
           <h3>Evaluation methodology</h3>
@@ -1088,7 +1088,8 @@
             <a href="https://www.melonimarco.it/en/2021/03/08/stockfish-and-lc0-test-at-different-number-of-nodes/" target="_blank" rel="noopener">Marco Meloni&#39;s Stockfish 13 node-strength calibration</a>;
             confidence intervals represent paired-match sampling uncertainty. The scale is not a
             FIDE rating or a comparison with unrestricted modern Stockfish, and current
-            unrestricted engines remain substantially stronger.
+            unrestricted engines remain substantially stronger. The $52 figure is the three-day
+            training-node rental; it excludes separate evaluation compute and abandoned runs.
           </p>
         </section>
         <section class="detail-section">
@@ -1141,9 +1142,11 @@
         <section class="detail-section">
           <h3>Project thesis</h3>
           <p>
-            A set of concrete systems for orchestrating specialised agents, grounding progress in
-            tool evidence, and keeping long-running work durable. The implementations cover both
-            user-facing multi-agent interaction and the control plane beneath an agentic coding loop.
+            A full agent-systems stack built around two difficult requirements: specialised models
+            must collaborate across real service boundaries, and long-running work must remain
+            correct through failures. The projects cover the user-facing multi-agent experience,
+            interoperable A2A and MCP services, evidence-gated coding, and the durable workflow
+            engine underneath it all.
           </p>
         </section>
 
@@ -1184,8 +1187,9 @@
         <section class="detail-section">
           <h3>Repositories</h3>
         <p class="note">
-          The evidence here is the working architecture and reproducible implementations; these
-          projects do not claim a comparative agent benchmark or user study.
+          The evidence is inspectable system behavior: interoperable services, durable execution,
+          recorded tool results, tested diffs, and three complete repositories. A comparative agent
+          benchmark or user study is outside the current scope.
         </p>
         <div class="actions">
           <a class="btn primary" href="https://github.com/BertilBraun/Agentic-LLM-DnD-GM" target="_blank" rel="noopener">Story narrator</a>
@@ -1217,12 +1221,11 @@
         <section class="detail-section">
           <h3>Project thesis</h3>
         <p>
-          Related LLM experiments usually share expensive preparation and pretraining work, but
-          people want to describe each experiment as one complete, self-contained configuration.
-          LLM-Light keeps that abstraction and resolves each configuration into stage-addressed
-          computations, keying every artifact by stage type, contract version, stage-relevant
-          config, and parent identity. Compatible runs then converge on the same completed
-          artifact instead of recomputing it.
+          An experiment platform for training language models without turning reusable work into
+          hand-managed pipelines. Researchers submit complete, self-contained configurations;
+          LLM-Light resolves them into artifact-addressed data, tokenizer, pretraining, post-training,
+          and evaluation stages, coordinates concurrent GPU execution, and reuses or resumes every
+          compatible artifact automatically.
         </p>
         </section>
         <section class="detail-section">
@@ -1269,12 +1272,11 @@
         <section class="detail-section">
           <h3>Project thesis</h3>
         <p>
-          An end-to-end investigation of natural, low-latency spoken interaction: from generating
-          and automatically labeling conversational data, through training and locked evaluation,
-          to a public full-duplex agent deployed on scale-to-zero Modal GPUs. The final system can
-          be interrupted, distinguishes short backchannels from floor-taking speech, overlaps
-          speculative generation with endpointing, and keeps structured tool protocol out of the
-          audible conversation.
+          An end-to-end speech research and deployment system built to make a cascaded voice agent
+          behave like a responsive conversational partner. It creates and labels its own training
+          data, trains language and causal turn-taking adapters, evaluates them against locked
+          baselines, and deploys a full-duplex two-GPU runtime that supports interruption,
+          backchannels, speculative generation, tools, and audible-only conversation history.
         </p>
         </section>
         <section class="detail-section">
@@ -1343,9 +1345,10 @@
         <section class="detail-section">
           <h3>Research question</h3>
         <p>
-          A master's thesis at KIT on extracting structured competency profiles from unstructured
-          documents, which grew into an accepted paper on the harder half of that problem: how do
-          you evaluate LLM output when there is no single correct reference answer?
+          A general evaluation framework for the class of LLM tasks where outputs are open-ended
+          and no single reference answer exists. It turns multiple independent model judgements
+          into stable pairwise rankings, exposes agreement as an adjustable confidence–coverage
+          tradeoff, and was validated against domain-expert rankings before publication.
         </p>
         </section>
         <section class="detail-section">
@@ -1393,12 +1396,11 @@
         <section class="detail-section">
           <h3>Project thesis</h3>
         <p>
-          A movement is one legal controlled path from an incoming road corridor to an outgoing one;
-          a phase is a compatible set of movements that may go green together. This project puts a
-          shared graph network on the first object and deterministic code on the second: the GNN
-          emits one scalar per movement, and each junction's own incidence matrix turns those
-          scalars into its variable-sized set of legal phases. Phase enumeration and signal timing
-          never enter the learned network.
+          A graph reinforcement-learning architecture designed to control road networks whose size,
+          topology, and legal signal actions change from one junction to the next. A shared GNN
+          scores individual traffic movements, while deterministic incidence matrices assemble
+          those scores into each junction’s variable-sized legal phase set. The learned parameters
+          therefore remain independent of both graph size and action count.
         </p>
         </section>
         <section class="detail-section">
@@ -1445,10 +1447,10 @@
         <section class="detail-section">
           <h3>Project thesis</h3>
         <p>
-          A local cloud-platform simulator: declarative manifests, service identity, internal
-          ingress policy, managed buckets, application databases, autoscaling signals, and a live
-          dashboard. Deliberately small enough to understand end to end — a playground for
-          control-plane and data-plane ideas without needing a real cloud account.
+          A cloud platform implemented from first principles to make the machinery behind managed
+          infrastructure concrete and inspectable. Declarative manifests flow through a persistent
+          control plane into reconciliation, scheduling, isolated service networks, ingress policy,
+          health-aware routing, managed data services, autoscaling, and live operational events.
         </p>
         </section>
         <section class="detail-section">
@@ -1463,8 +1465,8 @@
         <section class="detail-section">
           <h3>Repository</h3>
         <p class="note">
-          AWS-Light demonstrates cloud control-plane mechanics locally; it is not presented as a
-          production cloud substitute or a performance comparison with AWS.
+          The scope is deliberately local: the project demonstrates the mechanics and boundaries of
+          a cloud control plane, not service parity or a performance comparison with AWS.
         </p>
         <div class="actions">
           <a class="btn primary" href="https://github.com/BertilBraun/AWS-Light" target="_blank" rel="noopener">GitHub repo</a>
@@ -1488,9 +1490,10 @@
         <section class="detail-section">
           <h3>User problem</h3>
         <p>
-          A computer vision product for turning raw beach-shot windsurfing footage into usable rider
-          views. The repository covers the whole path: training the detectors, running the video
-          pipeline on GPU workers, and deploying the interactive player available in the live demo.
+          An end-to-end computer-vision product for recovering individual rider footage from wide,
+          shaky beach recordings where subjects are small, fast, and visually similar. The system
+          covers specialist model training, GPU video processing, multi-object identity tracking,
+          geometric stabilisation, cloud deployment, and the interactive player exposed to users.
         </p>
         </section>
         <section class="detail-section">
@@ -1505,8 +1508,8 @@
         <section class="detail-section">
           <h3>Demo and repository</h3>
         <p class="note">
-          This is a deployed MVP and end-to-end systems demonstration. No held-out detection,
-          tracking, or pose benchmark is currently published with the repository.
+          The current evidence is the deployed end-to-end capability and reproducible GPU pipeline;
+          a held-out detection, tracking, or pose benchmark is not yet published.
         </p>
         <div class="actions">
           <a class="btn live" href="https://gybelock.bertil-braun.de" target="_blank" rel="noopener"><span class="dot" aria-hidden="true"></span> Live demo</a>
