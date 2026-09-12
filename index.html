@@ -778,17 +778,17 @@
           </article>
 
           <article class="tile" data-open="voice-light" data-tags="llm research" tabindex="0" role="button" aria-haspopup="dialog">
-            <span class="thumb fit"><img src="assets/voice-light.svg" alt="Timeline showing microphone, streaming ASR, turn detection, LLM prefill and generation, TTS and playback overlapping in a streaming cascade" loading="lazy" decoding="async"></span>
+            <span class="thumb fit"><img src="assets/voice-light-demo.png" alt="Light-themed Voice Light browser demo showing a spoken conversation and live turn-taking probabilities" loading="lazy" decoding="async"></span>
             <div class="tile-body">
               <span class="kicker">Speech · Real-time systems</span>
               <h4>Voice-Light — Low-Latency Cascaded Voice Agent</h4>
-              <p>A full-duplex spoken agent where every stage streams: ASR partials feed the LLM before you finish talking, and a fine-tuned spoken bridge hides tool calls entirely. Target is first audio inside 500 ms.</p>
+              <p>An end-to-end voice-agent project spanning synthetic data, automatic conversational labeling, model training, causal turn-taking, evaluation, and a deployed full-duplex streaming demo.</p>
               <div class="chips">
-                <span class="chip">Streaming ASR</span>
-                <span class="chip">Turn-taking model</span>
-                <span class="chip">LoRA fine-tuning</span>
+                <span class="chip">Synthetic data</span>
+                <span class="chip">Causal turn-taking</span>
+                <span class="chip">Live demo</span>
               </div>
-              <span class="cue">Details, adapter &amp; dataset →</span>
+              <span class="cue">Demo, results &amp; artifacts →</span>
             </div>
           </article>
 
@@ -1101,53 +1101,56 @@
     <div class="cols">
       <div>
         <p>
-          A spoken agent you can actually interrupt and talk over. The goal is a deeply integrated
-          cascaded speech system where nothing waits its turn: audio, transcription, generation and
-          synthesis all stream, and each stage begins useful work before the one feeding it has
-          finished. The aspirational budget is under 500 ms from the moment you stop speaking to
-          the first assistant audio — measured per stage, not as one aggregate number, because
-          otherwise there is no way to tell what to fix.
+          An end-to-end investigation of natural, low-latency spoken interaction: from generating
+          and automatically labeling conversational data, through training and locked evaluation,
+          to a public full-duplex agent deployed on scale-to-zero Modal GPUs. The final system can
+          be interrupted, distinguishes short backchannels from floor-taking speech, overlaps
+          speculative generation with endpointing, and keeps structured tool protocol out of the
+          audible conversation.
         </p>
         <ul>
-          <li><strong>Streaming ASR into a warm LLM.</strong> A cache-aware streaming Nemotron FastConformer transcribes in 160 ms chunks; stable partials are committed into the LLM's KV cache while you are still talking, so the system prompt, history and spoken prefix are never re-prefilled at the moment generation has to start.</li>
-          <li><strong>A self-trained turn-taking model.</strong> A causal adapter on the frozen ASR encoder decides when you have actually yielded the turn — the hard part, since endpointing too early cuts people off mid-pause and too late feels dead. This is the piece still in training.</li>
-          <li><strong>Tool calls the user never hears.</strong> A fine-tuned adapter makes the model say something natural before it calls a tool, so the bridge plays over the latency instead of leaving a hole in the conversation.</li>
-          <li><strong>Persistent workers, ephemeral sessions.</strong> Nemotron, both Qwen workers and Kyutai TTS live in long-running CUDA subprocesses that outlive any connection; models are never reloaded per session or per turn. The orchestrating parent process stays CUDA-free.</li>
-          <li>Alongside it, a local browser app for inspecting conversational audio datasets, ASR output, and end-of-turn analysis.</li>
+          <li><strong>Two synthetic data pipelines.</strong> A pinned 27B teacher generated 3,999 typed spoken tool-use conversations. A separate audio pipeline planned completions, HOLD pauses, backchannels, and interruptions, rendered only user speech, then compiled causal 20-second views with dense 80 ms labels.</li>
+          <li><strong>Automatic human-data preparation.</strong> Independent ASR and VAD passes, channel alignment, conversation-region extraction, quality evidence, and manual review turn licensed two-speaker recordings into conversation-disjoint training, validation, and test windows.</li>
+          <li><strong>Two trained adapters.</strong> A Qwen3-1.7B LoRA learned conversational tool bridges and structured calls. A roughly 183k-parameter recurrent adapter learned from frozen Nemotron encoder taps and assistant-playback state, then fine-tuned on human conversation with synthetic replay.</li>
+          <li><strong>Evaluation that changed the product.</strong> The LoRA improved its synthetic holdout, but the public demo uses a stronger 4B base model. The turn adapter remained conservative on the locked real-conversation test, so the deployed interaction controller honestly combines its evidence with Silero rather than claiming an adapter-only win.</li>
+          <li><strong>A real streaming deployment.</strong> Nemotron ASR and Qwen share one GPU, Kyutai TTS occupies a second, and the static GitHub Pages client connects directly to the Modal WebSocket. Browser acknowledgements make audible speech—not merely generated text—the source of conversation history.</li>
         </ul>
         <div class="refs">
-          <h5>The fine-tuned bridge, measured</h5>
+          <h5>Measured end to end</h5>
           <p class="cite">
-            A BF16 rank-16 LoRA on <span class="t">Qwen3-1.7B</span>, trained on 3,919 synthetic
-            segments. On an 80-record balanced holdout, correct tool decisions went from 80.0% to
-            95.2%, exact tool names from 78.6% to 94.3%, concise spoken bridges from 7.6% to 94.3%,
-            and correct no-tool behaviour from 70.0% to 100%. Teacher-forced validation loss bottomed
-            out long before free-generation behaviour did — picking a checkpoint by loss alone would
-            have shipped the worse model.
+            The final eight-turn human microphone run completed every turn, including live tool use
+            and conversational follow-ups. Median speech-end-to-browser-PCM latency was 677 ms; six
+            of eight turns were below 800 ms. Separately, the original 80-record synthetic tool-use
+            holdout improved correct tool decisions from 80.0% to 95.2% and concise spoken bridges
+            from 7.6% to 94.3%. Those synthetic results are reported as task-specific evidence, not
+            as a claim of general model superiority.
           </p>
         </div>
         <div class="note">
-          Work in progress. The cascade runs; the turn-taking model is still training and nothing is
-          hosted yet. A public demo will follow once the compute runs on Vast and Modal.
+          Live now. The frontend is static and public; the two-GPU backend scales to zero after two
+          idle minutes and admits one voice session at a time. A cold session currently takes about
+          32–55 seconds to initialize, while warm conversational turns are typically subsecond but
+          remain dependent on microphone, network, browser, and Modal host conditions.
         </div>
         <div class="actions">
-          <a class="btn primary" href="https://github.com/BertilBraun/Voice-Light" target="_blank" rel="noopener">GitHub repo</a>
-          <a class="btn" href="https://huggingface.co/BertilBraun/qwen3-1.7b-voice-light-tool-use-lora" target="_blank" rel="noopener">LoRA adapter</a>
-          <a class="btn" href="https://huggingface.co/datasets/BertilBraun/voice-light-tool-use-synthetic" target="_blank" rel="noopener">Synthetic dataset</a>
+          <a class="btn primary" href="https://voice.bertil-braun.de" target="_blank" rel="noopener">Open live demo</a>
+          <a class="btn" href="https://github.com/BertilBraun/Voice-Light" target="_blank" rel="noopener">GitHub &amp; docs</a>
+          <a class="btn" href="https://huggingface.co/BertilBraun/qwen3-1.7b-voice-light-tool-use-lora" target="_blank" rel="noopener">Models</a>
+          <a class="btn" href="https://huggingface.co/datasets/BertilBraun/voice-light-tool-use-synthetic" target="_blank" rel="noopener">Datasets</a>
         </div>
       </div>
       <div class="modal-media">
         <figure>
-          <button class="shot" type="button" data-src="assets/voice-light.svg" data-caption="Every stage starts before the one above it finishes: ASR runs on live audio, the LLM prefills on the stable transcript prefix, and generation, synthesis and playback are already queued when the turn detector commits.">
+          <button class="shot" type="button" data-src="assets/voice-light-demo.png" data-caption="The public browser client shows the audible conversation, compact latency telemetry, live speech activity, and causal turn-taking probabilities. The model evidence remains diagnostic rather than entering durable history.">
+            <img src="assets/voice-light-demo.png" alt="Voice Light public demo with a spoken conversation and live turn-taking graphs">
+          </button>
+          <figcaption>The deployed browser demo. Click to enlarge.</figcaption>
+        </figure>
+        <figure>
+          <button class="shot" type="button" data-src="assets/voice-light.svg" data-caption="Every stage begins useful work early: streaming ASR and shared encoder features feed prediction, Qwen speculates before commitment, and Kyutai synthesis is promoted only when the causal transcript remains valid.">
             <img src="assets/voice-light.svg" alt="Timeline of the streaming cascade showing overlapping stages">
           </button>
           <figcaption>The streaming cascade. Click to enlarge.</figcaption>
-        </figure>
-        <figure>
-          <button class="shot" type="button" data-src="assets/voice-tooluse.svg" data-caption="The turn the tool-use adapter had to learn, and what it scored on the balanced holdout before and after fine-tuning.">
-            <img src="assets/voice-tooluse.svg" alt="Diagram of a spoken tool-use turn with holdout scores before and after fine-tuning">
-          </button>
-          <figcaption>The tool-use adapter. Click to enlarge.</figcaption>
         </figure>
       </div>
     </div>
