@@ -808,13 +808,14 @@
             An end-to-end AlphaZero-style research platform that trains and serves neural chess and
             Go agents entirely from self-play. Performance-critical C++ implements the games,
             encoding, batched CUDA inference, and MCTS; Python orchestrates replay, multi-GPU DDP
-            training, automated evaluation, and live deployment. The three-day run below reached
-            superhuman strength under the project’s Stockfish 13 calibration.
+            training, automated evaluation, and live deployment. The run below reached superhuman
+            strength under the project’s Stockfish 13 calibration within a deliberately constrained
+            compute envelope.
           </p>
           <div class="stats">
             <span class="stat"><b>3,167</b><span>estimated Stockfish 13-calibrated Elo at 80,000 searches</span></span>
-            <span class="stat"><b>$52</b><span>three-day training-node cost</span></span>
-            <span class="stat"><b>3 days</b><span>on 8× RTX 4070 SUPER</span></span>
+            <span class="stat"><b>$52</b><span>rented node for the three-day training run</span></span>
+            <span class="stat"><b>3 days</b><span>self-play and training on 8× RTX 4070 SUPER</span></span>
           </div>
           <div class="chips">
             <span class="chip">Self-play RL</span>
@@ -1066,7 +1067,17 @@
           <p class="note">
             Trained from self-play alone, the saved generation-1465 checkpoint reached superhuman
             strength under this benchmark’s calibration after three days on 8× RTX 4070 SUPER GPUs
-            shared between self-play and training. The rented training node cost $52.
+            shared between self-play and training. The rented training node cost $52, excluding
+            separate evaluation compute and abandoned runs.
+          </p>
+          <p class="note">
+            The $52 figure is evidence of the implementation’s performance under constrained
+            compute, not a like-for-like AlphaZero reproduction claim. For scale, the
+            <a href="https://arxiv.org/abs/1712.01815" target="_blank" rel="noopener">original AlphaZero paper</a>
+            reports 5,000 first-generation TPUs generating self-play games and 64 second-generation
+            TPUs training the networks; this project used one eight-GPU consumer node. The hardware,
+            training objectives, evaluation protocols, and achieved playing strength differ, so a
+            direct cost or efficiency ratio would be misleading.
           </p>
         </section>
         <section class="detail-section">
@@ -1087,8 +1098,7 @@
             <a href="https://www.melonimarco.it/en/2021/03/08/stockfish-and-lc0-test-at-different-number-of-nodes/" target="_blank" rel="noopener">Marco Meloni&#39;s Stockfish 13 node-strength calibration</a>;
             confidence intervals represent paired-match sampling uncertainty. The scale is not a
             FIDE rating or a comparison with unrestricted modern Stockfish, and current
-            unrestricted engines remain substantially stronger. The $52 figure is the three-day
-            training-node rental; it excludes separate evaluation compute and abandoned runs.
+            unrestricted engines remain substantially stronger.
           </p>
         </section>
         <section class="detail-section">
