@@ -466,6 +466,48 @@
     .tile.wide p { color: var(--ink-2); font-size: 0.98rem; }
     .tile.wide .chips { margin-top: 18px; padding-top: 0; }
 
+    /* Filtered results use a regular comparison grid instead of retaining editorial spans. */
+
+    .mosaic.is-filtered { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .mosaic.is-filtered .tile,
+    .mosaic.is-filtered .tile.wide,
+    .mosaic.is-filtered .tile.wide.media-right,
+    .mosaic.is-filtered .tile.wide.span2 {
+      grid-column: auto;
+      display: flex;
+      gap: 0;
+      padding: 0;
+    }
+
+    .mosaic.is-filtered .tile.wide .tile-media {
+      order: 0;
+      height: 172px;
+      padding: 12px;
+      border-bottom: 1px solid var(--rule);
+      background: var(--bg-tint);
+    }
+
+    .mosaic.is-filtered .tile.wide .tile-media .shot {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .mosaic.is-filtered .tile.wide .tile-media img {
+      width: 100%;
+      height: 100%;
+      max-height: none;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      object-fit: contain;
+    }
+
+    .mosaic.is-filtered .tile.wide .tile-body { padding: 20px 20px 22px; }
+    .mosaic.is-filtered .tile.wide h4 { font-size: 1.2rem; line-height: 1.25; }
+    .mosaic.is-filtered .tile.wide p { color: var(--muted); font-size: 0.9rem; }
+    .mosaic.is-filtered .tile.wide .chips { margin-top: auto; padding-top: 18px; }
+
     .empty { grid-column: 1 / -1; padding: 36px 0; color: var(--muted); font-size: 0.92rem; }
 
     /* ---------------- also built ---------------- */
@@ -689,6 +731,7 @@
       .filters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
       .filter { min-width: 0; text-align: center; }
       .mosaic { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+      .mosaic.is-filtered { grid-template-columns: minmax(0, 1fr); }
       .tile { min-width: 0; }
       .tile.wide, .tile.wide.media-right, .tile.wide.span2 {
         grid-column: 1 / -1;
@@ -704,6 +747,7 @@
         border-bottom: 1px solid var(--rule);
         background: var(--bg-tint);
       }
+      .mosaic.is-filtered .tile.wide .tile-media { height: 184px; }
       .tile.wide .tile-media img, .tile.wide.span2 .tile-media img {
         width: 100%;
         height: 100%;
@@ -1732,6 +1776,7 @@
       /* ---------- filters ---------- */
 
       var filters = Array.prototype.slice.call(document.querySelectorAll('.filter'));
+      var mosaic = document.getElementById('mosaic');
       var tiles = Array.prototype.slice.call(document.querySelectorAll('.tile'));
       var alsoItems = Array.prototype.slice.call(document.querySelectorAll('.also a'));
       var also = document.getElementById('also');
@@ -1742,6 +1787,7 @@
         btn.addEventListener('click', function () {
           var want = btn.dataset.filter;
           filters.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
+          mosaic.classList.toggle('is-filtered', want !== 'all');
           var shownTiles = 0;
           tiles.forEach(function (tile) {
             var tags = (tile.dataset.tags || '').split(' ');
