@@ -44,7 +44,7 @@ PROJECT_ROUTES = (
     ProjectRoute(
         slug='scalable-llm-evaluation',
         title='Scalable Automated LLM Evaluation — Bertil Braun',
-        description='Research on pairwise LLM evaluation and Elo aggregation for open-ended outputs, documented in an accepted paper and a domain-agnostic competency-extraction thesis.',
+        description='GEM² 2025 research on pairwise LLM evaluation and Elo aggregation for open-ended outputs, alongside a domain-agnostic competency-extraction thesis.',
     ),
     ProjectRoute(
         slug='gybelock',
