@@ -903,9 +903,9 @@
           <article class="tile" data-open="voice-light" data-tags="language publication live">
             <span class="thumb fit"><img src="assets/voice-light-demo.png" alt="Light-themed Voice Light browser demo showing a spoken conversation and live turn-taking probabilities" loading="lazy" decoding="async"></span>
             <div class="tile-body">
-              <span class="kicker">Speech · Real-time systems</span>
-              <h4>Voice-Light — Low-Latency Cascaded Voice Agent</h4>
-              <p>A deployed full-duplex voice agent that listens and speaks concurrently, handles interruptions and backchannels, executes tools, and streams ASR, LLM, and TTS work across two GPUs. The project spans synthetic-data generation, automatic conversation labeling, two trained adapters, causal evaluation, and a measured 677 ms median from speech end to first browser audio in its final warm-system acceptance run.</p>
+              <span class="kicker">Speech · Real-time systems · Technical report</span>
+              <h4>Voice-Light — Full-Duplex Streaming Voice Agent</h4>
+              <p>An end-to-end speech research project culminating in a deployed voice agent that listens and speaks concurrently, handles interruptions and backchannels, and executes tools. The work spans synthetic-data generation, automatic labeling, language-model fine-tuning, causal turn-taking, and a two-GPU streaming runtime, with a measured 783 ms median from the final VAD endpoint to browser audio in its final warm-system acceptance trace.</p>
               <div class="chips">
                 <a class="chip live" href="https://voice.bertil-braun.de" target="_blank" rel="noopener" data-stop>
                   <span class="dot" aria-hidden="true"></span> Live demo
@@ -1287,6 +1287,8 @@
           data, trains language and causal turn-taking adapters, evaluates them against locked
           baselines, and deploys a full-duplex two-GPU runtime that supports interruption,
           backchannels, speculative generation, tools, and audible-only conversation history.
+          The accompanying technical report connects the complete data, training, evaluation,
+          integration, and deployment record in one reproducible account.
         </p>
         </section>
         <section class="detail-section">
@@ -1303,14 +1305,13 @@
           <h3>Evaluation and limitations</h3>
           <p class="cite">
             The final eight-turn human microphone run completed every turn, including live tool use
-            and conversational follow-ups. Median time from speech end to first browser audio was
-            677 ms—roughly two-thirds of a second before the response became audible—with a measured
-            range of 593–1,451 ms. This is one warm-system acceptance trace, not a latency
-            distribution or a population p50 estimate. Separately, the original 80-record
-            synthetic tool-use
-            holdout improved correct tool decisions from 80.0% to 95.2% and concise spoken bridges
-            from 7.6% to 94.3%. Those synthetic results are reported as task-specific evidence, not
-            as a claim of general model superiority.
+            and conversational follow-ups. Median time from the final VAD endpoint to the first
+            server audio packet was 677 ms; median time to browser rendering was 783 ms. This is one
+            warm-system acceptance trace, not a latency distribution or a population p50 estimate.
+            Separately, the original 80-record synthetic tool-use holdout improved correct tool
+            decisions from 80.0% to 95.2% and concise spoken bridges from 7.6% to 94.3%. Those
+            synthetic results are reported as task-specific evidence, not as a claim of general
+            model superiority.
           </p>
         <div class="note">
           Live now. The frontend is static and public; the two-GPU backend scales to zero after two
@@ -1320,7 +1321,7 @@
         </div>
         </section>
         <section class="detail-section">
-          <h3>Demo and artifacts</h3>
+          <h3>Demo, report, and artifacts</h3>
         <div class="actions">
           <a class="btn live" href="https://voice.bertil-braun.de" target="_blank" rel="noopener">
             <span class="dot" aria-hidden="true"></span> Live demo
