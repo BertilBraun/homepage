@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title description">
+  <title id="title">Voice Light simplified production runtime</title>
+  <desc id="description">Browser audio flows through Silero and streaming Nemotron ASR into a hybrid interaction controller. A causal turn-taking adapter supplies learned evidence, Qwen handles responses and tools, Kyutai synthesizes speech on a dedicated GPU, and browser playback acknowledgements feed back into the controller.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#68736f"/>
+    </marker>
+    <style>
+      .heading { font: 700 22px Inter, 'Segoe UI', Arial, sans-serif; fill: #17201d; }
+      .subheading { font: 400 14px Inter, 'Segoe UI', Arial, sans-serif; fill: #6b756f; }
+      .label { font: 700 15px Inter, 'Segoe UI', Arial, sans-serif; fill: #17201d; text-anchor: middle; }
+      .detail { font: 400 12px Inter, 'Segoe UI', Arial, sans-serif; fill: #63706a; text-anchor: middle; }
+      .inverse { fill: #ffffff; }
+      .arrow { fill: none; stroke: #68736f; stroke-width: 2; marker-end: url(#arrow); }
+      .box { fill: #ffffff; stroke: #c9d0cc; stroke-width: 1.5; }
+      .green { fill: #e6f3ef; stroke: #218274; stroke-width: 1.5; }
+      .dark { fill: #147568; stroke: #147568; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="520" fill="#fbfcfa"/>
+  <text class="heading" x="36" y="40">Simplified production runtime</text>
+  <text class="subheading" x="36" y="65">Acoustic reaction, learned turn evidence, generation, tools, and audible playback form one causal loop.</text>
+
+  <path class="arrow" d="M210 224 H248"/>
+  <path class="arrow" d="M408 224 H446"/>
+  <path class="arrow" d="M626 224 H664"/>
+  <path class="arrow" d="M864 224 H902"/>
+  <path class="arrow" d="M536 346 V278"/>
+  <path class="arrow" d="M626 378 C655 378 665 292 712 278"/>
+  <path class="arrow" d="M1002 170 C1002 135 1035 124 1052 124"/>
+  <path class="arrow" d="M1052 144 C1030 146 1022 164 1022 170"/>
+  <path class="arrow" d="M1002 278 V344"/>
+  <path class="arrow" d="M902 394 H864"/>
+  <path class="arrow" d="M764 344 V280"/>
+
+  <rect class="green" x="36" y="170" width="174" height="108" rx="10"/>
+  <text class="label" x="123" y="211">Browser microphone</text>
+  <text class="detail" x="123" y="237">16 kHz PCM</text>
+  <text class="detail" x="123" y="257">direct WebSocket</text>
+
+  <rect class="green" x="248" y="170" width="160" height="108" rx="10"/>
+  <text class="label" x="328" y="211">Silero onset</text>
+  <text class="detail" x="328" y="237">immediate, reversible</text>
+  <text class="detail" x="328" y="257">ducking</text>
+
+  <rect class="box" x="446" y="170" width="180" height="108" rx="10"/>
+  <text class="label" x="536" y="204">Streaming</text>
+  <text class="label" x="536" y="224">Nemotron ASR</text>
+  <text class="detail" x="536" y="250">shared encoder taps</text>
+
+  <rect class="dark" x="664" y="170" width="200" height="108" rx="10"/>
+  <text class="label inverse" x="764" y="211">Hybrid commitment</text>
+  <text class="label inverse" x="764" y="233">and speculation policy</text>
+  <text class="detail inverse" x="764" y="258">typed orchestration</text>
+
+  <rect class="box" x="902" y="170" width="164" height="108" rx="10"/>
+  <text class="label" x="984" y="211">Qwen3-4B</text>
+  <text class="detail" x="984" y="237">response generation</text>
+  <text class="detail" x="984" y="257">and typed tools</text>
+
+  <rect class="box" x="446" y="346" width="180" height="96" rx="10"/>
+  <text class="label" x="536" y="380">Causal adapter</text>
+  <text class="detail" x="536" y="405">completion · floor</text>
+  <text class="detail" x="536" y="424">feedback</text>
+
+  <rect class="green" x="664" y="344" width="200" height="100" rx="10"/>
+  <text class="label" x="764" y="380">Browser playback clock</text>
+  <text class="detail" x="764" y="406">audible acknowledgements</text>
+  <text class="detail" x="764" y="425">authoritative history</text>
+
+  <rect class="green" x="902" y="344" width="164" height="100" rx="10"/>
+  <text class="label" x="984" y="380">Kyutai TTS</text>
+  <text class="detail" x="984" y="406">dedicated GPU</text>
+  <text class="detail" x="984" y="425">streaming PCM</text>
+
+  <rect class="box" x="1052" y="86" width="120" height="76" rx="10"/>
+  <text class="label" x="1112" y="118">Providers</text>
+  <text class="detail" x="1112" y="141">tools · search</text>
+
+  <text class="subheading" x="36" y="492">GPU 0: Nemotron + Qwen · GPU 1: Kyutai · Static client on GitHub Pages · Compute on Modal</text>
+</svg>
