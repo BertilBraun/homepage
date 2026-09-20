@@ -856,6 +856,23 @@
       .lightbox { padding: 16px; }
     }
 
+    .tile .diagram-media,
+    .tile.wide .tile-media.diagram-media,
+    .tile.wide.span2 .tile-media.diagram-media {
+      border-bottom: 0;
+      background: transparent;
+    }
+
+    .tile .diagram-media img,
+    .tile.wide .tile-media.diagram-media img,
+    .tile.wide.span2 .tile-media.diagram-media img {
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+    }
+
+    .diagram-figure img { display: block; width: 100%; height: auto; }
+
     @media print {
       .backdrop, .lightbox, .filters, .cue { display: none !important; }
       body { background: #fff; }
@@ -946,12 +963,8 @@
         <div class="mosaic" id="mosaic">
 
           <article class="tile wide" data-open="llm-light" data-tags="language publication">
-            <figure class="tile-media">
-              <button class="shot" type="button" data-stop
-                      data-src="assets/llm-light-card.svg"
-                      data-caption="Four complete experiment configurations resolve to one shared pretraining artifact, two post-training artifacts, and four evaluation artifacts.">
-                <img src="assets/llm-light-card.svg" alt="Four complete experiment configurations resolve to one shared pretraining artifact, two post-training artifacts, and four evaluation artifacts" loading="lazy" decoding="async">
-              </button>
+            <figure class="tile-media diagram-media">
+              <img src="assets/llm-light-card.svg" alt="Four complete experiment configurations resolve to one shared pretraining artifact, two post-training artifacts, and four evaluation artifacts" loading="lazy" decoding="async">
             </figure>
             <div class="tile-body">
               <span class="kicker">LLM infrastructure · Technical report</span>
@@ -975,7 +988,7 @@
           </article>
 
           <article class="tile" data-open="llm-eval" data-tags="language publication">
-            <span class="thumb fit"><img src="assets/llm-eval-card.svg" alt="Candidate outputs are compared in both orders by multiple language-model judges and aggregated into an Elo ranking" loading="lazy" decoding="async"></span>
+            <span class="thumb fit diagram-media"><img src="assets/llm-eval-card.svg" alt="Candidate outputs are compared in both orders by multiple language-model judges and aggregated into an Elo ranking" loading="lazy" decoding="async"></span>
             <div class="tile-body">
               <span class="kicker">LLM evaluation · GEM² 2025</span>
               <h4>Scalable Automated Evaluation with LLMs</h4>
@@ -991,7 +1004,7 @@
           </article>
 
           <article class="tile wide span2" data-open="voice-light" data-tags="language publication live">
-            <figure class="tile-media voice-portrait">
+            <figure class="tile-media voice-portrait diagram-media">
               <img src="assets/voice-light-card.svg" alt="Tool-use and turn-taking data feed two focused adapters and a hybrid streaming runtime for the live full-duplex browser agent" loading="lazy" decoding="async">
             </figure>
             <div class="tile-body">
@@ -1367,11 +1380,9 @@
         </section>
       </div>
       <div class="modal-media">
-        <figure>
-          <button class="shot" type="button" data-src="assets/llm-light-card.svg" data-caption="Four complete configurations resolve into one compatible pretraining artifact, two post-training branches, and four evaluation results.">
-            <img src="assets/llm-light-card.svg" alt="Four experiment configurations resolve to one shared pretraining artifact, two post-training artifacts, and four evaluation artifacts">
-          </button>
-          <figcaption>The report's worked four-configuration branch. Click to enlarge.</figcaption>
+        <figure class="diagram-figure">
+          <img src="assets/llm-light-card.svg" alt="Four experiment configurations resolve to one shared pretraining artifact, two post-training artifacts, and four evaluation artifacts">
+          <figcaption>The report's worked four-configuration branch.</figcaption>
         </figure>
       </div>
     </div>
