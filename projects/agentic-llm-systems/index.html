@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <base href="/">
   <title>Agentic LLM Systems — Bertil Braun</title>
-  <meta name="description" content="Multi-agent systems for voice-first interaction and evidence-gated coding, backed by A2A, MCP, durable workflows, and observable tool execution.">
+  <meta name="description" content="Three distinct projects spanning durable workflow execution, evidence-gated coding, and an independent A2A/MCP multi-agent story narrator.">
   <meta name="author" content="Bertil Braun">
   <link rel="canonical" href="https://bertil-braun.de/projects/agentic-llm-systems/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Agentic LLM Systems — Bertil Braun">
-  <meta property="og:description" content="Multi-agent systems for voice-first interaction and evidence-gated coding, backed by A2A, MCP, durable workflows, and observable tool execution.">
+  <meta property="og:description" content="Three distinct projects spanning durable workflow execution, evidence-gated coding, and an independent A2A/MCP multi-agent story narrator.">
   <meta property="og:url" content="https://bertil-braun.de/projects/agentic-llm-systems/">
   <meta property="og:image" content="https://bertil-braun.de/assets/social-card.png">
   <meta property="og:image:width" content="1200">
@@ -19,7 +19,7 @@
   <meta property="og:image:alt" content="Bertil Braun — Applied ML Research Engineer in Karlsruhe, working across language-model agents, scalable training, distributed systems, reinforcement learning, and evaluation.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Agentic LLM Systems — Bertil Braun">
-  <meta name="twitter:description" content="Multi-agent systems for voice-first interaction and evidence-gated coding, backed by A2A, MCP, durable workflows, and observable tool execution.">
+  <meta name="twitter:description" content="Three distinct projects spanning durable workflow execution, evidence-gated coding, and an independent A2A/MCP multi-agent story narrator.">
   <meta name="twitter:image" content="https://bertil-braun.de/assets/social-card.png">
   <meta name="theme-color" content="#fbfaf7">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2316615a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' fill='%23fbfaf7' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
@@ -746,6 +746,32 @@
     @media (max-width: 1000px) {
       .mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .tile.wide { grid-column: span 2; }
+      .tile.wide.span2 {
+        grid-column: span 1;
+        display: flex;
+        gap: 0;
+        padding: 0;
+      }
+      .tile.wide.span2 .tile-media {
+        order: 0;
+        height: 172px;
+        padding: 12px;
+        border-bottom: 1px solid var(--rule);
+        background: var(--bg-tint);
+      }
+      .tile.wide.span2 .tile-media img {
+        width: 100%;
+        height: 100%;
+        max-height: none;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        object-fit: contain;
+      }
+      .tile.wide.span2 .tile-body { padding: 20px 20px 22px; }
+      .tile.wide.span2 h4 { font-size: 1.2rem; line-height: 1.25; }
+      .tile.wide.span2 p { color: var(--muted); font-size: 0.9rem; }
+      .tile.wide.span2 .chips { margin-top: auto; padding-top: 18px; }
     }
 
     @media (max-width: 860px) {
@@ -903,42 +929,45 @@
             </figure>
             <div class="tile-body">
               <span class="kicker">LLM systems · Technical report</span>
-              <h4>LLM-Light — Artifact-Addressed Training</h4>
+              <h4>LLM-Light — Artifact-Addressed Execution</h4>
               <p>
-                A typed execution engine for building, training, and evaluating dense and MoE
-                language models without recomputing shared work. Artifact-addressed stages provide
-                deterministic reuse, concurrent GPU scheduling, and checkpoint recovery; the system
-                produced the public 2.19M-example TinyPython dataset and a 42-run model sweep whose
-                strongest configuration reached an 88.14% Python-completion pass rate.
+                An experiment executor that keeps complete LLM configurations self-contained while
+                resolving them into artifact-addressed stages over a fixed training pipeline.
+                Compatible runs converge on shared completed artifacts; unresolved work is scheduled
+                across a configured GPU pool, and completed stages plus supported pretraining
+                checkpoints survive relaunches.
               </p>
               <div class="chips">
                 <a class="chip paper" href="https://github.com/BertilBraun/LLM-Light/releases/download/Technical-Report/artifact-addressed-execution-llm-light.pdf" target="_blank" rel="noopener" data-stop>Technical report</a>
-                <span class="chip">PyTorch</span>
-                <span class="chip">Dense &amp; MoE GPT</span>
-                <span class="chip">Distributed training</span>
-                <span class="chip">Public dataset</span>
+                <span class="chip">Artifact-addressed execution</span>
+                <span class="chip">Experiment reuse</span>
+                <span class="chip">GPU scheduling</span>
+                <span class="chip">Relaunch recovery</span>
               </div>
-              <a class="cue" href="/projects/llm-light/" data-project-link="llm-light">Project details &amp; dataset →</a>
+              <a class="cue" href="/projects/llm-light/" data-project-link="llm-light">Project details &amp; artifacts →</a>
             </div>
           </article>
 
-          <article class="tile" data-open="agentic" data-tags="language">
-            <span class="thumb fit"><img src="assets/agentic.svg" alt="Layered architecture diagram: browser, FastAPI and Redis, five A2A agent services, four MCP tool servers, and provider services" loading="lazy" decoding="async"></span>
+          <article class="tile" data-open="llm-eval" data-tags="language publication">
+            <span class="thumb fit"><img src="assets/llm-eval.webp" alt="Data-flow diagram of the competency extraction pipeline" loading="lazy" decoding="async"></span>
             <div class="tile-body">
-              <span class="kicker">LLM systems · Agents &amp; orchestration</span>
-              <h4>Agentic LLM Systems</h4>
-              <p>An end-to-end agent stack for multi-agent interaction and evidence-gated software engineering, built across A2A/MCP services, model providers, retrieval stores, and durable execution. It powers a voice-first story world with five specialised agents and four tool servers, plus a coding runtime that turns tasks into tested, reviewed diffs and survives worker crashes.</p>
+              <span class="kicker">Research · GEM² 2025</span>
+              <h4>Scalable Automated Evaluation with LLMs</h4>
+              <p>A published research framework for evaluating open-ended LLM output when no reference answer exists. Multiple evaluator models perform bidirectional pairwise comparisons and aggregate them into robust Elo rankings, producing rankings that agreed strongly with judgements from 20 domain experts.</p>
               <div class="chips">
-                <span class="chip">Multi-agent</span>
-                <span class="chip">A2A / MCP</span>
-                <span class="chip">Durable workflows</span>
+                <a class="chip paper" href="https://aclanthology.org/2025.gem-1.28/" target="_blank" rel="noopener" data-stop>GEM² 2025 paper</a>
+                <span class="chip">Synthetic preference data</span>
+                <span class="chip">Pairwise Elo</span>
+                <span class="chip">Direct preference optimization</span>
               </div>
-              <a class="cue" href="/projects/agentic-llm-systems/" data-project-link="agentic">Details &amp; three repos →</a>
+              <a class="cue" href="/projects/scalable-llm-evaluation/" data-project-link="llm-eval">Project details &amp; thesis →</a>
             </div>
           </article>
 
-          <article class="tile" data-open="voice-light" data-tags="language publication live">
-            <span class="thumb fit"><img src="assets/voice-light.svg" alt="Timeline of the Voice Light streaming cascade, with ASR, turn detection, language generation, speech synthesis, and playback overlapping" loading="lazy" decoding="async"></span>
+          <article class="tile wide span2" data-open="voice-light" data-tags="language publication live">
+            <figure class="tile-media">
+              <img src="assets/voice-light.svg" alt="Timeline of the Voice Light streaming cascade, with ASR, turn detection, language generation, speech synthesis, and playback overlapping" loading="lazy" decoding="async">
+            </figure>
             <div class="tile-body">
               <span class="kicker">Speech · Real-time systems · Technical report</span>
               <h4>Voice-Light — Full-Duplex Streaming Voice Agent</h4>
@@ -948,25 +977,10 @@
                   <span class="dot" aria-hidden="true"></span> Live demo
                 </a>
                 <a class="chip paper" href="https://github.com/BertilBraun/Voice-Light/releases/download/v1.0.1/voice-light-technical-report.pdf" target="_blank" rel="noopener" data-stop>Technical report</a>
-                <span class="chip">Synthetic data</span>
+                <span class="chip">Model training</span>
                 <span class="chip">Causal turn-taking</span>
               </div>
               <a class="cue" href="/projects/voice-light/" data-project-link="voice-light">Project details, results &amp; artifacts →</a>
-            </div>
-          </article>
-
-          <article class="tile" data-open="llm-eval" data-tags="language publication">
-            <span class="thumb fit"><img src="assets/llm-eval.webp" alt="Data-flow diagram of the competency extraction pipeline" loading="lazy" decoding="async"></span>
-            <div class="tile-body">
-              <span class="kicker">Research · GEM² 2025</span>
-              <h4>Scalable Automated Evaluation with LLMs</h4>
-              <p>A published research framework for evaluating open-ended LLM output when no reference answer exists. Multiple evaluator models perform bidirectional pairwise comparisons and aggregate them into robust Elo rankings; against rankings from 20 domain experts, the strongest setting reached mean Spearman ρ = 0.83 and Kendall τ = 0.78.</p>
-              <div class="chips">
-                <a class="chip paper" href="https://aclanthology.org/2025.gem-1.28/" target="_blank" rel="noopener" data-stop>GEM² 2025 paper</a>
-                <span class="chip">Pairwise Elo</span>
-                <span class="chip">DPO</span>
-              </div>
-              <a class="cue" href="/projects/scalable-llm-evaluation/" data-project-link="llm-eval">Project details &amp; thesis →</a>
             </div>
           </article>
 
@@ -984,17 +998,14 @@
               <p>
                 A deployed computer-vision system that turns difficult shore-shot windsurfing video
                 into selectable, stabilised rider footage. Specialised YOLO detection and pose
-                models feed multi-object tracking and camera stabilisation, while React, Firebase,
-                FastAPI, and Modal carry the workflow from video upload through GPU processing to
-                an interactive live player.
+                models feed multi-object tracking and camera stabilisation.
               </p>
               <div class="chips">
                 <a class="chip live" href="https://gybelock.bertil-braun.de" target="_blank" rel="noopener" data-stop>
                   <span class="dot" aria-hidden="true"></span> Live demo
                 </a>
-                <span class="chip">YOLO detection &amp; pose</span>
-                <span class="chip">Multi-object tracking</span>
-                <span class="chip">React · FastAPI · Modal</span>
+                <span class="chip">YOLO detection</span>
+                <span class="chip">Pose + multi-object tracking</span>
               </div>
               <a class="cue" href="/projects/gybelock/" data-project-link="gybelock">Details &amp; demo →</a>
             </div>
@@ -1029,18 +1040,18 @@
             </div>
           </article>
 
-          <article class="tile" data-open="aws-light" data-tags="">
-            <span class="thumb"><img src="assets/aws-light.webp" alt="AWS-Light dashboard showing running services and replicas" loading="lazy" decoding="async"></span>
+          <article class="tile" data-open="agentic" data-tags="language">
+            <span class="thumb fit"><img src="assets/agentic.svg" alt="Layered architecture diagram for the independent multi-agent story narrator" loading="lazy" decoding="async"></span>
             <div class="tile-body">
-              <span class="kicker">Infrastructure</span>
-              <h4>AWS-Light — A Cloud Platform, Small Enough to Read</h4>
-              <p>A cloud control plane implemented from first principles in a compact, inspectable codebase. Declarative manifests drive reconciliation, container orchestration, service discovery, ingress policy, health checking, managed storage and databases, autoscaling, and a live dashboard across Docker, Postgres, and Redis.</p>
+              <span class="kicker">LLM systems · Agents &amp; orchestration</span>
+              <h4>Agentic LLM Systems</h4>
+              <p>Three separate agent-system projects: Temporal-Light, a self-hosted durable workflow engine; an evidence-gated coding runtime built on it; and an independent story narrator built from five A2A agents and four MCP tool servers. Together they demonstrate durable execution, tool-grounded software work, and multi-agent service boundaries.</p>
               <div class="chips">
-                <span class="chip">Control plane</span>
-                <span class="chip">Docker orchestration</span>
-                <span class="chip">Autoscaling</span>
+                <span class="chip">A2A / MCP</span>
+                <span class="chip">Evidence-gated coding</span>
+                <span class="chip">Durable execution</span>
               </div>
-              <a class="cue" href="/projects/aws-light/" data-project-link="aws-light">Details &amp; code →</a>
+              <a class="cue" href="/projects/agentic-llm-systems/" data-project-link="agentic">Details &amp; three projects →</a>
             </div>
           </article>
 
@@ -1055,6 +1066,7 @@
           <a href="https://github.com/BertilBraun/RL-entirely-on-GPU" target="_blank" rel="noopener" data-tags=""><span class="name">GPU-Resident RL</span><span class="what">Soft Actor-Critic entirely in pure JAX</span></a>
           <a href="https://github.com/BertilBraun/CaRL" target="_blank" rel="noopener" data-tags=""><span class="name">CaRL</span><span class="what">DQN racing agent, 100s of parallel cars</span></a>
           <a href="https://github.com/BertilBraun/Advanced-Improvement-in-Speech-Translation" target="_blank" rel="noopener" data-tags="language"><span class="name">Speech Translation</span><span class="what">Cascaded ASR → MT on CoVoST 2</span></a>
+          <a href="/projects/aws-light/" data-project-link="aws-light" data-tags=""><span class="name">AWS-Light</span><span class="what">Inspectable cloud control plane with orchestration &amp; autoscaling</span></a>
           <a href="https://github.com/BertilBraun/Jigsaw-Puzzle-Solver" target="_blank" rel="noopener" data-tags=""><span class="name">Jigsaw Solver</span><span class="what">OpenCV + CLIP piece placement</span></a>
           <a href="https://github.com/BertilBraun/Meeting-Summarizer" target="_blank" rel="noopener" data-tags="language"><span class="name">Meeting Summarizer</span><span class="what">Whisper + speaker diarization</span></a>
           <a href="https://github.com/BertilBraun/BachelorsThesis" target="_blank" rel="noopener" data-tags="publication"><span class="name">Bachelor's Thesis</span><span class="what">Verifying BlockQuickSort with JJBMC</span></a>
@@ -1189,54 +1201,51 @@
         <section class="detail-section">
           <h3>Project thesis</h3>
           <p>
-            A full agent-systems stack built around two difficult requirements: specialised models
-            must collaborate across real service boundaries, and long-running work must remain
-            correct through failures. The projects cover the user-facing multi-agent experience,
-            interoperable A2A and MCP services, evidence-gated coding, and the durable workflow
-            engine underneath it all.
-          </p>
-        </section>
-
-        <section class="detail-section">
-          <h3>Voice-first story narrator</h3>
-          <p class="cite">
-            A voice-first AI game master for tabletop-style roleplay. Five independent agent
-            services implement the Google A2A protocol (JSON-RPC 2.0
-            over HTTP with a <code>/.well-known/agent.json</code> discovery endpoint), and four MCP
-            tool servers expose state, memory, knowledge and media. Retrieval spans PostgreSQL for
-            relational state, Qdrant for vectors and Neo4j for the knowledge graph, while LLM, image,
-            TTS and STT each sit behind a swappable provider service. No business logic lives in the
-            API layer: it reads routing state from the database and dispatches each player message to
-            exactly one agent.
-          </p>
-        </section>
-
-        <section class="detail-section">
-          <h3>Evidence-gated coding runtime</h3>
-          <p class="cite">
-            A durable workflow turns a natural-language coding task into a reviewed diff through
-            orchestration, reproduction, rolling replanning, and review. Diffs, command output, exit
-            codes, test results, and review verdicts gate progress; the model chooses what to try,
-            while workspace evidence determines what actually happened.
+            A collection of three separate projects exploring different parts of agent engineering.
+            Temporal-Light is a self-hosted durable execution engine. The coding runtime uses it to
+            turn natural-language tasks into evidence-gated, reviewed diffs. The voice-first story
+            narrator is an independent multi-agent application built around A2A and MCP service
+            boundaries; it does not share the other projects' runtime or architecture.
           </p>
         </section>
 
         <section class="detail-section">
           <h3>Durable execution with Temporal-Light</h3>
           <p class="cite">
-            The coding runtime runs on a separate self-hosted workflow engine. Decorated async Python
-            functions survive crashes, worker restarts, and process migrations by replaying an
-            append-only Postgres event log. Stateless workers claim work with
-            <code>FOR UPDATE SKIP LOCKED</code>; coroutine state is re-derived rather than persisted.
+            A lightweight workflow engine in which decorated async Python functions survive crashes,
+            worker restarts, and process migrations by replaying an append-only Postgres event log.
+            Stateless workers claim work with <code>FOR UPDATE SKIP LOCKED</code>; coroutine state is
+            re-derived rather than persisted.
+          </p>
+        </section>
+
+        <section class="detail-section">
+          <h3>Evidence-gated coding runtime</h3>
+          <p class="cite">
+            Built on Temporal-Light, this separate runtime turns a natural-language coding task into
+            a reviewed diff through reproduction, rolling replanning, implementation, and review.
+            Diffs, command output, exit codes, test results, and review verdicts gate progress; the
+            model chooses what to try, while workspace evidence determines what actually happened.
+          </p>
+        </section>
+
+        <section class="detail-section">
+          <h3>Independent voice-first story narrator</h3>
+          <p class="cite">
+            A voice-first AI game master for tabletop-style roleplay. Five independent agent
+            services implement the Google A2A protocol, and four MCP tool servers expose state,
+            memory, knowledge, and media. Retrieval spans PostgreSQL for relational state, Qdrant
+            for vectors, and Neo4j for the knowledge graph, while LLM, image, speech synthesis, and
+            speech recognition each sit behind a swappable provider service.
           </p>
         </section>
 
         <section class="detail-section">
           <h3>Repositories</h3>
         <p class="note">
-          The evidence is inspectable system behavior: interoperable services, durable execution,
-          recorded tool results, tested diffs, and three complete repositories. A comparative agent
-          benchmark or user study is outside the current scope.
+          Each repository supplies its own inspectable evidence: replayable workflow state and
+          failure recovery, recorded coding-tool results and tested diffs, or interoperable A2A and
+          MCP services. A comparative agent benchmark or user study is outside the current scope.
         </p>
         <div class="actions">
           <a class="btn primary" href="https://github.com/BertilBraun/Agentic-LLM-DnD-GM" target="_blank" rel="noopener">Story narrator</a>
@@ -1268,25 +1277,33 @@
         <section class="detail-section">
           <h3>Project thesis</h3>
         <p>
-          An experiment platform for training language models without turning reusable work into
-          hand-managed pipelines. Researchers submit complete, self-contained configurations;
-          LLM-Light resolves them into artifact-addressed data, tokenizer, pretraining, post-training,
-          and evaluation stages, coordinates concurrent GPU execution, and reuses or resumes every
-          compatible artifact automatically.
+          An experiment executor that lets researchers keep each LLM experiment as a complete,
+          self-contained configuration without recomputing compatible work. LLM-Light resolves those
+          configurations into stage-addressed computations over a fixed pipeline; compatible runs
+          converge on one completed artifact and unresolved stages execute within configured run and
+          GPU limits.
         </p>
         </section>
         <section class="detail-section">
-          <h3>System and validation</h3>
+          <h3>Execution model</h3>
         <ul>
-          <li>Covers the full pipeline: dataset ingestion, synthetic data generation, tokenizer training, packed autoregressive shards, dense and mixture-of-experts GPT models, distributed training, evaluation, and artifact export.</li>
-          <li>Completed stages survive a relaunch, and interrupted pretraining continues from its recorded checkpoint.</li>
-          <li>Validated on TinyPython — a synthetic task-to-function dataset of roughly 2.19 million examples, generated by this project and published on Hugging Face.</li>
-          <li>The documented architecture sweep covers 42 selected runs across 29 experiment families. Its strongest recorded configuration—a single deep modern-MoE run at ~10M active parameters—reached an 88.14% final Python-completion pass rate, just ahead of the dense control at 86.86%, but at much lower throughput.</li>
+          <li>Complete configurations remain the user-facing abstraction; stage identities are derived from the declared computation rather than manually assigned run names.</li>
+          <li>A fixed dependency graph covers data preparation, tokenizer training, pretraining, post-training, evaluation, and export, so equivalent upstream work can be shared across otherwise different experiments.</li>
+          <li>The executor claims only unresolved stages, respects configured concurrent-run and GPU limits, and prevents duplicate production of the same artifact.</li>
+          <li>Completed stages remain available after relaunch, while supported interrupted pretraining can continue from its recorded checkpoint.</li>
         </ul>
+        </section>
+        <section class="detail-section">
+          <h3>Validation and scope</h3>
+        <p>
+          Focused tests validate identity propagation, exclusive production, GPU allocation,
+          relaunch selection, export, and checkpoint restoration. The public TinyPython dataset and
+          a documented 42-run architecture sweep exercise the system as a complete training workload;
+          their model-quality results are supporting artifacts, not the report's primary contribution.
+        </p>
         <div class="note">
-          The technical report validates artifact identity, exclusive production, GPU allocation,
-          relaunch selection, export, and checkpoint restoration. Historical runs demonstrate reuse,
-          but do not establish aggregate time savings, utilisation, or multi-node scaling.
+          Historical runs establish real reuse opportunities, but the current evidence does not
+          measure aggregate time savings, utilisation, or multi-node scaling.
         </div>
         </section>
         <section class="detail-section">
@@ -1671,8 +1688,8 @@
         },
         'llm-light': {
           path: '/projects/llm-light/',
-          title: 'LLM-Light — Artifact-Addressed Training — Bertil Braun',
-          heading: 'LLM-Light — Artifact-Addressed Training Pipeline',
+          title: 'LLM-Light — Artifact-Addressed Execution — Bertil Braun',
+          heading: 'LLM-Light — Artifact-Addressed Execution',
           description: 'An artifact-addressed PyTorch pipeline for reproducible language-model data, training, distributed execution, evaluation, and experiment reuse.'
         },
         'agentic': {

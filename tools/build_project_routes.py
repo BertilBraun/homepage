@@ -28,13 +28,13 @@ PROJECT_ROUTES = (
     ),
     ProjectRoute(
         slug='llm-light',
-        title='LLM-Light — Artifact-Addressed Training — Bertil Braun',
-        description='An artifact-addressed PyTorch pipeline for reproducible language-model data, training, distributed execution, evaluation, and experiment reuse.',
+        title='LLM-Light — Artifact-Addressed Execution — Bertil Braun',
+        description='An experiment executor that resolves complete LLM configurations into reusable stage artifacts, schedules unresolved work across GPUs, and recovers completed stages after relaunch.',
     ),
     ProjectRoute(
         slug='agentic-llm-systems',
         title='Agentic LLM Systems — Bertil Braun',
-        description='Multi-agent systems for voice-first interaction and evidence-gated coding, backed by A2A, MCP, durable workflows, and observable tool execution.',
+        description='Three distinct projects spanning durable workflow execution, evidence-gated coding, and an independent A2A/MCP multi-agent story narrator.',
     ),
     ProjectRoute(
         slug='voice-light',
