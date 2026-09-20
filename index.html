@@ -1712,15 +1712,15 @@
           <h3>Headline evidence</h3>
           <table class="facts-table">
             <tbody>
-              <tr><th>Fragmentation excess</th><td><b>845 → 42</b> versus OC-SORT</td></tr>
-              <tr><th>Pairwise association</th><td><b>0.937 F1</b> (0.957 precision, 0.918 recall)</td></tr>
-              <tr><th>Exact reconstructions</th><td><b>11 of 21</b> development videos</td></tr>
+              <tr><th>Broken rider tracks</th><td><b>845 → 42</b> extra fragments versus OC-SORT</td></tr>
+              <tr><th>Exact outputs</th><td><b>11 of 21</b> development videos reconstructed without an identity error</td></tr>
+              <tr><th>Evaluation scale</th><td><b>41,004</b> detections across 88 rider identities</td></tr>
             </tbody>
           </table>
           <p class="note">
-            The benchmark contains 41,004 retained observations from 88 identities. Every method
-            receives the same saved observations, so it isolates association quality rather than
-            measuring detector recall or end-to-end tracking.
+            Every method receives the same saved detections. The comparison therefore measures how
+            well each tracker preserves rider identity over time, not how well it detects surfers in
+            the first place.
           </p>
         </section>
         <section class="detail-section">
@@ -1744,18 +1744,16 @@
           </p>
         </section>
         <section class="detail-section">
-          <h3>Evaluation and limitations</h3>
+          <h3>What the evaluation shows</h3>
           <p>
-            Staged revisions improved pairwise F1 from 0.893 to 0.937 and reduced contaminated tracks
-            from 20 to nine. The final system produced nine identity-mixed tracks out of 95, so it is
-            the selected operating point for this application—not a zero-error tracker or a general
-            ranking over modern tracking systems.
+            Using the complete recording to resolve ambiguous gaps produces much more continuous
+            rider tracks than the online baselines tested in the report. Some outputs still mix
+            identities, so complete-track review remains part of the workflow rather than treating
+            tracking as fully automatic.
           </p>
           <p class="note">
-            The 21 videos are an in-sample development set. Identity-conditioned trajectory smoothing
-            leaks information into the motion cue, BoT-SORT was evaluated without pedestrian ReID,
-            disappearances beyond three seconds can remain fragmented, and the pose-guided framing has
-            no independent cross-video stability benchmark. Complete-trajectory review is still required.
+            These are development-set results, not a held-out ranking of complete tracking systems.
+            The technical report contains the full protocol, ablations, and failure analysis.
           </p>
         </section>
         <section class="detail-section">
