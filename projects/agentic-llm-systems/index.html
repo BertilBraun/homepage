@@ -597,7 +597,7 @@
       background: var(--panel);
     }
 
-    .modal-head h2 { margin: 0; font-family: var(--serif); font-size: 1.48rem; font-weight: 400; line-height: 1.2; }
+    .modal-head h1 { margin: 0; font-family: var(--serif); font-size: 1.48rem; font-weight: 400; line-height: 1.2; }
 
     .modal-kicker {
       margin: 0 0 6px;
@@ -971,11 +971,10 @@
               <span class="kicker">LLM infrastructure · Technical report</span>
               <h4>LLM-Light — Artifact-Addressed Execution</h4>
               <p>
-                LLM-Light resolves complete experiment configurations into artifact-addressed stages,
-                preserving a self-contained experiment interface while sharing compatible work.
-                Its single-node executor coordinates exclusive artifact production, concurrent GPU
-                jobs, and relaunch recovery; focused tests validate identity propagation, GPU
-                allocation, export, and supported checkpoint restoration.
+                LLM-Light lets researchers submit complete end-to-end experiments while automatically
+                reusing compatible data, training, and evaluation artifacts across runs. Its
+                single-host executor prevents duplicate work, schedules concurrent GPU stages,
+                and preserves completed stages and supported pretraining checkpoints across relaunches.
               </p>
               <div class="chips">
                 <a class="chip paper" href="https://github.com/BertilBraun/LLM-Light/releases/download/Technical-Report/artifact-addressed-execution-llm-light.pdf" target="_blank" rel="noopener" data-stop>Technical report</a>
@@ -1011,7 +1010,7 @@
             <div class="tile-body">
               <span class="kicker">Speech · Real-time systems · Technical report</span>
               <h4>Voice-Light — Full-Duplex Streaming Voice Agent</h4>
-              <p>A deployed full-duplex voice agent that keeps listening while it speaks, handles interruptions and backchannels, and executes structured tools. The project spans synthetic and human data preparation, two trained adapters, locked evaluation, and a two-GPU streaming runtime; an eight-turn microphone run completed every turn with 783 ms median latency from the final voice-activity endpoint to browser-rendered audio.</p>
+              <p>A deployed full-duplex voice agent that keeps listening while it speaks, handles interruptions and backchannels, and executes structured tools. The project spans synthetic and human training data, two focused adapters, locked evaluation, and a two-GPU streaming runtime; in a warm eight-turn browser test, replies began playing a median 783 ms after the user stopped speaking.</p>
               <div class="chips">
                 <a class="chip live" href="https://voice.bertil-braun.de" target="_blank" rel="noopener" data-stop>
                   <span class="dot" aria-hidden="true"></span> Live demo
@@ -1038,10 +1037,11 @@
               <h4>GybeLock — Windsurfing Video Intelligence</h4>
               <p>
                 An offline computer-vision system that turns long-shot windsurfing footage into
-                stable, rider-relative videos using conservative local tracklets, camera-compensated
-                global association, and pose-guided framing. On a 21-video fixed-observation
-                development benchmark, it reduced fragmentation excess from 845 to 42 relative to
-                OC-SORT; the end-to-end system is available to try live.
+                stable rider-focused videos, preserving identity through camera movement, crossings,
+                and occlusion. In an evaluation using the same saved detections for every tracker, it
+                reconstructed 11 of 21 development videos without an identity error and produced far
+                fewer broken tracks than the tested online baselines; the end-to-end system is available
+                to try live.
               </p>
               <div class="chips">
                 <a class="chip live" href="https://gybelock.bertil-braun.de" target="_blank" rel="noopener" data-stop>
@@ -1070,7 +1070,7 @@
                 A graph-RL interface that scores individual traffic movements and deterministically
                 assembles them into each junction's legal signal phases. One parameter set executed
                 across five heterogeneous city networks and, within the matched grid family,
-                outperformed max-pressure control on an unseen 6×6 network at every tested demand.
+                exceeded the recorded max-pressure baseline on an unseen 6×6 network at every tested demand.
               </p>
               <div class="chips">
                 <a class="chip paper" href="https://arxiv.org/abs/2607.21831" target="_blank" rel="noopener" data-stop>arXiv report</a>
@@ -1317,58 +1317,49 @@
     <div class="cols">
       <div>
         <section class="detail-section">
-          <h3>Overview</h3>
-        <p>
-          Related LLM experiments often repeat expensive preparation or training work, yet manually
-          splitting them into partial workflows makes each experiment harder to understand and
-          reproduce. LLM-Light keeps every experiment as one complete, validated configuration and
-          automatically determines which intermediate computations are compatible with work that
-          already exists.
-        </p>
+          <h3>Project thesis</h3>
+          <p>
+            Related LLM experiments often repeat the same data preparation or training, but manually
+            splitting them into shared partial workflows makes each experiment harder to understand
+            and reproduce. LLM-Light keeps the researcher-facing abstraction simple: every experiment
+            remains one complete configuration, while the system discovers and reuses compatible work.
+          </p>
         </section>
         <section class="detail-section">
-          <h3>What the system demonstrates</h3>
-        <p>
-          A domain-specific execution layer for a fixed end-to-end LLM pipeline: typed configuration,
-          deterministic stage identities, a shared artifact store, exclusive production, concurrent
-          local execution, explicit GPU admission, export, and relaunch recovery. The specialization
-          lets stages own their identity and recovery semantics instead of exposing a general workflow
-          language.
-        </p>
+          <h3>What was built</h3>
+          <ul>
+            <li>A typed experiment schema covering data preparation, tokenization, pretraining, post-training, evaluation, and export.</li>
+            <li>Stable artifact identities derived from the settings that actually affect each stage and from its upstream dependencies.</li>
+            <li>A concurrent executor with GPU admission and identity-scoped locking, so compatible runs share one completed result instead of producing duplicates.</li>
+            <li>Durable manifests and checkpoint recovery that preserve completed work—and supported interrupted pretraining—across relaunches.</li>
+          </ul>
         </section>
         <section class="detail-section">
-          <h3>Artifact identity and reuse</h3>
-        <ul>
-          <li>Each identity combines the stage type, contract version, stage-relevant configuration, and parent identities. Run names do not affect computational-stage identity.</li>
-          <li>An evaluation-only change retains compatible data, tokenizer, packing, pretraining, and post-training outputs while invalidating evaluation and export.</li>
-          <li>In the report's worked branch, four complete configurations resolve to one pretraining artifact, two post-training artifacts, and four evaluations instead of independently producing four of each. This is a logical execution-count illustration, not a measured speedup.</li>
-        </ul>
+          <h3>How it works</h3>
+          <p>
+            When an experiment is submitted, LLM-Light resolves its fixed pipeline into addressed
+            artifacts. A matching completed artifact is selected immediately; only missing stages are
+            scheduled. An evaluation-only change can therefore retain the full training path, while a
+            pretraining change automatically invalidates everything downstream. Researchers still see
+            complete experiments rather than a manually assembled workflow graph.
+          </p>
         </section>
         <section class="detail-section">
-          <h3>Execution and recovery</h3>
-        <p>
-          Multiple runs advance under a configured concurrency limit, while GPU stages acquire
-          exclusive devices from an explicit local pool. Identity-scoped locking selects one producer
-          for a missing artifact; compatible waiting runs recheck the completed manifest and select
-          its output. Completed stages remain available after relaunch, and supported interrupted
-          pretraining can restore its recorded step, model, and optimizer state.
-        </p>
+          <h3>Evidence</h3>
+          <ul>
+            <li><strong>Avoided repetition:</strong> the report's four-configuration example resolves to one pretraining artifact, two post-training artifacts, and four evaluations instead of four independent copies of every stage.</li>
+            <li><strong>Mechanisms tested:</strong> focused tests cover shared-artifact selection, exclusive production, GPU allocation, export, relaunch behavior, and checkpoint restoration.</li>
+            <li><strong>Used end to end:</strong> 38 structurally complete archived runs across 20 experiment groups show the system operating across the full pipeline, with frequent reuse in preparation stages.</li>
+          </ul>
         </section>
         <section class="detail-section">
-          <h3>Validation and boundaries</h3>
-        <p>
-          Focused traces and tests cover selective invalidation, compatible identities, exclusive
-          production, GPU allocation, parallel submission, relaunch selection, export, and checkpoint
-          restoration. Four recovered archives contain 38 structurally complete runs across 20
-          experiment groups and show frequent preparation-stage compatibility.
-        </p>
-        <div class="note">
-          LLM-Light is a single-host executor using filesystem locks, not a general multi-node
-          scheduler. Correct reuse depends on complete declared inputs and manually maintained
-          contract versions; checkpoint continuation does not reproduce an uninterrupted trajectory
-          exactly. The report validates mechanisms and end-to-end use, not aggregate time savings,
-          utilisation, contention, or scaling.
-        </div>
+          <h3>What the report establishes</h3>
+          <p>
+            The project demonstrates a practical way to make LLM experiments reusable and restartable
+            without giving up complete, self-contained configurations. It is intentionally a
+            single-host executor for one fixed pipeline; the report validates the reuse and
+            recovery mechanisms, not aggregate speedups or multi-node scaling.
+          </p>
         </section>
         <section class="detail-section">
           <h3>Report and artifacts</h3>
@@ -1397,58 +1388,44 @@
       <div>
         <section class="detail-section">
           <h3>Project thesis</h3>
-        <p>
-          Voice-Light is an end-to-end investigation of natural, low-latency interaction in a
-          cascaded voice agent. It connects conversational data generation, automatic labeling,
-          model training, locked offline evaluation, causal interaction control, and scale-to-zero
-          GPU deployment in one measured development loop. The central result is the integrated
-          system—and the decision to retain learned components only where the evidence supports them.
-        </p>
-        </section>
-        <section class="detail-section">
-          <h3>Headline evidence</h3>
-        <ul>
-          <li><strong>Working public system.</strong> One warm microphone acceptance run completed all eight conversational and tool-using turns. Median latency was 677 ms to first server audio and 783 ms to browser-rendered audio; this is one session, not a population latency estimate.</li>
-          <li><strong>Successful but bounded training.</strong> On an 80-record synthetic holdout, the 1.7B LoRA improved correct tool decisions from 80.0% to 95.2% and concise spoken bridges from 7.6% to 94.3%. This establishes acquisition of the generated protocol, not general reasoning or factual accuracy.</li>
-          <li><strong>Evaluation changed production.</strong> The causal turn adapter did not beat the stronger Silero or LiveKit timing policies on the locked real-conversation benchmark, so production uses a hybrid controller rather than presenting the adapter as a standalone win.</li>
-          <li><strong>Architecture was measured.</strong> Isolating TTS on its own GPU reduced controlled warm first-word-to-audio time from roughly 622–712 ms to 346–353 ms, motivating the final two-GPU topology.</li>
-        </ul>
-        </section>
-        <section class="detail-section">
-          <h3>What was built</h3>
-        <ul>
-          <li><strong>Reproducible conversational data:</strong> 3,999 typed tool-use conversations, reconstructable synthetic turn-taking audio, and a 36.3-hour locked human corpus spanning 107 conversation-disjoint recordings.</li>
-          <li><strong>Two focused adapters:</strong> a language adapter for spoken tool protocols and a roughly 183k-parameter recurrent adapter for completion, floor-taking, and backchannel evidence.</li>
-          <li><strong>Causal evaluation:</strong> synthetic, human-validation, locked-test, and deployment evidence remain separate; thresholds were selected before opening locked tests.</li>
-          <li><strong>Full-duplex control:</strong> reversible ducking, interruption, backchannel resume, speculative generation, cancellation barriers, tools, and audible-only conversation history.</li>
-          <li><strong>Public deployment:</strong> a two-GPU Modal runtime with persistent caches and scale-to-zero operation, connected directly to a static browser client with live diagnostics.</li>
-        </ul>
-        </section>
-        <section class="detail-section">
-          <h3>System overview</h3>
           <p>
-            Microphone audio streams continuously to Nemotron, which performs ASR and supplies shared
-            encoder features to the causal adapter. Silero provides the immediate acoustic reaction,
-            while learned evidence helps distinguish completed turns, interruptions, and non-floor
-            feedback. A typed controller coordinates speculative Qwen generation, structured tools,
-            cancellation, and Kyutai speech synthesis. Browser acknowledgements determine what was
-            actually audible, so canceled or unheard text never enters durable conversation history.
+            Voice-Light explores what it takes to make a cascaded voice agent feel responsive and
+            conversational rather than turn-based. It connects training-data generation, model
+            adaptation, causal evaluation, interaction control, and public deployment in one system
+            that can keep listening while it speaks.
           </p>
         </section>
         <section class="detail-section">
-          <h3>Evaluation decisions and limitations</h3>
-        <p>
-          The trained 1.7B LoRA remains a published result, but live canary review favored the 4B
-          base model for conversational quality; that review was not a controlled comparison.
-          Synthetic turn pretraining transferred poorly to human conversation, and no detector met
-          the predefined V2 deployment gate, so the V2 test split remained unopened.
-        </p>
-        <div class="note">
-          The acceptance evidence comes from one warm eight-turn session, not a p50 or p95 estimate.
-          Cold readiness remains approximately 32–55 seconds. The public system is English-first and
-          single-session; microphone, network, browser, and host conditions affect observed latency,
-          and tool selection and factual generation remain fallible.
-        </div>
+          <h3>What was built</h3>
+          <ul>
+            <li>A reproducible data pipeline spanning 3,999 synthetic spoken-tool conversations and 36.3 hours of prepared human conversation.</li>
+            <li>A language adapter for natural spoken tool use and a causal speech adapter for completion, interruption, and backchannel evidence.</li>
+            <li>A full-duplex controller with reversible ducking, interruption, speculative generation, structured tools, and conversation history based only on audio the user actually heard.</li>
+            <li>A public two-GPU deployment with scale-to-zero operation, persistent model caches, browser playback acknowledgements, and live interaction diagnostics.</li>
+          </ul>
+        </section>
+        <section class="detail-section">
+          <h3>How the system works</h3>
+          <p>
+            Microphone audio streams continuously through speech recognition while the controller
+            combines immediate voice activity with learned turn-taking evidence. Language generation
+            can begin speculatively, tools run through typed interfaces, and speech synthesis is only
+            promoted while the underlying turn remains valid. Browser acknowledgements determine what
+            was actually audible, preventing canceled or unheard text from entering conversation history.
+          </p>
+        </section>
+        <section class="detail-section">
+          <h3>What the evaluation changed</h3>
+          <ul>
+            <li><strong>Responsive live path:</strong> a warm eight-turn microphone test completed every planned conversational and tool-using turn, with replies beginning in the browser a median 783 ms after the user stopped speaking.</li>
+            <li><strong>Measured deployment:</strong> moving speech synthesis to its own GPU cut controlled warm first-word-to-audio time from roughly 0.6–0.7 seconds to about 0.35 seconds.</li>
+            <li><strong>Evidence over novelty:</strong> the learned turn adapter did not outperform the strongest timing baselines on locked real conversations, so production uses it inside a hybrid controller rather than as a standalone replacement.</li>
+          </ul>
+          <p class="note">
+            The latency figure comes from one warm acceptance session, not a population estimate.
+            The report contains the complete locked-evaluation protocol, component results, and
+            deployment limitations.
+          </p>
         </section>
         <section class="detail-section">
           <h3>Demo, report, and artifacts</h3>
@@ -1491,54 +1468,51 @@
     <div class="cols">
       <div>
         <section class="detail-section">
-          <h3>Overview</h3>
-        <p>
-          Free-form language-model outputs are difficult to evaluate: conventional metrics need
-          reference answers, while human review is expensive and difficult to scale. This published
-          framework asks multiple language models to compare candidate outputs pairwise, counters
-          presentation-order bias by evaluating both directions, and converts the resulting
-          judgements into an interpretable Elo ranking.
-        </p>
-        <p>
-          The GEM² 2025 paper focuses on the evaluation method. The preceding master's thesis built
-          the broader competency-extraction system used as its experimental testbed, including
-          document processing, expert evaluation, synthetic preference data, and DPO fine-tuning.
-        </p>
+          <h3>Project thesis</h3>
+          <p>
+            Open-ended language-model outputs are difficult to compare when there is no single correct
+            answer. This published framework replaces reference-based scoring with repeated pairwise
+            judgements from several language models, then turns those comparisons into one ranked list.
+          </p>
         </section>
         <section class="detail-section">
-          <h3>Key evidence</h3>
-        <ul>
-          <li>Twenty domain experts supplied 5–10 of their own public research papers and ranked generated competency profiles against their knowledge of their work.</li>
-          <li>The strongest multi-model setting reached mean Spearman ρ = 0.83 and Kendall τ = 0.78. In plain terms, the automated ordering usually followed the experts' ordering closely.</li>
-          <li>Strict 90–100% consensus created too many draws and discarded useful signal; majority and no-threshold aggregation produced stronger agreement.</li>
-        </ul>
+          <h3>What was built</h3>
+          <ul>
+            <li>Candidate answers are compared in pairs, making a complex quality decision easier than assigning absolute scores.</li>
+            <li>Every pair is shown in both orders to expose and reduce presentation-order bias.</li>
+            <li>Several evaluator models contribute independent judgements instead of relying on one model's preferences.</li>
+            <li>Elo aggregation combines the comparisons into a stable ranking while preserving close calls as similar scores.</li>
+          </ul>
         </section>
         <section class="detail-section">
-          <h3>Evaluation method</h3>
-        <ul>
-          <li>Candidate outputs can come from different models, prompts, configurations, or generation methods.</li>
-          <li>Every pair is presented in both orders to reduce positional bias, and multiple evaluator models receive the same task-specific criterion.</li>
-          <li>Configurable agreement rules reconcile the model judgements; permutation-sampled Elo updates aggregate them into a global ranking.</li>
-          <li>The paper validates the method on competency profiles. Broader use for open-ended generation tasks remains an intended capability rather than a cross-task empirical result.</li>
-        </ul>
+          <h3>Evidence</h3>
+          <p>
+            Twenty domain experts ranked competency profiles generated from their own research
+            publications. The automated rankings usually followed the experts' ordering closely,
+            providing evidence that the method can recover useful preference structure without a
+            reference answer. Requiring near-unanimous model agreement created too many ties;
+            majority-based aggregation retained more useful signal.
+          </p>
         </section>
         <section class="detail-section">
-          <h3>Broader thesis system</h3>
-        <p>
-          The master's thesis developed the end-to-end competency-extraction application around
-          this evaluation problem. It compared extraction from abstracts, summaries, and full
-          documents; built expert and automated evaluation workflows; generated synthetic preference
-          data; and trained a 3.8B model with Direct Preference Optimization. Abstract-based
-          extraction was the strongest practical method. Fine-tuning improved the small model under
-          automatic evaluation, but expert review exposed evaluator overfitting and stronger general
-          models still performed better.
-        </p>
-        <div class="note">
-          The published results are preliminary: the expert pool contains 20 participants, exhaustive
-          bidirectional comparison scales quadratically, LLM judges retain model and style biases,
-          and Elo scores should not be mistaken for objective ground truth. Human review remains
-          appropriate for high-stakes decisions.
-        </div>
+          <h3>From thesis system to publication</h3>
+          <p>
+            The preceding master's thesis built the broader competency-extraction system used as the
+            experimental setting: document preparation, profile generation, expert review, synthetic
+            preference data, and Direct Preference Optimization of a smaller model. Expert evaluation
+            also exposed where automatic scores rewarded the evaluator rather than genuine quality,
+            motivating the more careful multi-model method published at GEM² 2025.
+          </p>
+        </section>
+        <section class="detail-section">
+          <h3>What the study establishes</h3>
+          <p>
+            The results support pairwise multi-model judging as a practical evaluation layer for
+            open-ended outputs. The published validation covers one competency-extraction task and
+            20 experts; it does not make Elo an objective quality measure or remove the need for human
+            review in high-stakes settings. The paper contains the full agreement statistics, cost
+            discussion, and bias analysis.
+          </p>
         </section>
         <section class="detail-section">
           <h3>Paper, thesis, and code</h3>
@@ -1582,47 +1556,40 @@
     <div class="cols">
       <div>
         <section class="detail-section">
-          <h3>Overview</h3>
-        <p>
-          Real traffic networks do not share a fixed action space: junctions differ in geometry,
-          legal movements, and the number and meaning of their signal phases. This project replaces
-          a fixed phase-output head with a reusable movement-level interface. A typed graph neural
-          network scores legal movements, while deterministic junction-specific incidence matrices
-          assemble those scores into valid phase choices.
-        </p>
+          <h3>Project thesis</h3>
+          <p>
+            Traffic junctions differ in geometry and in the signal phases they allow, so a controller
+            with one fixed set of outputs does not transfer cleanly between networks. This project
+            learns to score individual traffic movements instead; deterministic code then translates
+            those shared scores into the legal phase choices for each junction.
+          </p>
         </section>
         <section class="detail-section">
-          <h3>Interface and implementation</h3>
-        <ul>
-          <li>Directed corridor nodes carry traffic context; movement nodes represent controlled input-to-output paths through junctions.</li>
-          <li>Two typed message-passing blocks combine upstream demand and downstream capacity before producing one scalar per movement.</li>
-          <li>Each junction's incidence matrix converts movement scores into its own legal phase logits, while deterministic runtime logic applies availability, minimum-green, and yellow-transition constraints.</li>
-          <li>Graph size and local phase count do not change the learned parameter shapes. One parameter set executed across five city networks spanning 41–84 controlled junctions and 2–12 phases per junction.</li>
-        </ul>
+          <h3>What was built</h3>
+          <ul>
+            <li>A graph representation that separates road corridors from the legal movements through each junction.</li>
+            <li>A shared graph neural network that combines upstream demand and downstream capacity into one score per movement.</li>
+            <li>A deterministic action layer that converts those scores into each junction's own legal phases and enforces timing and transition constraints.</li>
+            <li>A PPO training and SUMO evaluation pipeline covering synthetic grids and five heterogeneous city-scale networks.</li>
+          </ul>
         </section>
         <section class="detail-section">
-          <h3>Evaluation</h3>
-        <ul>
-          <li><strong>Synthetic transfer:</strong> policies trained on mixed grid geometries were evaluated on unseen sizes and aspect ratios from the same generator family.</li>
-          <li><strong>Unseen 6×6 grid:</strong> sampled control exceeded the recorded max-pressure implementation in throughput and completion at demand scales 0.6, 0.7, and 0.8; completion improved by 3.5, 6.6, and 10.6 percentage points.</li>
-          <li><strong>Coverage shift:</strong> reducing signal coverage degraded performance even though the graph remained structurally executable, showing that architectural compatibility does not imply robustness.</li>
-          <li><strong>City feasibility:</strong> one policy-training run executed across Karlsruhe, Mannheim, Stuttgart, Heidelberg, and Freiburg. Results varied by city; Stuttgart was the only city omitted from rollout training.</li>
-        </ul>
+          <h3>Evidence</h3>
+          <ul>
+            <li><strong>One model, different networks:</strong> the same learned parameters executed across five city simulations with 41–84 controlled junctions and 2–12 selectable phases per junction.</li>
+            <li><strong>Transfer within a known family:</strong> policies trained on mixed grid layouts retained performance on unseen sizes and aspect ratios; on an unseen 6×6 grid, the recorded policy exceeded the max-pressure baseline at every tested demand.</li>
+            <li><strong>A useful failure case:</strong> performance weakened when the proportion of controlled signals changed, showing that structural compatibility alone does not guarantee robustness to a different operating distribution.</li>
+          </ul>
         </section>
         <section class="detail-section">
-          <h3>Interpretation and limitations</h3>
-        <p>
-          The primary result is a working variable-topology, variable-action-space interface. The
-          experiments provide bounded feasibility evidence; they do not establish universal transfer
-          to arbitrary road networks or consistent superiority over classical control.
-        </p>
-        <div class="note">
-          Learned actions were selected every 5 seconds while max-pressure and queue baselines
-          recomputed every 10 seconds, so performance comparisons include a control-frequency
-          confound. City results use one policy-training seed and three traffic seeds per city;
-          sampled execution outperformed greedy execution; and SUMO-derived phases are not formally
-          verified real-world signal plans.
-        </div>
+          <h3>What the study establishes</h3>
+          <p>
+            The primary result is a working interface whose model shape does not depend on network
+            size or the number of phases at each junction. The simulations provide bounded evidence
+            of trainability and transfer within the tested network families, not a claim of universal
+            superiority or readiness for real-world signal control. The report contains the exact
+            protocols, mixed city outcomes, and comparison qualifications.
+          </p>
         </section>
         <section class="detail-section">
           <h3>Report and code</h3>
@@ -1713,7 +1680,7 @@
           <h3>Headline evidence</h3>
           <table class="facts-table">
             <tbody>
-              <tr><th>Broken rider tracks</th><td><b>845 → 42</b> extra fragments versus OC-SORT</td></tr>
+              <tr><th>Broken rider tracks</th><td><b>845 → 42</b> excess fragments, OC-SORT → GybeLock</td></tr>
               <tr><th>Exact outputs</th><td><b>11 of 21</b> development videos reconstructed without an identity error</td></tr>
               <tr><th>Evaluation scale</th><td><b>41,004</b> detections across 88 rider identities</td></tr>
             </tbody>
@@ -1727,11 +1694,11 @@
         <section class="detail-section">
           <h3>What was built</h3>
           <ul>
-            <li>A custom YOLO11m-pose model that detects surfers and two rig keypoints: the boom–mast junction and mast tip.</li>
-            <li>High-purity local tracklets built from camera-compensated motion and foreground-masked sail-colour descriptors.</li>
-            <li>An integer-programming stage that selects tracklet starts, ends, discards, and globally compatible continuations.</li>
-            <li>Dense trajectory reconstruction and pose-guided anchor and scale signals for a stable rider-relative virtual camera.</li>
-            <li>A React, Firebase, FastAPI, and Modal application with an equivalent local path for debugging failed examples.</li>
+            <li>A custom pose model that detects surfers and the two rig points needed to frame them consistently.</li>
+            <li>Local tracking that combines camera-compensated motion with sail appearance to form reliable short track segments.</li>
+            <li>An offline global-association stage that uses the complete recording to reconnect compatible segments across difficult gaps.</li>
+            <li>A pose-guided virtual camera that turns reconstructed trajectories into stable rider-focused footage.</li>
+            <li>A deployed web application and GPU processing pipeline, plus an equivalent local path for debugging failed examples.</li>
           </ul>
         </section>
         <section class="detail-section">
@@ -1745,7 +1712,7 @@
           </p>
         </section>
         <section class="detail-section">
-          <h3>What the evaluation shows</h3>
+          <h3>What the report establishes</h3>
           <p>
             Using the complete recording to resolve ambiguous gaps produces much more continuous
             rider tracks than the online baselines tested in the report. Some outputs still mix
@@ -1831,7 +1798,7 @@
       </article>
       <article class="writing-item">
         <div>
-          <p class="writing-meta">Bachelor's thesis · Software verification</p>
+          <p class="writing-meta">Bachelor's thesis · Software verification · 2023</p>
           <h3>Evaluation of the Bounded Model Checkers JJBMC Based on a Case Study (BlockQuickSort)</h3>
           <p class="writing-summary">A JML and bounded-model-checking case study of the correctness of BlockQuickSort.</p>
         </div>
@@ -1847,7 +1814,7 @@
       <div class="modal-head">
         <div>
           <p class="modal-kicker" id="modal-kicker"></p>
-          <h2 id="modal-title"></h2>
+          <h1 id="modal-title"></h1>
         </div>
         <button class="modal-close" type="button" aria-label="Close project details">&times;</button>
       </div>
@@ -1876,7 +1843,7 @@
           path: '/projects/llm-light/',
           title: 'LLM-Light — Artifact-Addressed Execution — Bertil Braun',
           heading: 'LLM-Light — Artifact-Addressed Execution',
-          description: 'A single-host LLM experiment executor that resolves complete configurations into reusable stage artifacts, schedules concurrent GPU work, and recovers completed stages after relaunch.'
+          description: 'An experiment system that keeps end-to-end LLM configurations self-contained while reusing compatible work, scheduling concurrent GPU stages, and preserving progress across relaunches.'
         },
         'agentic': {
           path: '/projects/agentic-llm-systems/',
@@ -1888,25 +1855,25 @@
           path: '/projects/voice-light/',
           title: 'Voice-Light — Full-Duplex Streaming Voice Agent — Bertil Braun',
           heading: 'Voice-Light — Full-Duplex Streaming Voice Agent',
-          description: 'A measured end-to-end voice-agent project spanning data preparation, two trained adapters, locked evaluation, and a live full-duplex two-GPU streaming deployment.'
+          description: 'A live full-duplex voice agent spanning conversational training data, model adaptation, causal evaluation, interruption-aware control, and two-GPU streaming deployment.'
         },
         'llm-eval': {
           path: '/projects/scalable-llm-evaluation/',
-          title: 'Scalable Automated LLM Evaluation — Bertil Braun',
-          heading: 'Scalable Reliable Automated Evaluation with LLMs',
+          title: 'Scalable Automated Evaluation with LLMs — Bertil Braun',
+          heading: 'Scalable Automated Evaluation with LLMs',
           description: 'A reference-free evaluation framework combining bidirectional pairwise LLM judgments with Elo aggregation, validated against rankings from 20 experts and published at GEM² 2025.'
         },
         'gybelock': {
           path: '/projects/gybelock/',
           title: 'GybeLock — Offline Windsurfing Video Tracking — Bertil Braun',
           heading: 'GybeLock — Windsurfing Video Intelligence',
-          description: 'An offline computer-vision system for long-shot windsurfing footage, combining camera-compensated global association, sail-specific appearance, and pose-guided rider framing.'
+          description: 'An offline computer-vision system that preserves rider identity through difficult windsurfing footage and produces stable rider-focused videos in a live application.'
         },
         'gnn': {
           path: '/projects/traffic-signal-control/',
           title: 'Graph-Based Traffic Signal Control — Bertil Braun',
           heading: 'Graph-Based Traffic Signal Control',
-          description: 'A graph-RL control interface that maps shared movement scores into variable junction-specific legal phase sets, validated across heterogeneous simulated road networks.'
+          description: 'A graph-based reinforcement-learning controller that applies one learned movement-scoring model across road networks with different junction layouts and legal signal phases.'
         },
         'aws-light': {
           path: '/projects/aws-light/',
@@ -1920,6 +1887,12 @@
         title: 'Bertil Braun — Applied ML Research Engineer',
         description: 'Bertil Braun builds and evaluates end-to-end ML systems across language-model agents, scalable training infrastructure, distributed systems, reinforcement learning, and deployment.',
         path: '/'
+      };
+
+      var writingMetadata = {
+        title: 'Writing — Bertil Braun',
+        description: 'Papers, technical reports, and theses covering machine-learning systems, language-model evaluation, speech, computer vision, graph reinforcement learning, and software verification.',
+        path: '/writing/'
       };
 
       var page = document.querySelector('.page');
@@ -1946,8 +1919,12 @@
         return Object.keys(projects).find(function (key) { return projects[key].path === path; }) || null;
       }
 
+      function isWritingPath() {
+        return window.location.pathname.replace(/\/+$/, '') + '/' === writingMetadata.path;
+      }
+
       function setMetadata(key) {
-        var metadata = key ? projects[key] : homeMetadata;
+        var metadata = key === 'writing' ? writingMetadata : (key ? projects[key] : homeMetadata);
         document.title = metadata.title;
         document.querySelector('meta[name="description"]').content = metadata.description;
         document.querySelector('link[rel="canonical"]').href = 'https://bertil-braun.de' + metadata.path;
@@ -1976,16 +1953,18 @@
         modal.hidden = false;
         modal.classList.add('open');
         page.inert = true;
+        page.setAttribute('aria-hidden', 'true');
         skipLink.inert = true;
+        skipLink.setAttribute('aria-hidden', 'true');
         lockScroll(true);
         panel.scrollTop = 0;
         setMetadata(key);
         closeBtn.focus();
       }
 
-      function openWriting() {
+      function openWriting(rememberFocus) {
         var tpl = document.getElementById('tpl-writing');
-        lastFocused = document.activeElement;
+        if (rememberFocus !== false && modal.hidden) lastFocused = document.activeElement;
         modalKind = 'writing';
         title.textContent = 'Writing';
         kicker.textContent = tpl.dataset.kicker || '';
@@ -1994,10 +1973,12 @@
         modal.hidden = false;
         modal.classList.add('open');
         page.inert = true;
+        page.setAttribute('aria-hidden', 'true');
         skipLink.inert = true;
+        skipLink.setAttribute('aria-hidden', 'true');
         lockScroll(true);
         panel.scrollTop = 0;
-        setMetadata(null);
+        setMetadata('writing');
         closeBtn.focus();
       }
 
@@ -2006,7 +1987,9 @@
         modal.hidden = true;
         body.replaceChildren();
         page.inert = false;
+        page.removeAttribute('aria-hidden');
         skipLink.inert = false;
+        skipLink.removeAttribute('aria-hidden');
         modalKind = null;
         if (lightbox.hidden) lockScroll(false);
         setMetadata(null);
@@ -2019,11 +2002,12 @@
         openProject(key, true);
       }
 
+      function navigateToWriting() {
+        window.history.pushState({ writing: true, modalEntry: true }, '', writingMetadata.path);
+        openWriting(true);
+      }
+
       function requestProjectClose() {
-        if (modalKind === 'writing') {
-          closeProject(true);
-          return;
-        }
         if (window.history.state && window.history.state.modalEntry) {
           window.history.back();
           return;
@@ -2041,9 +2025,14 @@
         lbLastFocused = document.activeElement;
         if (modal.hidden) {
           page.inert = true;
+          page.setAttribute('aria-hidden', 'true');
           skipLink.inert = true;
+          skipLink.setAttribute('aria-hidden', 'true');
         }
-        else modal.inert = true;
+        else {
+          modal.inert = true;
+          modal.setAttribute('aria-hidden', 'true');
+        }
         lightbox.hidden = false;
         lightbox.classList.add('open');
         lockScroll(true);
@@ -2056,9 +2045,14 @@
         lbImg.removeAttribute('src');
         if (modal.hidden) {
           page.inert = false;
+          page.removeAttribute('aria-hidden');
           skipLink.inert = false;
+          skipLink.removeAttribute('aria-hidden');
           lockScroll(false);
-        } else modal.inert = false;
+        } else {
+          modal.inert = false;
+          modal.removeAttribute('aria-hidden');
+        }
         if (lbLastFocused && document.contains(lbLastFocused)) lbLastFocused.focus();
       }
 
@@ -2091,7 +2085,7 @@
       });
 
       closeBtn.addEventListener('click', requestProjectClose);
-      writingButton.addEventListener('click', openWriting);
+      writingButton.addEventListener('click', navigateToWriting);
       modal.addEventListener('click', function (event) { if (event.target === modal) requestProjectClose(); });
       lbClose.addEventListener('click', closeLightbox);
       lightbox.addEventListener('click', function (event) {
@@ -2158,12 +2152,15 @@
       window.addEventListener('popstate', function () {
         var key = projectKeyFromPath();
         if (key) openProject(key, true);
+        else if (isWritingPath()) openWriting(true);
         else closeProject(true);
       });
 
       var initialProject = projectKeyFromPath();
-      window.history.replaceState({ project: initialProject, modalEntry: false }, '', window.location.href);
+      var initialWriting = isWritingPath();
+      window.history.replaceState({ project: initialProject, writing: initialWriting, modalEntry: false }, '', window.location.href);
       if (initialProject) openProject(initialProject, false);
+      else if (initialWriting) openWriting(false);
       else setMetadata(null);
     })();
   </script>

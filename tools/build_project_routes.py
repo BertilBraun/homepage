@@ -10,56 +10,57 @@ SOURCE_PATH = REPOSITORY_ROOT / 'index.html'
 
 
 @dataclass(frozen=True)
-class ProjectRoute:
-    slug: str
+class PageRoute:
+    path: str
     title: str
     description: str
 
-    @property
-    def path(self) -> str:
-        return f'/projects/{self.slug}/'
 
-
-PROJECT_ROUTES = (
-    ProjectRoute(
-        slug='alphazero',
+PAGE_ROUTES = (
+    PageRoute(
+        path='/projects/alphazero/',
         title='AlphaZero-Style Chess & Go Engine — Bertil Braun',
         description='A production-oriented AlphaZero-style chess and Go system with native C++ search, distributed self-play training, rigorous Stockfish evaluation, and a live application.',
     ),
-    ProjectRoute(
-        slug='llm-light',
+    PageRoute(
+        path='/projects/llm-light/',
         title='LLM-Light — Artifact-Addressed Execution — Bertil Braun',
-        description='An experiment executor that resolves complete LLM configurations into reusable stage artifacts, schedules unresolved work across GPUs, and recovers completed stages after relaunch.',
+        description='An experiment system that keeps end-to-end LLM configurations self-contained while reusing compatible work, scheduling concurrent GPU stages, and preserving progress across relaunches.',
     ),
-    ProjectRoute(
-        slug='agentic-llm-systems',
+    PageRoute(
+        path='/projects/agentic-llm-systems/',
         title='Agentic LLM Systems — Bertil Braun',
         description='Three distinct projects spanning durable workflow execution, evidence-gated coding, and an independent A2A/MCP multi-agent story narrator.',
     ),
-    ProjectRoute(
-        slug='voice-light',
+    PageRoute(
+        path='/projects/voice-light/',
         title='Voice-Light — Full-Duplex Streaming Voice Agent — Bertil Braun',
-        description='A measured end-to-end voice-agent project spanning data preparation, two trained adapters, locked evaluation, and a live full-duplex two-GPU streaming deployment.',
+        description='A live full-duplex voice agent spanning conversational training data, model adaptation, causal evaluation, interruption-aware control, and two-GPU streaming deployment.',
     ),
-    ProjectRoute(
-        slug='scalable-llm-evaluation',
-        title='Scalable Automated LLM Evaluation — Bertil Braun',
+    PageRoute(
+        path='/projects/scalable-llm-evaluation/',
+        title='Scalable Automated Evaluation with LLMs — Bertil Braun',
         description='A reference-free evaluation framework combining bidirectional pairwise LLM judgments with Elo aggregation, validated against rankings from 20 experts and published at GEM² 2025.',
     ),
-    ProjectRoute(
-        slug='gybelock',
+    PageRoute(
+        path='/projects/gybelock/',
         title='GybeLock — Offline Windsurfing Video Tracking — Bertil Braun',
-        description='An offline computer-vision system for long-shot windsurfing footage, combining camera-compensated global association, sail-specific appearance, and pose-guided rider framing.',
+        description='An offline computer-vision system that preserves rider identity through difficult windsurfing footage and produces stable rider-focused videos in a live application.',
     ),
-    ProjectRoute(
-        slug='traffic-signal-control',
+    PageRoute(
+        path='/projects/traffic-signal-control/',
         title='Graph-Based Traffic Signal Control — Bertil Braun',
-        description='A graph-RL control interface that maps shared movement scores into variable junction-specific legal phase sets, validated across heterogeneous simulated road networks.',
+        description='A graph-based reinforcement-learning controller that applies one learned movement-scoring model across road networks with different junction layouts and legal signal phases.',
     ),
-    ProjectRoute(
-        slug='aws-light',
+    PageRoute(
+        path='/projects/aws-light/',
         title='AWS-Light — Local Cloud Platform — Bertil Braun',
         description='A readable local cloud-platform simulator with declarative manifests, orchestration, ingress policy, storage, databases, health checks, and autoscaling.',
+    ),
+    PageRoute(
+        path='/writing/',
+        title='Writing — Bertil Braun',
+        description='Papers, technical reports, and theses covering machine-learning systems, language-model evaluation, speech, computer vision, graph reinforcement learning, and software verification.',
     ),
 )
 
@@ -71,7 +72,7 @@ def replace_once(document: str, pattern: str, replacement: str) -> str:
     return updated_document
 
 
-def render_route(source: str, route: ProjectRoute) -> str:
+def render_route(source: str, route: PageRoute) -> str:
     canonical_url = f'https://bertil-braun.de{route.path}'
     document = source.replace(
         '<!doctype html>',
@@ -113,8 +114,8 @@ def render_route(source: str, route: ProjectRoute) -> str:
 
 def build_routes() -> None:
     source = SOURCE_PATH.read_text(encoding='utf-8')
-    for route in PROJECT_ROUTES:
-        output_directory = REPOSITORY_ROOT / 'projects' / route.slug
+    for route in PAGE_ROUTES:
+        output_directory = REPOSITORY_ROOT / route.path.strip('/')
         output_directory.mkdir(parents=True, exist_ok=True)
         (output_directory / 'index.html').write_text(render_route(source, route), encoding='utf-8', newline='\n')
 
