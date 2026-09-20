@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <base href="/">
   <title>Scalable Automated LLM Evaluation — Bertil Braun</title>
-  <meta name="description" content="GEM² 2025 research on pairwise LLM evaluation and Elo aggregation for open-ended outputs, alongside a domain-agnostic competency-extraction thesis.">
+  <meta name="description" content="A reference-free evaluation framework combining bidirectional pairwise LLM judgments with Elo aggregation, validated against rankings from 20 experts and published at GEM² 2025.">
   <meta name="author" content="Bertil Braun">
   <link rel="canonical" href="https://bertil-braun.de/projects/scalable-llm-evaluation/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Scalable Automated LLM Evaluation — Bertil Braun">
-  <meta property="og:description" content="GEM² 2025 research on pairwise LLM evaluation and Elo aggregation for open-ended outputs, alongside a domain-agnostic competency-extraction thesis.">
+  <meta property="og:description" content="A reference-free evaluation framework combining bidirectional pairwise LLM judgments with Elo aggregation, validated against rankings from 20 experts and published at GEM² 2025.">
   <meta property="og:url" content="https://bertil-braun.de/projects/scalable-llm-evaluation/">
   <meta property="og:image" content="https://bertil-braun.de/assets/social-card.png">
   <meta property="og:image:width" content="1200">
@@ -19,7 +19,7 @@
   <meta property="og:image:alt" content="Bertil Braun — Applied ML Research Engineer in Karlsruhe, working across language-model agents, scalable training, distributed systems, reinforcement learning, and evaluation.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Scalable Automated LLM Evaluation — Bertil Braun">
-  <meta name="twitter:description" content="GEM² 2025 research on pairwise LLM evaluation and Elo aggregation for open-ended outputs, alongside a domain-agnostic competency-extraction thesis.">
+  <meta name="twitter:description" content="A reference-free evaluation framework combining bidirectional pairwise LLM judgments with Elo aggregation, validated against rankings from 20 experts and published at GEM² 2025.">
   <meta name="twitter:image" content="https://bertil-braun.de/assets/social-card.png">
   <meta name="theme-color" content="#fbfaf7">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2316615a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' fill='%23fbfaf7' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
@@ -949,26 +949,26 @@
           <article class="tile wide" data-open="llm-light" data-tags="language publication">
             <figure class="tile-media">
               <button class="shot" type="button" data-stop
-                      data-src="assets/llm-light.webp"
-                      data-caption="Four complete configurations resolve into seven distinct artifacts. Run naively that would be 4 pretrainings + 4 post-trainings + 4 evaluations; the resolved plan is 1 + 2 + 4.">
-                <img src="assets/llm-light.webp" alt="Diagram showing four experiment configurations resolving into seven shared training and evaluation artifacts" loading="lazy" decoding="async">
+                      data-src="assets/llm-light-card.svg"
+                      data-caption="Four complete experiment configurations resolve to one shared pretraining artifact, two post-training artifacts, and four evaluation artifacts.">
+                <img src="assets/llm-light-card.svg" alt="Four complete experiment configurations resolve to one shared pretraining artifact, two post-training artifacts, and four evaluation artifacts" loading="lazy" decoding="async">
               </button>
             </figure>
             <div class="tile-body">
-              <span class="kicker">LLM systems · Technical report</span>
+              <span class="kicker">LLM infrastructure · Technical report</span>
               <h4>LLM-Light — Artifact-Addressed Execution</h4>
               <p>
-                An experiment executor that keeps complete LLM configurations self-contained while
-                resolving them into artifact-addressed stages over a fixed training pipeline.
-                Compatible runs converge on shared completed artifacts; unresolved work is scheduled
-                across a configured GPU pool, and completed stages plus supported pretraining
-                checkpoints survive relaunches.
+                LLM-Light resolves complete experiment configurations into artifact-addressed stages,
+                preserving a self-contained experiment interface while sharing compatible work.
+                Its single-node executor coordinates exclusive artifact production, concurrent GPU
+                jobs, and relaunch recovery; focused tests validate identity propagation, GPU
+                allocation, export, and supported checkpoint restoration.
               </p>
               <div class="chips">
                 <a class="chip paper" href="https://github.com/BertilBraun/LLM-Light/releases/download/Technical-Report/artifact-addressed-execution-llm-light.pdf" target="_blank" rel="noopener" data-stop>Technical report</a>
                 <span class="chip">Artifact-addressed execution</span>
-                <span class="chip">Experiment reuse</span>
-                <span class="chip">GPU scheduling</span>
+                <span class="chip">Cross-run artifact reuse</span>
+                <span class="chip">Concurrent GPU execution</span>
                 <span class="chip">Relaunch recovery</span>
               </div>
               <a class="cue" href="/projects/llm-light/" data-project-link="llm-light">Project details &amp; artifacts →</a>
@@ -976,37 +976,37 @@
           </article>
 
           <article class="tile" data-open="llm-eval" data-tags="language publication">
-            <span class="thumb fit"><img src="assets/llm-eval.webp" alt="Data-flow diagram of the competency extraction pipeline" loading="lazy" decoding="async"></span>
+            <span class="thumb fit"><img src="assets/llm-eval-card.svg" alt="Candidate outputs are compared in both orders by multiple language-model judges and aggregated into an Elo ranking" loading="lazy" decoding="async"></span>
             <div class="tile-body">
-              <span class="kicker">Research · GEM² 2025</span>
+              <span class="kicker">LLM evaluation · GEM² 2025</span>
               <h4>Scalable Automated Evaluation with LLMs</h4>
-              <p>A published research framework for evaluating open-ended LLM output when no reference answer exists. Multiple evaluator models perform bidirectional pairwise comparisons and aggregate them into robust Elo rankings, producing rankings that agreed strongly with judgements from 20 domain experts.</p>
+              <p>A reference-free framework for ranking open-ended LLM outputs when no ground-truth answer exists. Multiple models judge every pair in both orders, and Elo aggregation produced rankings that agreed strongly with rankings from 20 domain experts.</p>
               <div class="chips">
                 <a class="chip paper" href="https://aclanthology.org/2025.gem-1.28/" target="_blank" rel="noopener" data-stop>GEM² 2025 paper</a>
-                <span class="chip">Synthetic preference data</span>
+                <span class="chip">Multi-model judging</span>
+                <span class="chip">Bidirectional comparisons</span>
                 <span class="chip">Pairwise Elo</span>
-                <span class="chip">Direct preference optimization</span>
               </div>
-              <a class="cue" href="/projects/scalable-llm-evaluation/" data-project-link="llm-eval">Project details &amp; thesis →</a>
+              <a class="cue" href="/projects/scalable-llm-evaluation/" data-project-link="llm-eval">Method, results &amp; thesis →</a>
             </div>
           </article>
 
           <article class="tile wide span2" data-open="voice-light" data-tags="language publication live">
             <figure class="tile-media voice-portrait">
-              <img src="assets/voice-light-card.svg" alt="Five stages of Voice-Light: training data, causal labeling, adapter training, streaming deployment, and a live full-duplex browser agent" loading="lazy" decoding="async">
+              <img src="assets/voice-light-card.svg" alt="Tool-use and turn-taking data feed two focused adapters and a hybrid streaming runtime for the live full-duplex browser agent" loading="lazy" decoding="async">
             </figure>
             <div class="tile-body">
               <span class="kicker">Speech · Real-time systems · Technical report</span>
               <h4>Voice-Light — Full-Duplex Streaming Voice Agent</h4>
-              <p>A deployed full-duplex voice agent that listens and speaks concurrently, handles interruptions and backchannels, and executes tools. The project combines synthetic data, automatic labeling, model training, causal turn-taking, and a two-GPU streaming runtime, with a measured 783 ms median response time.</p>
+              <p>A deployed full-duplex voice agent that keeps listening while it speaks, handles interruptions and backchannels, and executes structured tools. The project spans synthetic and human data preparation, two trained adapters, locked evaluation, and a two-GPU streaming runtime; an eight-turn microphone run completed every turn with 783 ms median latency from the final voice-activity endpoint to browser-rendered audio.</p>
               <div class="chips">
                 <a class="chip live" href="https://voice.bertil-braun.de" target="_blank" rel="noopener" data-stop>
                   <span class="dot" aria-hidden="true"></span> Live demo
                 </a>
                 <a class="chip paper" href="https://github.com/BertilBraun/Voice-Light/releases/download/v1.0.1/voice-light-technical-report.pdf" target="_blank" rel="noopener" data-stop>Technical report</a>
-                <span class="chip">Synthetic training data</span>
-                <span class="chip">Model training</span>
+                <span class="chip">Full-duplex streaming</span>
                 <span class="chip">Causal turn-taking</span>
+                <span class="chip">Synthetic training data</span>
               </div>
               <a class="cue" href="/projects/voice-light/" data-project-link="voice-light">Project details, results &amp; artifacts →</a>
             </div>
@@ -1051,18 +1051,16 @@
               <span class="kicker">Graph RL · Technical report</span>
               <h4>Graph-Based Traffic Signal Control</h4>
               <p>
-                A topology-flexible reinforcement-learning controller for heterogeneous urban
-                traffic networks. Its graph policy scores road movements while deterministic
-                incidence matrices construct each junction’s legal actions, allowing one parameter
-                set to control networks with 41–84 junctions and 2–12 phases each; on an unseen 6×6
-                grid it beat max pressure at every tested demand level by 3.5–10.6 completion-rate
-                percentage points.
+                A graph-RL interface that scores individual traffic movements and deterministically
+                assembles them into each junction's legal signal phases. One parameter set executed
+                across five heterogeneous city networks and, within the matched grid family,
+                outperformed max-pressure control on an unseen 6×6 network at every tested demand.
               </p>
               <div class="chips">
                 <a class="chip paper" href="https://arxiv.org/abs/2607.21831" target="_blank" rel="noopener" data-stop>arXiv report</a>
-                <span class="chip">Graph neural networks</span>
-                <span class="chip">PPO</span>
-                <span class="chip">SUMO · OpenStreetMap</span>
+                <span class="chip">Graph neural network</span>
+                <span class="chip">Variable action spaces</span>
+                <span class="chip">PPO · SUMO</span>
               </div>
               <a class="cue" href="/projects/traffic-signal-control/" data-project-link="gnn">Project details →</a>
             </div>
@@ -1299,39 +1297,61 @@
     </div>
   </template>
 
-  <template id="tpl-llm-light" data-kicker="LLM systems · Technical report">
+  <template id="tpl-llm-light" data-kicker="LLM infrastructure · Technical report">
     <div class="cols">
       <div>
         <section class="detail-section">
-          <h3>Project thesis</h3>
+          <h3>Overview</h3>
         <p>
-          An experiment executor that lets researchers keep each LLM experiment as a complete,
-          self-contained configuration without recomputing compatible work. LLM-Light resolves those
-          configurations into stage-addressed computations over a fixed pipeline; compatible runs
-          converge on one completed artifact and unresolved stages execute within configured run and
-          GPU limits.
+          Related LLM experiments often repeat expensive preparation or training work, yet manually
+          splitting them into partial workflows makes each experiment harder to understand and
+          reproduce. LLM-Light keeps every experiment as one complete, validated configuration and
+          automatically determines which intermediate computations are compatible with work that
+          already exists.
         </p>
         </section>
         <section class="detail-section">
-          <h3>Execution model</h3>
+          <h3>What the system demonstrates</h3>
+        <p>
+          A domain-specific execution layer for a fixed end-to-end LLM pipeline: typed configuration,
+          deterministic stage identities, a shared artifact store, exclusive production, concurrent
+          local execution, explicit GPU admission, export, and relaunch recovery. The specialization
+          lets stages own their identity and recovery semantics instead of exposing a general workflow
+          language.
+        </p>
+        </section>
+        <section class="detail-section">
+          <h3>Artifact identity and reuse</h3>
         <ul>
-          <li>Complete configurations remain the user-facing abstraction; stage identities are derived from the declared computation rather than manually assigned run names.</li>
-          <li>A fixed dependency graph covers data preparation, tokenizer training, pretraining, post-training, evaluation, and export, so equivalent upstream work can be shared across otherwise different experiments.</li>
-          <li>The executor claims only unresolved stages, respects configured concurrent-run and GPU limits, and prevents duplicate production of the same artifact.</li>
-          <li>Completed stages remain available after relaunch, while supported interrupted pretraining can continue from its recorded checkpoint.</li>
+          <li>Each identity combines the stage type, contract version, stage-relevant configuration, and parent identities. Run names do not affect computational-stage identity.</li>
+          <li>An evaluation-only change retains compatible data, tokenizer, packing, pretraining, and post-training outputs while invalidating evaluation and export.</li>
+          <li>In the report's worked branch, four complete configurations resolve to one pretraining artifact, two post-training artifacts, and four evaluations instead of independently producing four of each. This is a logical execution-count illustration, not a measured speedup.</li>
         </ul>
         </section>
         <section class="detail-section">
-          <h3>Validation and scope</h3>
+          <h3>Execution and recovery</h3>
         <p>
-          Focused tests validate identity propagation, exclusive production, GPU allocation,
-          relaunch selection, export, and checkpoint restoration. The public TinyPython dataset and
-          a documented 42-run architecture sweep exercise the system as a complete training workload;
-          their model-quality results are supporting artifacts, not the report's primary contribution.
+          Multiple runs advance under a configured concurrency limit, while GPU stages acquire
+          exclusive devices from an explicit local pool. Identity-scoped locking selects one producer
+          for a missing artifact; compatible waiting runs recheck the completed manifest and select
+          its output. Completed stages remain available after relaunch, and supported interrupted
+          pretraining can restore its recorded step, model, and optimizer state.
+        </p>
+        </section>
+        <section class="detail-section">
+          <h3>Validation and boundaries</h3>
+        <p>
+          Focused traces and tests cover selective invalidation, compatible identities, exclusive
+          production, GPU allocation, parallel submission, relaunch selection, export, and checkpoint
+          restoration. Four recovered archives contain 38 structurally complete runs across 20
+          experiment groups and show frequent preparation-stage compatibility.
         </p>
         <div class="note">
-          Historical runs establish real reuse opportunities, but the current evidence does not
-          measure aggregate time savings, utilisation, or multi-node scaling.
+          LLM-Light is a single-host executor using filesystem locks, not a general multi-node
+          scheduler. Correct reuse depends on complete declared inputs and manually maintained
+          contract versions; checkpoint continuation does not reproduce an uninterrupted trajectory
+          exactly. The report validates mechanisms and end-to-end use, not aggregate time savings,
+          utilisation, contention, or scaling.
         </div>
         </section>
         <section class="detail-section">
@@ -1343,16 +1363,16 @@
         <div class="actions">
           <a class="btn paper-link" href="https://github.com/BertilBraun/LLM-Light/releases/download/Technical-Report/artifact-addressed-execution-llm-light.pdf" target="_blank" rel="noopener">Report</a>
           <a class="btn" href="https://github.com/BertilBraun/LLM-Light" target="_blank" rel="noopener">GitHub repo</a>
-          <a class="btn" href="https://huggingface.co/datasets/BertilBraun/TinyPython" target="_blank" rel="noopener">TinyPython dataset</a>
+          <a class="btn" href="https://huggingface.co/datasets/BertilBraun/TinyPython" target="_blank" rel="noopener">Related TinyPython dataset</a>
         </div>
         </section>
       </div>
       <div class="modal-media">
         <figure>
-          <button class="shot" type="button" data-src="assets/llm-light.webp" data-caption="Four complete configurations resolve into seven distinct artifacts. Run naively that would be 4 pretrainings + 4 post-trainings + 4 evaluations; the resolved plan is 1 + 2 + 4.">
-            <img src="assets/llm-light.webp" alt="Diagram showing four experiment configurations resolving into seven shared training and evaluation artifacts">
+          <button class="shot" type="button" data-src="assets/llm-light-card.svg" data-caption="Four complete configurations resolve into one compatible pretraining artifact, two post-training branches, and four evaluation results.">
+            <img src="assets/llm-light-card.svg" alt="Four experiment configurations resolve to one shared pretraining artifact, two post-training artifacts, and four evaluation artifacts">
           </button>
-          <figcaption>Figure 2 from the technical report. Click to enlarge.</figcaption>
+          <figcaption>The report's worked four-configuration branch. Click to enlarge.</figcaption>
         </figure>
       </div>
     </div>
@@ -1364,42 +1384,56 @@
         <section class="detail-section">
           <h3>Project thesis</h3>
         <p>
-          An end-to-end speech research and deployment system built to make a cascaded voice agent
-          behave like a responsive conversational partner. It creates and labels its own training
-          data, trains language and causal turn-taking adapters, evaluates them against locked
-          baselines, and deploys a full-duplex two-GPU runtime that supports interruption,
-          backchannels, speculative generation, tools, and audible-only conversation history.
-          The accompanying technical report connects the complete data, training, evaluation,
-          integration, and deployment record in one reproducible account.
+          Voice-Light is an end-to-end investigation of natural, low-latency interaction in a
+          cascaded voice agent. It connects conversational data generation, automatic labeling,
+          model training, locked offline evaluation, causal interaction control, and scale-to-zero
+          GPU deployment in one measured development loop. The central result is the integrated
+          system—and the decision to retain learned components only where the evidence supports them.
         </p>
+        </section>
+        <section class="detail-section">
+          <h3>Headline evidence</h3>
+        <ul>
+          <li><strong>Working public system.</strong> One warm microphone acceptance run completed all eight conversational and tool-using turns. Median latency was 677 ms to first server audio and 783 ms to browser-rendered audio; this is one session, not a population latency estimate.</li>
+          <li><strong>Successful but bounded training.</strong> On an 80-record synthetic holdout, the 1.7B LoRA improved correct tool decisions from 80.0% to 95.2% and concise spoken bridges from 7.6% to 94.3%. This establishes acquisition of the generated protocol, not general reasoning or factual accuracy.</li>
+          <li><strong>Evaluation changed production.</strong> The causal turn adapter did not beat the stronger Silero or LiveKit timing policies on the locked real-conversation benchmark, so production uses a hybrid controller rather than presenting the adapter as a standalone win.</li>
+          <li><strong>Architecture was measured.</strong> Isolating TTS on its own GPU reduced controlled warm first-word-to-audio time from roughly 622–712 ms to 346–353 ms, motivating the final two-GPU topology.</li>
+        </ul>
         </section>
         <section class="detail-section">
           <h3>What was built</h3>
         <ul>
-          <li><strong>Two synthetic data pipelines.</strong> A pinned 27B teacher generated 3,999 typed spoken tool-use conversations. A separate audio pipeline planned completions, HOLD pauses, backchannels, and interruptions, rendered only user speech, then compiled causal 20-second views with dense 80 ms labels.</li>
-          <li><strong>Automatic human-data preparation.</strong> Independent ASR and VAD passes, channel alignment, conversation-region extraction, quality evidence, and manual review turn licensed two-speaker recordings into conversation-disjoint training, validation, and test windows.</li>
-          <li><strong>Two trained adapters.</strong> A Qwen3-1.7B LoRA learned conversational tool bridges and structured calls. A roughly 183k-parameter recurrent adapter learned from frozen Nemotron encoder taps and assistant-playback state, then fine-tuned on human conversation with synthetic replay.</li>
-          <li><strong>Evaluation that changed the product.</strong> The LoRA improved its synthetic holdout, but the public demo uses a stronger 4B base model. The turn adapter remained conservative on the locked real-conversation test, so the deployed interaction controller honestly combines its evidence with Silero rather than claiming an adapter-only win.</li>
-          <li><strong>A real streaming deployment.</strong> Nemotron ASR and Qwen share one GPU, Kyutai TTS occupies a second, and the static GitHub Pages client connects directly to the Modal WebSocket. Browser acknowledgements make audible speech—not merely generated text—the source of conversation history.</li>
+          <li><strong>Reproducible conversational data:</strong> 3,999 typed tool-use conversations, reconstructable synthetic turn-taking audio, and a 36.3-hour locked human corpus spanning 107 conversation-disjoint recordings.</li>
+          <li><strong>Two focused adapters:</strong> a language adapter for spoken tool protocols and a roughly 183k-parameter recurrent adapter for completion, floor-taking, and backchannel evidence.</li>
+          <li><strong>Causal evaluation:</strong> synthetic, human-validation, locked-test, and deployment evidence remain separate; thresholds were selected before opening locked tests.</li>
+          <li><strong>Full-duplex control:</strong> reversible ducking, interruption, backchannel resume, speculative generation, cancellation barriers, tools, and audible-only conversation history.</li>
+          <li><strong>Public deployment:</strong> a two-GPU Modal runtime with persistent caches and scale-to-zero operation, connected directly to a static browser client with live diagnostics.</li>
         </ul>
         </section>
         <section class="detail-section">
-          <h3>Evaluation and limitations</h3>
-          <p class="cite">
-            The final eight-turn human microphone run completed every turn, including live tool use
-            and conversational follow-ups. Median time from the final VAD endpoint to the first
-            server audio packet was 677 ms; median time to browser rendering was 783 ms. This is one
-            warm-system acceptance trace, not a latency distribution or a population p50 estimate.
-            Separately, the original 80-record synthetic tool-use holdout improved correct tool
-            decisions from 80.0% to 95.2% and concise spoken bridges from 7.6% to 94.3%. Those
-            synthetic results are reported as task-specific evidence, not as a claim of general
-            model superiority.
+          <h3>System overview</h3>
+          <p>
+            Microphone audio streams continuously to Nemotron, which performs ASR and supplies shared
+            encoder features to the causal adapter. Silero provides the immediate acoustic reaction,
+            while learned evidence helps distinguish completed turns, interruptions, and non-floor
+            feedback. A typed controller coordinates speculative Qwen generation, structured tools,
+            cancellation, and Kyutai speech synthesis. Browser acknowledgements determine what was
+            actually audible, so canceled or unheard text never enters durable conversation history.
           </p>
+        </section>
+        <section class="detail-section">
+          <h3>Evaluation decisions and limitations</h3>
+        <p>
+          The trained 1.7B LoRA remains a published result, but live canary review favored the 4B
+          base model for conversational quality; that review was not a controlled comparison.
+          Synthetic turn pretraining transferred poorly to human conversation, and no detector met
+          the predefined V2 deployment gate, so the V2 test split remained unopened.
+        </p>
         <div class="note">
-          Live now. The frontend is static and public; the two-GPU backend scales to zero after two
-          idle minutes and admits one voice session at a time. A cold session currently takes about
-          32–55 seconds to initialize, while warm conversational turns are typically subsecond but
-          remain dependent on microphone, network, browser, and Modal host conditions.
+          The acceptance evidence comes from one warm eight-turn session, not a p50 or p95 estimate.
+          Cold readiness remains approximately 32–55 seconds. The public system is English-first and
+          single-session; microphone, network, browser, and host conditions affect observed latency,
+          and tool selection and factual generation remain fallible.
         </div>
         </section>
         <section class="detail-section">
@@ -1411,7 +1445,8 @@
           <a class="btn paper-link" href="https://github.com/BertilBraun/Voice-Light/releases/download/v1.0.1/voice-light-technical-report.pdf" target="_blank" rel="noopener">Technical report</a>
           <a class="btn" href="https://github.com/BertilBraun/Voice-Light" target="_blank" rel="noopener">GitHub &amp; docs</a>
           <a class="btn" href="https://huggingface.co/BertilBraun/qwen3-1.7b-voice-light-tool-use-lora" target="_blank" rel="noopener">Models</a>
-          <a class="btn" href="https://huggingface.co/datasets/BertilBraun/voice-light-tool-use-synthetic" target="_blank" rel="noopener">Datasets</a>
+          <a class="btn" href="https://huggingface.co/datasets/BertilBraun/voice-light-tool-use-synthetic" target="_blank" rel="noopener">Tool-use dataset</a>
+          <a class="btn" href="https://huggingface.co/datasets/BertilBraun/voice-light-synthetic-audio" target="_blank" rel="noopener">Turn-taking audio</a>
         </div>
         </section>
       </div>
@@ -1438,27 +1473,58 @@
     </div>
   </template>
 
-  <template id="tpl-llm-eval" data-kicker="Research · GEM² 2025">
+  <template id="tpl-llm-eval" data-kicker="LLM evaluation · GEM² 2025">
     <div class="cols">
       <div>
         <section class="detail-section">
-          <h3>Research question</h3>
+          <h3>Overview</h3>
         <p>
-          A general evaluation framework for the class of LLM tasks where outputs are open-ended
-          and no single reference answer exists. It turns multiple independent model judgements
-          into stable pairwise rankings, exposes agreement as an adjustable confidence–coverage
-          tradeoff, and was validated against domain-expert rankings before publication.
+          Free-form language-model outputs are difficult to evaluate: conventional metrics need
+          reference answers, while human review is expensive and difficult to scale. This published
+          framework asks multiple language models to compare candidate outputs pairwise, counters
+          presentation-order bias by evaluating both directions, and converts the resulting
+          judgements into an interpretable Elo ranking.
+        </p>
+        <p>
+          The GEM² 2025 paper focuses on the evaluation method. The preceding master's thesis built
+          the broader competency-extraction system used as its experimental testbed, including
+          document processing, expert evaluation, synthetic preference data, and DPO fine-tuning.
         </p>
         </section>
         <section class="detail-section">
-          <h3>Method and evidence</h3>
+          <h3>Key evidence</h3>
         <ul>
-          <li>Multi-phase extraction pipeline for scientific and technical documents, designed to be domain-agnostic rather than tuned to one corpus.</li>
-          <li>Fine-tuning workflow built on synthetic preference data and Direct Preference Optimization.</li>
-          <li>Evaluation by pairwise comparison across multiple LLMs, aggregated into an Elo rating so rankings stay stable and interpretable, with adjustable agreement thresholds from full unanimity down to majority vote.</li>
-          <li>Across rankings supplied by 20 experts, the best multi-model setting reached mean Spearman ρ = 0.83 and Kendall τ = 0.78 against expert judgements.</li>
-          <li>The paper presents these results as preliminary: the expert pool is limited in size and diversity, pairwise evaluation scales quadratically, and human review remains important.</li>
+          <li>Twenty domain experts supplied 5–10 of their own public research papers and ranked generated competency profiles against their knowledge of their work.</li>
+          <li>The strongest multi-model setting reached mean Spearman ρ = 0.83 and Kendall τ = 0.78. In plain terms, the automated ordering usually followed the experts' ordering closely.</li>
+          <li>Strict 90–100% consensus created too many draws and discarded useful signal; majority and no-threshold aggregation produced stronger agreement.</li>
         </ul>
+        </section>
+        <section class="detail-section">
+          <h3>Evaluation method</h3>
+        <ul>
+          <li>Candidate outputs can come from different models, prompts, configurations, or generation methods.</li>
+          <li>Every pair is presented in both orders to reduce positional bias, and multiple evaluator models receive the same task-specific criterion.</li>
+          <li>Configurable agreement rules reconcile the model judgements; permutation-sampled Elo updates aggregate them into a global ranking.</li>
+          <li>The paper validates the method on competency profiles. Broader use for open-ended generation tasks remains an intended capability rather than a cross-task empirical result.</li>
+        </ul>
+        </section>
+        <section class="detail-section">
+          <h3>Broader thesis system</h3>
+        <p>
+          The master's thesis developed the end-to-end competency-extraction application around
+          this evaluation problem. It compared extraction from abstracts, summaries, and full
+          documents; built expert and automated evaluation workflows; generated synthetic preference
+          data; and trained a 3.8B model with Direct Preference Optimization. Abstract-based
+          extraction was the strongest practical method. Fine-tuning improved the small model under
+          automatic evaluation, but expert review exposed evaluator overfitting and stronger general
+          models still performed better.
+        </p>
+        <div class="note">
+          The published results are preliminary: the expert pool contains 20 participants, exhaustive
+          bidirectional comparison scales quadratically, LLM judges retain model and style biases,
+          and Elo scores should not be mistaken for objective ground truth. Human review remains
+          appropriate for high-stakes decisions.
+        </div>
         </section>
         <section class="detail-section">
           <h3>Paper, thesis, and code</h3>
@@ -1477,15 +1543,22 @@
           <a class="btn paper-link" href="https://github.com/BertilBraun/Master-Thesis/releases/download/1.0/Master_Thesis.pdf" target="_blank" rel="noopener">Thesis</a>
           <a class="btn" href="https://github.com/BertilBraun/Master-Thesis/releases/download/2.0/Poster.-.Towards.Scalable.Reliable.Automated.Evaluation.with.Large.Language.Models.jpg" target="_blank" rel="noopener">Poster</a>
           <a class="btn" href="https://github.com/BertilBraun/Master-Thesis" target="_blank" rel="noopener">GitHub repo</a>
+          <a class="btn" href="https://huggingface.co/datasets/BertilBraun/competency-extraction-dpo" target="_blank" rel="noopener">Preference dataset</a>
         </div>
         </section>
       </div>
       <div class="modal-media">
         <figure>
+          <button class="shot" type="button" data-src="assets/llm-eval-card.svg" data-caption="Candidate outputs are compared in both presentation orders by multiple model judges, then aggregated into a global Elo ranking.">
+            <img src="assets/llm-eval-card.svg" alt="Candidate outputs flow through bidirectional multi-model comparisons into an Elo ranking">
+          </button>
+          <figcaption>The published evaluation method. Click to enlarge.</figcaption>
+        </figure>
+        <figure>
           <button class="shot" type="button" data-src="assets/llm-eval.webp" data-caption="Extraction data flow: input documents are summarised, competencies extracted and combined into a profile, then ranked by expert and automatic comparison.">
             <img src="assets/llm-eval.webp" alt="Data-flow diagram of the competency extraction pipeline">
           </button>
-          <figcaption>Extraction data flow. Click to enlarge.</figcaption>
+          <figcaption>The broader thesis extraction system. Click to enlarge.</figcaption>
         </figure>
       </div>
     </div>
@@ -1495,23 +1568,47 @@
     <div class="cols">
       <div>
         <section class="detail-section">
-          <h3>Project thesis</h3>
+          <h3>Overview</h3>
         <p>
-          A graph reinforcement-learning architecture designed to control road networks whose size,
-          topology, and legal signal actions change from one junction to the next. A shared GNN
-          scores individual traffic movements, while deterministic incidence matrices assemble
-          those scores into each junction’s variable-sized legal phase set. The learned parameters
-          therefore remain independent of both graph size and action count.
+          Real traffic networks do not share a fixed action space: junctions differ in geometry,
+          legal movements, and the number and meaning of their signal phases. This project replaces
+          a fixed phase-output head with a reusable movement-level interface. A typed graph neural
+          network scores legal movements, while deterministic junction-specific incidence matrices
+          assemble those scores into valid phase choices.
         </p>
         </section>
         <section class="detail-section">
-          <h3>Generalisation and evaluation</h3>
+          <h3>Interface and implementation</h3>
         <ul>
-          <li>Because the network returns one scalar per movement, graph size and per-junction action count are independent of the parameter shapes. Execution across networks of 41–84 controlled junctions with 2–12 phases each validates that range.</li>
-          <li>Trained with PPO on SUMO simulations built from OpenStreetMap. On an unseen 6×6 grid, sampled control beat max pressure on throughput and completion at all three demand levels — completion by 3.5, 6.6 and 10.6 points.</li>
-          <li>City evaluation across Karlsruhe, Mannheim, Stuttgart, Heidelberg and Freiburg, with Stuttgart contributing no training rollouts. Sampled control beat every baseline in Karlsruhe and Stuttgart, trailed queue in Mannheim, and was close to fixed time in Heidelberg.</li>
-          <li>The report is deliberately careful about what this shows: reducing signal coverage to 50% or 25% degraded performance even though the graph stayed structurally executable — architectural compatibility is not robustness.</li>
+          <li>Directed corridor nodes carry traffic context; movement nodes represent controlled input-to-output paths through junctions.</li>
+          <li>Two typed message-passing blocks combine upstream demand and downstream capacity before producing one scalar per movement.</li>
+          <li>Each junction's incidence matrix converts movement scores into its own legal phase logits, while deterministic runtime logic applies availability, minimum-green, and yellow-transition constraints.</li>
+          <li>Graph size and local phase count do not change the learned parameter shapes. One parameter set executed across five city networks spanning 41–84 controlled junctions and 2–12 phases per junction.</li>
         </ul>
+        </section>
+        <section class="detail-section">
+          <h3>Evaluation</h3>
+        <ul>
+          <li><strong>Synthetic transfer:</strong> policies trained on mixed grid geometries were evaluated on unseen sizes and aspect ratios from the same generator family.</li>
+          <li><strong>Unseen 6×6 grid:</strong> sampled control exceeded the recorded max-pressure implementation in throughput and completion at demand scales 0.6, 0.7, and 0.8; completion improved by 3.5, 6.6, and 10.6 percentage points.</li>
+          <li><strong>Coverage shift:</strong> reducing signal coverage degraded performance even though the graph remained structurally executable, showing that architectural compatibility does not imply robustness.</li>
+          <li><strong>City feasibility:</strong> one policy-training run executed across Karlsruhe, Mannheim, Stuttgart, Heidelberg, and Freiburg. Results varied by city; Stuttgart was the only city omitted from rollout training.</li>
+        </ul>
+        </section>
+        <section class="detail-section">
+          <h3>Interpretation and limitations</h3>
+        <p>
+          The primary result is a working variable-topology, variable-action-space interface. The
+          experiments provide bounded feasibility evidence; they do not establish universal transfer
+          to arbitrary road networks or consistent superiority over classical control.
+        </p>
+        <div class="note">
+          Learned actions were selected every 5 seconds while max-pressure and queue baselines
+          recomputed every 10 seconds, so performance comparisons include a control-frequency
+          confound. City results use one policy-training seed and three traffic seeds per city;
+          sampled execution outperformed greedy execution; and SUMO-derived phases are not formally
+          verified real-world signal plans.
+        </div>
         </section>
         <section class="detail-section">
           <h3>Report and code</h3>
@@ -1651,7 +1748,7 @@
         <div>
           <p class="writing-meta">Technical report · LLM infrastructure · 2026</p>
           <h3>LLM-Light: Artifact-Addressed Execution for a Fixed LLM Experiment Pipeline</h3>
-          <p class="writing-summary">Artifact-addressed experiment reuse and distributed execution for language-model training and evaluation.</p>
+          <p class="writing-summary">Artifact-addressed experiment reuse, bounded GPU execution, and relaunch recovery for language-model training and evaluation.</p>
         </div>
         <a class="btn paper-link" href="https://github.com/BertilBraun/LLM-Light/releases/download/Technical-Report/artifact-addressed-execution-llm-light.pdf" target="_blank" rel="noopener">Technical report</a>
       </article>
@@ -1718,7 +1815,7 @@
           path: '/projects/llm-light/',
           title: 'LLM-Light — Artifact-Addressed Execution — Bertil Braun',
           heading: 'LLM-Light — Artifact-Addressed Execution',
-          description: 'An artifact-addressed PyTorch pipeline for reproducible language-model data, training, distributed execution, evaluation, and experiment reuse.'
+          description: 'A single-host LLM experiment executor that resolves complete configurations into reusable stage artifacts, schedules concurrent GPU work, and recovers completed stages after relaunch.'
         },
         'agentic': {
           path: '/projects/agentic-llm-systems/',
@@ -1730,13 +1827,13 @@
           path: '/projects/voice-light/',
           title: 'Voice-Light — Full-Duplex Streaming Voice Agent — Bertil Braun',
           heading: 'Voice-Light — Full-Duplex Streaming Voice Agent',
-          description: 'An end-to-end streaming voice-agent project covering data generation, labeling, causal turn-taking, evaluation, and a live full-duplex deployment.'
+          description: 'A measured end-to-end voice-agent project spanning data preparation, two trained adapters, locked evaluation, and a live full-duplex two-GPU streaming deployment.'
         },
         'llm-eval': {
           path: '/projects/scalable-llm-evaluation/',
           title: 'Scalable Automated LLM Evaluation — Bertil Braun',
           heading: 'Scalable Reliable Automated Evaluation with LLMs',
-          description: 'GEM² 2025 research on pairwise LLM evaluation and Elo aggregation for open-ended outputs, alongside a domain-agnostic competency-extraction thesis.'
+          description: 'A reference-free evaluation framework combining bidirectional pairwise LLM judgments with Elo aggregation, validated against rankings from 20 experts and published at GEM² 2025.'
         },
         'gybelock': {
           path: '/projects/gybelock/',
@@ -1748,7 +1845,7 @@
           path: '/projects/traffic-signal-control/',
           title: 'Graph-Based Traffic Signal Control — Bertil Braun',
           heading: 'Graph-Based Traffic Signal Control',
-          description: 'A graph reinforcement-learning method whose movement-level policy transfers across variable road topologies and signal phase sets.'
+          description: 'A graph-RL control interface that maps shared movement scores into variable junction-specific legal phase sets, validated across heterogeneous simulated road networks.'
         },
         'aws-light': {
           path: '/projects/aws-light/',

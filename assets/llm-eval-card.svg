@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="360" viewBox="0 0 760 360" role="img" aria-labelledby="title description">
+  <title id="title">Pairwise LLM evaluation and Elo ranking</title>
+  <desc id="description">Candidate outputs are compared in both orders by multiple language-model judges and aggregated into an Elo ranking.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0 L9 5 L0 10 Z" fill="#68736f"/>
+    </marker>
+    <style>
+      .label { font: 700 23px Inter, 'Segoe UI', Arial, sans-serif; fill: #18201e; text-anchor: middle; }
+      .item { font: 700 28px Inter, 'Segoe UI', Arial, sans-serif; fill: #18201e; text-anchor: middle; }
+      .rank { font: 700 24px Inter, 'Segoe UI', Arial, sans-serif; fill: #ffffff; text-anchor: middle; }
+      .paper { fill: #ffffff; stroke: #9aa39f; stroke-width: 2.5; }
+      .judge { fill: #e7f3f0; stroke: #17766c; stroke-width: 2.5; }
+      .ranking { fill: #17766c; }
+      .flow { fill: none; stroke: #68736f; stroke-width: 3; marker-end: url(#arrow); }
+      .both { fill: none; stroke: #c9a84b; stroke-width: 3; marker-start: url(#arrow); marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <g transform="translate(36 72)">
+    <rect class="paper" x="0" y="0" width="92" height="122" rx="10"/>
+    <rect class="paper" x="42" y="36" width="92" height="122" rx="10"/>
+    <rect class="paper" x="84" y="72" width="92" height="122" rx="10"/>
+    <text class="item" x="46" y="70">A</text>
+    <text class="item" x="88" y="106">B</text>
+    <text class="item" x="130" y="142">C</text>
+    <text class="label" x="88" y="242">Candidates</text>
+  </g>
+
+  <path class="flow" d="M226 174 H292"/>
+
+  <g transform="translate(308 70)">
+    <rect class="judge" x="0" y="0" width="178" height="178" rx="18"/>
+    <rect class="paper" x="24" y="30" width="48" height="64" rx="7"/>
+    <rect class="paper" x="106" y="30" width="48" height="64" rx="7"/>
+    <text class="item" x="48" y="71">A</text>
+    <text class="item" x="130" y="71">B</text>
+    <path class="both" d="M76 62 H102"/>
+    <circle cx="52" cy="128" r="10" fill="#17766c"/>
+    <circle cx="89" cy="128" r="10" fill="#17766c"/>
+    <circle cx="126" cy="128" r="10" fill="#17766c"/>
+    <text class="label" x="89" y="226">LLM judges</text>
+  </g>
+
+  <path class="flow" d="M502 174 H568"/>
+
+  <g transform="translate(584 68)">
+    <rect class="ranking" x="0" y="0" width="140" height="58" rx="10"/>
+    <rect class="ranking" x="0" y="72" width="112" height="58" rx="10" opacity="0.82"/>
+    <rect class="ranking" x="0" y="144" width="84" height="58" rx="10" opacity="0.64"/>
+    <text class="rank" x="25" y="37">1</text>
+    <text class="rank" x="25" y="109">2</text>
+    <text class="rank" x="25" y="181">3</text>
+    <text class="label" x="70" y="250">Elo ranking</text>
+  </g>
+</svg>

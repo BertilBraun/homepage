@@ -38,13 +38,13 @@ PROJECT_ROUTES = (
     ),
     ProjectRoute(
         slug='voice-light',
-        title='Voice-Light — Low-Latency Voice Agent — Bertil Braun',
-        description='An end-to-end streaming voice-agent project covering data generation, labeling, causal turn-taking, evaluation, and a live full-duplex deployment.',
+        title='Voice-Light — Full-Duplex Streaming Voice Agent — Bertil Braun',
+        description='A measured end-to-end voice-agent project spanning data preparation, two trained adapters, locked evaluation, and a live full-duplex two-GPU streaming deployment.',
     ),
     ProjectRoute(
         slug='scalable-llm-evaluation',
         title='Scalable Automated LLM Evaluation — Bertil Braun',
-        description='GEM² 2025 research on pairwise LLM evaluation and Elo aggregation for open-ended outputs, alongside a domain-agnostic competency-extraction thesis.',
+        description='A reference-free evaluation framework combining bidirectional pairwise LLM judgments with Elo aggregation, validated against rankings from 20 experts and published at GEM² 2025.',
     ),
     ProjectRoute(
         slug='gybelock',
@@ -54,7 +54,7 @@ PROJECT_ROUTES = (
     ProjectRoute(
         slug='traffic-signal-control',
         title='Graph-Based Traffic Signal Control — Bertil Braun',
-        description='A graph reinforcement-learning method whose movement-level policy transfers across variable road topologies and signal phase sets.',
+        description='A graph-RL control interface that maps shared movement scores into variable junction-specific legal phase sets, validated across heterogeneous simulated road networks.',
     ),
     ProjectRoute(
         slug='aws-light',
