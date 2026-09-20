@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="540" viewBox="0 0 900 540" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="512" viewBox="0 0 900 512" role="img" aria-labelledby="title description">
   <title id="title">LLM-Light artifact resolution</title>
   <desc id="description">Four complete experiment configurations resolve to one shared pretraining artifact, two post-training artifacts, and four evaluation artifacts.</desc>
   <defs>
@@ -28,37 +28,37 @@
   <text class="label" x="596" y="74">B1</text>
   <text class="label" x="748" y="74">B2</text>
 
-  <path class="connector" d="M292 101 V128 M444 101 V128 M596 101 V128 M748 101 V128 M292 128 H748"/>
-  <path class="flow" d="M520 128 V154"/>
+  <path class="connector" d="M292 101 V125 M444 101 V125 M596 101 V125 M748 101 V125 M292 125 H748"/>
+  <path class="flow" d="M520 125 V149"/>
 
-  <text class="count" x="28" y="210">1 SHARED</text>
-  <rect class="shared" x="355" y="160" width="330" height="92" rx="14"/>
-  <text class="label" x="520" y="198">Pretraining</text>
-  <text class="small" x="520" y="229">one compatible artifact</text>
+  <text class="count" x="28" y="205">1 SHARED</text>
+  <rect class="shared" x="355" y="155" width="330" height="92" rx="14"/>
+  <text class="label" x="520" y="193">Pretraining</text>
+  <text class="small" x="520" y="224">one compatible artifact</text>
 
-  <path class="connector" d="M520 253 V280 M380 280 H660"/>
-  <path class="flow" d="M380 280 V304"/>
-  <path class="flow" d="M660 280 V304"/>
+  <path class="connector" d="M520 248 V272 M380 272 H660"/>
+  <path class="flow" d="M380 272 V296"/>
+  <path class="flow" d="M660 272 V296"/>
 
-  <text class="count" x="28" y="354">2 BRANCHES</text>
-  <rect class="branch" x="260" y="310" width="240" height="78" rx="14"/>
-  <rect class="branch" x="540" y="310" width="240" height="78" rx="14"/>
-  <text class="label" x="380" y="358">Post-train A</text>
-  <text class="label" x="660" y="358">Post-train B</text>
+  <text class="count" x="28" y="346">2 BRANCHES</text>
+  <rect class="branch" x="260" y="302" width="240" height="78" rx="14"/>
+  <rect class="branch" x="540" y="302" width="240" height="78" rx="14"/>
+  <text class="label" x="380" y="350">Post-train A</text>
+  <text class="label" x="660" y="350">Post-train B</text>
 
-  <path class="connector" d="M380 389 V410 M295 410 H445 M660 389 V410 M595 410 H745"/>
-  <path class="flow" d="M295 410 V456"/>
-  <path class="flow" d="M445 410 V456"/>
-  <path class="flow" d="M595 410 V456"/>
-  <path class="flow" d="M745 410 V456"/>
+  <path class="connector" d="M380 381 V405 M295 405 H445 M660 381 V405 M595 405 H745"/>
+  <path class="flow" d="M295 405 V429"/>
+  <path class="flow" d="M445 405 V429"/>
+  <path class="flow" d="M595 405 V429"/>
+  <path class="flow" d="M745 405 V429"/>
 
-  <text class="count" x="28" y="507">4 RESULTS</text>
-  <rect class="eval" x="230" y="464" width="130" height="60" rx="12"/>
-  <rect class="eval" x="380" y="464" width="130" height="60" rx="12"/>
-  <rect class="eval" x="530" y="464" width="130" height="60" rx="12"/>
-  <rect class="eval" x="680" y="464" width="130" height="60" rx="12"/>
-  <text class="small" x="295" y="502">Eval A1</text>
-  <text class="small" x="445" y="502">Eval A2</text>
-  <text class="small" x="595" y="502">Eval B1</text>
-  <text class="small" x="745" y="502">Eval B2</text>
+  <text class="count" x="28" y="478">4 RESULTS</text>
+  <rect class="eval" x="230" y="435" width="130" height="60" rx="12"/>
+  <rect class="eval" x="380" y="435" width="130" height="60" rx="12"/>
+  <rect class="eval" x="530" y="435" width="130" height="60" rx="12"/>
+  <rect class="eval" x="680" y="435" width="130" height="60" rx="12"/>
+  <text class="small" x="295" y="473">Eval A1</text>
+  <text class="small" x="445" y="473">Eval A2</text>
+  <text class="small" x="595" y="473">Eval B1</text>
+  <text class="small" x="745" y="473">Eval B2</text>
 </svg>
