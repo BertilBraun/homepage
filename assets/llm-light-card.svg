@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="540" viewBox="0 0 900 540" role="img" aria-labelledby="title description">
   <title id="title">LLM-Light artifact resolution</title>
   <desc id="description">Four complete experiment configurations resolve to one shared pretraining artifact, two post-training artifacts, and four evaluation artifacts.</desc>
   <defs>
@@ -46,19 +46,19 @@
   <text class="label" x="380" y="358">Post-train A</text>
   <text class="label" x="660" y="358">Post-train B</text>
 
-  <path class="connector" d="M380 389 V414 M295 414 H445 M660 389 V414 M595 414 H745"/>
-  <path class="flow" d="M295 414 V432"/>
-  <path class="flow" d="M445 414 V432"/>
-  <path class="flow" d="M595 414 V432"/>
-  <path class="flow" d="M745 414 V432"/>
+  <path class="connector" d="M380 389 V410 M295 410 H445 M660 389 V410 M595 410 H745"/>
+  <path class="flow" d="M295 410 V456"/>
+  <path class="flow" d="M445 410 V456"/>
+  <path class="flow" d="M595 410 V456"/>
+  <path class="flow" d="M745 410 V456"/>
 
-  <text class="count" x="28" y="481">4 RESULTS</text>
-  <rect class="eval" x="230" y="438" width="130" height="60" rx="12"/>
-  <rect class="eval" x="380" y="438" width="130" height="60" rx="12"/>
-  <rect class="eval" x="530" y="438" width="130" height="60" rx="12"/>
-  <rect class="eval" x="680" y="438" width="130" height="60" rx="12"/>
-  <text class="small" x="295" y="476">Eval A1</text>
-  <text class="small" x="445" y="476">Eval A2</text>
-  <text class="small" x="595" y="476">Eval B1</text>
-  <text class="small" x="745" y="476">Eval B2</text>
+  <text class="count" x="28" y="507">4 RESULTS</text>
+  <rect class="eval" x="230" y="464" width="130" height="60" rx="12"/>
+  <rect class="eval" x="380" y="464" width="130" height="60" rx="12"/>
+  <rect class="eval" x="530" y="464" width="130" height="60" rx="12"/>
+  <rect class="eval" x="680" y="464" width="130" height="60" rx="12"/>
+  <text class="small" x="295" y="502">Eval A1</text>
+  <text class="small" x="445" y="502">Eval A2</text>
+  <text class="small" x="595" y="502">Eval B1</text>
+  <text class="small" x="745" y="502">Eval B2</text>
 </svg>
