@@ -5,21 +5,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <base href="/">
-  <title>GybeLock — Windsurfing Video Intelligence — Bertil Braun</title>
-  <meta name="description" content="A deployed computer-vision system for windsurfing footage with specialist detection and pose models, tracking, stabilization, and interactive rider views.">
+  <title>GybeLock — Offline Windsurfing Video Tracking — Bertil Braun</title>
+  <meta name="description" content="An offline computer-vision system for long-shot windsurfing footage, combining camera-compensated global association, sail-specific appearance, and pose-guided rider framing.">
   <meta name="author" content="Bertil Braun">
   <link rel="canonical" href="https://bertil-braun.de/projects/gybelock/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="GybeLock — Windsurfing Video Intelligence — Bertil Braun">
-  <meta property="og:description" content="A deployed computer-vision system for windsurfing footage with specialist detection and pose models, tracking, stabilization, and interactive rider views.">
+  <meta property="og:title" content="GybeLock — Offline Windsurfing Video Tracking — Bertil Braun">
+  <meta property="og:description" content="An offline computer-vision system for long-shot windsurfing footage, combining camera-compensated global association, sail-specific appearance, and pose-guided rider framing.">
   <meta property="og:url" content="https://bertil-braun.de/projects/gybelock/">
   <meta property="og:image" content="https://bertil-braun.de/assets/social-card.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Bertil Braun — Applied ML Research Engineer in Karlsruhe, working across language-model agents, scalable training, distributed systems, reinforcement learning, and evaluation.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="GybeLock — Windsurfing Video Intelligence — Bertil Braun">
-  <meta name="twitter:description" content="A deployed computer-vision system for windsurfing footage with specialist detection and pose models, tracking, stabilization, and interactive rider views.">
+  <meta name="twitter:title" content="GybeLock — Offline Windsurfing Video Tracking — Bertil Braun">
+  <meta name="twitter:description" content="An offline computer-vision system for long-shot windsurfing footage, combining camera-compensated global association, sail-specific appearance, and pose-guided rider framing.">
   <meta name="twitter:image" content="https://bertil-braun.de/assets/social-card.png">
   <meta name="theme-color" content="#fbfaf7">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2316615a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' fill='%23fbfaf7' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
@@ -1025,7 +1025,7 @@
             </div>
           </article>
 
-          <article class="tile wide media-right" data-open="gybelock" data-tags="live">
+          <article class="tile wide media-right" data-open="gybelock" data-tags="live publication">
             <figure class="tile-media">
               <button class="shot" type="button" data-stop
                       data-src="assets/gybelock.webp"
@@ -1034,21 +1034,24 @@
               </button>
             </figure>
             <div class="tile-body">
-              <span class="kicker">Computer vision · Live demo</span>
+              <span class="kicker">Computer vision · Technical report · Live demo</span>
               <h4>GybeLock — Windsurfing Video Intelligence</h4>
               <p>
-                A deployed computer-vision system that turns difficult shore-shot windsurfing video
-                into selectable, stabilised rider footage. Specialised YOLO detection and pose
-                models feed multi-object tracking and camera stabilisation.
+                An offline computer-vision system that turns long-shot windsurfing footage into
+                stable, rider-relative videos using conservative local tracklets, camera-compensated
+                global association, and pose-guided framing. On a 21-video fixed-observation
+                development benchmark, it reduced fragmentation excess from 845 to 42 relative to
+                OC-SORT; the end-to-end system is available to try live.
               </p>
               <div class="chips">
                 <a class="chip live" href="https://gybelock.bertil-braun.de" target="_blank" rel="noopener" data-stop>
                   <span class="dot" aria-hidden="true"></span> Live demo
                 </a>
+                <a class="chip paper" href="https://github.com/BertilBraun/Windsurf-Analysis/releases/download/windsurf-report-v1.5/Windsurf-Analysis-Technical-Report.pdf" target="_blank" rel="noopener" data-stop>Technical report</a>
                 <span class="chip">YOLO detection</span>
                 <span class="chip">Pose + multi-object tracking</span>
               </div>
-              <a class="cue" href="/projects/gybelock/" data-project-link="gybelock">Details &amp; demo →</a>
+              <a class="cue" href="/projects/gybelock/" data-project-link="gybelock">System, evaluation &amp; artifacts →</a>
             </div>
           </article>
 
@@ -1693,37 +1696,78 @@
     </div>
   </template>
 
-  <template id="tpl-gybelock" data-kicker="Computer vision">
+  <template id="tpl-gybelock" data-kicker="Computer vision · Offline tracking · Technical report">
     <div class="cols">
       <div>
         <section class="detail-section">
-          <h3>User problem</h3>
-        <p>
-          An end-to-end computer-vision product for recovering individual rider footage from wide,
-          shaky beach recordings where subjects are small, fast, and visually similar. The system
-          covers specialist model training, GPU video processing, multi-object identity tracking,
-          geometric stabilisation, cloud deployment, and the interactive player exposed to users.
-        </p>
+          <h3>Overview</h3>
+          <p>
+            GybeLock recovers stable, rider-relative videos from difficult shore-shot footage where
+            surfers are small, the camera pans aggressively, rigs overlap, and one identity merge can
+            invalidate an output. It combines a custom pose detector, deliberately conservative local
+            tracking, offline global association, and pose-guided virtual-camera control in a deployed
+            interactive application.
+          </p>
         </section>
         <section class="detail-section">
-          <h3>Vision pipeline and deployment</h3>
-        <ul>
-          <li>YOLO-based detection and pose models trained specifically on shore-shot windsurfing footage.</li>
-          <li>Multi-object tracking plus stabilisation transforms, so clicking a rider gives a steady focused view instead of a jittery crop.</li>
-          <li>React and Firebase frontend, FastAPI backend, and Modal-powered GPU processing for the heavy video work.</li>
-          <li>A local reproduction path mirrors the production pipeline, which keeps failing samples debuggable off the cloud.</li>
-        </ul>
+          <h3>Headline evidence</h3>
+          <table class="facts-table">
+            <tbody>
+              <tr><th>Fragmentation excess</th><td><b>845 → 42</b> versus OC-SORT</td></tr>
+              <tr><th>Pairwise association</th><td><b>0.937 F1</b> (0.957 precision, 0.918 recall)</td></tr>
+              <tr><th>Exact reconstructions</th><td><b>11 of 21</b> development videos</td></tr>
+            </tbody>
+          </table>
+          <p class="note">
+            The benchmark contains 41,004 retained observations from 88 identities. Every method
+            receives the same saved observations, so it isolates association quality rather than
+            measuring detector recall or end-to-end tracking.
+          </p>
         </section>
         <section class="detail-section">
-          <h3>Demo and repository</h3>
-        <p class="note">
-          The current evidence is the deployed end-to-end capability and reproducible GPU pipeline;
-          a held-out detection, tracking, or pose benchmark is not yet published.
-        </p>
-        <div class="actions">
-          <a class="btn live" href="https://gybelock.bertil-braun.de" target="_blank" rel="noopener"><span class="dot" aria-hidden="true"></span> Live demo</a>
-          <a class="btn" href="https://github.com/BertilBraun/Windsurf-Analysis" target="_blank" rel="noopener">GitHub repo</a>
-        </div>
+          <h3>What was built</h3>
+          <ul>
+            <li>A custom YOLO11m-pose model that detects surfers and two rig keypoints: the boom–mast junction and mast tip.</li>
+            <li>High-purity local tracklets built from camera-compensated motion and foreground-masked sail-colour descriptors.</li>
+            <li>An integer-programming stage that selects tracklet starts, ends, discards, and globally compatible continuations.</li>
+            <li>Dense trajectory reconstruction and pose-guided anchor and scale signals for a stable rider-relative virtual camera.</li>
+            <li>A React, Firebase, FastAPI, and Modal application with an equivalent local path for debugging failed examples.</li>
+          </ul>
+        </section>
+        <section class="detail-section">
+          <h3>System and method</h3>
+          <p>
+            The pipeline runs from video to pose detections, conservative local tracklets, offline
+            identity paths, dense trajectories, and finally stable rider views. False merges and
+            fragmentation are deliberately treated differently: a split remains reviewable, while a
+            wrong merge silently inserts another surfer. The global stage can use later fragments to
+            resolve gaps that a causal tracker must decide without seeing the rest of the recording.
+          </p>
+        </section>
+        <section class="detail-section">
+          <h3>Evaluation and limitations</h3>
+          <p>
+            Staged revisions improved pairwise F1 from 0.893 to 0.937 and reduced contaminated tracks
+            from 20 to nine. The final system produced nine identity-mixed tracks out of 95, so it is
+            the selected operating point for this application—not a zero-error tracker or a general
+            ranking over modern tracking systems.
+          </p>
+          <p class="note">
+            The 21 videos are an in-sample development set. Identity-conditioned trajectory smoothing
+            leaks information into the motion cue, BoT-SORT was evaluated without pedestrian ReID,
+            disappearances beyond three seconds can remain fragmented, and the pose-guided framing has
+            no independent cross-video stability benchmark. Complete-trajectory review is still required.
+          </p>
+        </section>
+        <section class="detail-section">
+          <h3>Demo, report, and artifacts</h3>
+          <div class="actions">
+            <a class="btn live" href="https://gybelock.bertil-braun.de" target="_blank" rel="noopener"><span class="dot" aria-hidden="true"></span> Live demo</a>
+            <a class="btn paper-link" href="https://github.com/BertilBraun/Windsurf-Analysis/releases/download/windsurf-report-v1.5/Windsurf-Analysis-Technical-Report.pdf" target="_blank" rel="noopener">Technical report</a>
+            <a class="btn" href="https://github.com/BertilBraun/Windsurf-Analysis/tree/windsurf-report-v1.5" target="_blank" rel="noopener">Tagged source</a>
+            <a class="btn" href="https://github.com/BertilBraun/Windsurf-Analysis/tree/windsurf-report-v1.5/documentation/tracker_evaluation" target="_blank" rel="noopener">Evaluation artifacts</a>
+            <a class="btn" href="https://github.com/BertilBraun/Windsurf-Analysis/blob/windsurf-report-v1.5/video_processing/inference/weights/yolo_models/windsurfing_pose/best.pt" target="_blank" rel="noopener">Pose checkpoint</a>
+          </div>
         </section>
       </div>
       <div class="modal-media">
@@ -1731,7 +1775,7 @@
           <button class="shot" type="button" data-src="assets/gybelock.webp" data-caption="Top left: the original beach-shot footage. Bottom left: detections and tracks, with the selected rider boxed. Right: the stabilised focused view that follows that rider.">
             <img src="assets/gybelock.webp" alt="Processed windsurfing clip with rider detections and a stabilised focused view">
           </button>
-          <figcaption>Detection, tracking, and focused view. Click to enlarge.</figcaption>
+          <figcaption>Detection, tracking, and the resulting rider-relative view. Click to enlarge.</figcaption>
         </figure>
       </div>
     </div>
@@ -1754,6 +1798,14 @@
           <p class="writing-summary">Data generation, causal turn-taking, latency evaluation, and deployment for a streaming voice agent.</p>
         </div>
         <a class="btn paper-link" href="https://github.com/BertilBraun/Voice-Light/releases/download/v1.0.1/voice-light-technical-report.pdf" target="_blank" rel="noopener">Technical report</a>
+      </article>
+      <article class="writing-item">
+        <div>
+          <p class="writing-meta">Technical report · Computer vision · 2026</p>
+          <h3>Identity-Consistent Analysis of Long-Shot Windsurfing Video</h3>
+          <p class="writing-summary">Offline identity association, camera-compensated motion, sail-specific appearance, and pose-guided framing for stable rider-relative video.</p>
+        </div>
+        <a class="btn paper-link" href="https://github.com/BertilBraun/Windsurf-Analysis/releases/download/windsurf-report-v1.5/Windsurf-Analysis-Technical-Report.pdf" target="_blank" rel="noopener">Technical report</a>
       </article>
       <article class="writing-item">
         <div>
@@ -1848,9 +1900,9 @@
         },
         'gybelock': {
           path: '/projects/gybelock/',
-          title: 'GybeLock — Windsurfing Video Intelligence — Bertil Braun',
+          title: 'GybeLock — Offline Windsurfing Video Tracking — Bertil Braun',
           heading: 'GybeLock — Windsurfing Video Intelligence',
-          description: 'A deployed computer-vision system for windsurfing footage with specialist detection and pose models, tracking, stabilization, and interactive rider views.'
+          description: 'An offline computer-vision system for long-shot windsurfing footage, combining camera-compensated global association, sail-specific appearance, and pose-guided rider framing.'
         },
         'gnn': {
           path: '/projects/traffic-signal-control/',

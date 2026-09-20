@@ -48,8 +48,8 @@ PROJECT_ROUTES = (
     ),
     ProjectRoute(
         slug='gybelock',
-        title='GybeLock — Windsurfing Video Intelligence — Bertil Braun',
-        description='A deployed computer-vision system for windsurfing footage with specialist detection and pose models, tracking, stabilization, and interactive rider views.',
+        title='GybeLock — Offline Windsurfing Video Tracking — Bertil Braun',
+        description='An offline computer-vision system for long-shot windsurfing footage, combining camera-compensated global association, sail-specific appearance, and pose-guided rider framing.',
     ),
     ProjectRoute(
         slug='traffic-signal-control',
