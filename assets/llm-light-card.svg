@@ -36,8 +36,9 @@
   <text class="label" x="520" y="198">Pretraining</text>
   <text class="small" x="520" y="229">one compatible artifact</text>
 
-  <path class="flow" d="M520 253 C520 282 380 278 380 304"/>
-  <path class="flow" d="M520 253 C520 282 660 278 660 304"/>
+  <path class="connector" d="M520 253 V280 M380 280 H660"/>
+  <path class="flow" d="M380 280 V304"/>
+  <path class="flow" d="M660 280 V304"/>
 
   <text class="count" x="28" y="354">2 BRANCHES</text>
   <rect class="branch" x="260" y="310" width="240" height="78" rx="14"/>
@@ -45,10 +46,11 @@
   <text class="label" x="380" y="358">Post-train A</text>
   <text class="label" x="660" y="358">Post-train B</text>
 
-  <path class="flow" d="M380 389 C380 415 295 408 295 432"/>
-  <path class="flow" d="M380 389 C380 415 445 408 445 432"/>
-  <path class="flow" d="M660 389 C660 415 595 408 595 432"/>
-  <path class="flow" d="M660 389 C660 415 745 408 745 432"/>
+  <path class="connector" d="M380 389 V414 M295 414 H445 M660 389 V414 M595 414 H745"/>
+  <path class="flow" d="M295 414 V432"/>
+  <path class="flow" d="M445 414 V432"/>
+  <path class="flow" d="M595 414 V432"/>
+  <path class="flow" d="M745 414 V432"/>
 
   <text class="count" x="28" y="481">4 RESULTS</text>
   <rect class="eval" x="230" y="438" width="130" height="60" rx="12"/>
