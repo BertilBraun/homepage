@@ -445,6 +445,18 @@
     .tile.wide.span2 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
     .tile.wide.span2 .tile-media img { max-height: 300px; }
 
+    .tile.wide.span2 .tile-media.voice-portrait {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tile.wide.span2 .tile-media.voice-portrait img {
+      width: auto;
+      max-width: 100%;
+      max-height: 390px;
+    }
+
     .tile.wide .tile-media { order: 0; }
     .tile.wide.media-right .tile-media { order: 2; }
 
@@ -767,6 +779,11 @@
         background: transparent;
         object-fit: contain;
       }
+      .tile.wide.span2 .tile-media.voice-portrait { height: 320px; }
+      .tile.wide.span2 .tile-media.voice-portrait img {
+        width: auto;
+        height: 100%;
+      }
       .tile.wide.span2 .tile-body { padding: 20px 20px 22px; }
       .tile.wide.span2 h4 { font-size: 1.2rem; line-height: 1.25; }
       .tile.wide.span2 p { color: var(--muted); font-size: 0.9rem; }
@@ -815,6 +832,16 @@
         border-radius: 0;
         background: transparent;
         object-fit: contain;
+      }
+      .tile.wide .tile-media.voice-portrait,
+      .tile.wide.span2 .tile-media.voice-portrait {
+        height: 390px;
+        padding: 16px;
+      }
+      .tile.wide .tile-media.voice-portrait img,
+      .tile.wide.span2 .tile-media.voice-portrait img {
+        width: auto;
+        height: 100%;
       }
       .tile.wide .tile-body, .tile.wide.span2 .tile-body { padding: 20px 20px 22px; }
       .thumb { height: 184px; }
@@ -964,8 +991,8 @@
           </article>
 
           <article class="tile wide span2" data-open="voice-light" data-tags="language publication live">
-            <figure class="tile-media">
-              <img src="assets/voice-light.svg" alt="Timeline of the Voice Light streaming cascade, with ASR, turn detection, language generation, speech synthesis, and playback overlapping" loading="lazy" decoding="async">
+            <figure class="tile-media voice-portrait">
+              <img src="assets/voice-light-card.svg" alt="Five stages of Voice-Light: training data, causal labeling, adapter training, streaming deployment, and a live full-duplex browser agent" loading="lazy" decoding="async">
             </figure>
             <div class="tile-body">
               <span class="kicker">Speech · Real-time systems · Technical report</span>
@@ -976,6 +1003,7 @@
                   <span class="dot" aria-hidden="true"></span> Live demo
                 </a>
                 <a class="chip paper" href="https://github.com/BertilBraun/Voice-Light/releases/download/v1.0.1/voice-light-technical-report.pdf" target="_blank" rel="noopener" data-stop>Technical report</a>
+                <span class="chip">Synthetic training data</span>
                 <span class="chip">Model training</span>
                 <span class="chip">Causal turn-taking</span>
               </div>

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="920" viewBox="0 0 700 920" role="img" aria-labelledby="title description">
+  <title id="title">Voice-Light from training data to live conversation</title>
+  <desc id="description">Five-stage vertical diagram: synthetic and human dialogue, causal labeling, two trained adapters, a two-GPU streaming runtime, and a full-duplex browser experience.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto">
+      <path d="M0 0 L10 6 L0 12 Z" fill="#17766c"/>
+    </marker>
+    <style>
+      .eyebrow { font: 700 18px Inter, 'Segoe UI', Arial, sans-serif; letter-spacing: 2.4px; fill: #17766c; }
+      .heading { font: 600 38px Georgia, 'Times New Roman', serif; fill: #17191d; }
+      .step { font: 700 15px Inter, 'Segoe UI', Arial, sans-serif; letter-spacing: 1.8px; fill: #17766c; }
+      .label { font: 650 27px Inter, 'Segoe UI', Arial, sans-serif; fill: #17191d; }
+      .detail { font: 400 19px Inter, 'Segoe UI', Arial, sans-serif; fill: #606872; }
+      .inverse-step { font: 700 15px Inter, 'Segoe UI', Arial, sans-serif; letter-spacing: 1.8px; fill: #d8eee9; }
+      .inverse-label { font: 650 27px Inter, 'Segoe UI', Arial, sans-serif; fill: #ffffff; }
+      .inverse-detail { font: 400 19px Inter, 'Segoe UI', Arial, sans-serif; fill: #e7f2ef; }
+      .box { fill: #ffffff; stroke: #d8d4ca; stroke-width: 2; }
+      .soft { fill: #edf6f3; stroke: #93bbb4; stroke-width: 2; }
+      .live { fill: #176f65; stroke: #176f65; stroke-width: 2; }
+      .flow { fill: none; stroke: #17766c; stroke-width: 3; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="700" height="920" rx="20" fill="#fbfaf6"/>
+  <text class="eyebrow" x="52" y="58">VOICE-LIGHT · END TO END</text>
+  <text class="heading" x="52" y="108">From training data</text>
+  <text class="heading" x="52" y="150">to live conversation</text>
+
+  <rect class="box" x="52" y="194" width="596" height="112" rx="14"/>
+  <text class="step" x="78" y="226">01 · DATA</text>
+  <text class="label" x="78" y="262">Synthetic + human dialogue</text>
+  <text class="detail" x="78" y="289">Tool-use conversations and two-speaker audio</text>
+
+  <path class="flow" d="M350 307 V336"/>
+
+  <rect class="soft" x="52" y="340" width="596" height="112" rx="14"/>
+  <text class="step" x="78" y="372">02 · LABEL</text>
+  <text class="label" x="78" y="408">Automatic causal supervision</text>
+  <text class="detail" x="78" y="435">ASR, VAD, alignment and dense turn targets</text>
+
+  <path class="flow" d="M350 453 V482"/>
+
+  <rect class="box" x="52" y="486" width="596" height="112" rx="14"/>
+  <text class="step" x="78" y="518">03 · TRAIN</text>
+  <text class="label" x="78" y="554">Two specialised adapters</text>
+  <text class="detail" x="78" y="581">Spoken tool use + causal turn-taking</text>
+
+  <path class="flow" d="M350 599 V628"/>
+
+  <rect class="soft" x="52" y="632" width="596" height="112" rx="14"/>
+  <text class="step" x="78" y="664">04 · DEPLOY</text>
+  <text class="label" x="78" y="700">Two-GPU streaming runtime</text>
+  <text class="detail" x="78" y="727">Concurrent listening, generation and speech</text>
+
+  <path class="flow" d="M350 745 V774"/>
+
+  <rect class="live" x="52" y="778" width="596" height="112" rx="14"/>
+  <circle cx="80" cy="810" r="6" fill="#a8dfd5"/>
+  <text class="inverse-step" x="98" y="816">05 · LIVE</text>
+  <text class="inverse-label" x="78" y="852">Full-duplex browser agent</text>
+  <text class="inverse-detail" x="78" y="879">Interruptions, backchannels, tools + audible history</text>
+</svg>
