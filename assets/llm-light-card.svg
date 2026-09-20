@@ -13,52 +13,50 @@
       .shared { fill: #dcefeb; stroke: #17766c; stroke-width: 2.5; }
       .branch { fill: #edf6f3; stroke: #70a99f; stroke-width: 2; }
       .eval { fill: #ffffff; stroke: #8a9590; stroke-width: 2; }
-      .connector { fill: none; stroke: #87918d; stroke-width: 2.25; stroke-linecap: round; stroke-linejoin: round; }
+      .connector { fill: none; stroke: #8aa9a2; stroke-width: 2.25; stroke-linecap: round; stroke-linejoin: round; }
       .flow { fill: none; stroke: #17766c; stroke-width: 2.5; stroke-linecap: round; marker-end: url(#arrow); }
     </style>
   </defs>
 
   <text class="count" x="28" y="72">4 CONFIGS</text>
-  <rect class="config" x="170" y="30" width="128" height="70" rx="12"/>
-  <rect class="config" x="320" y="30" width="128" height="70" rx="12"/>
-  <rect class="config" x="470" y="30" width="128" height="70" rx="12"/>
-  <rect class="config" x="620" y="30" width="128" height="70" rx="12"/>
-  <text class="label" x="234" y="74">A1</text>
-  <text class="label" x="384" y="74">A2</text>
-  <text class="label" x="534" y="74">B1</text>
-  <text class="label" x="684" y="74">B2</text>
+  <rect class="config" x="228" y="30" width="128" height="70" rx="12"/>
+  <rect class="config" x="380" y="30" width="128" height="70" rx="12"/>
+  <rect class="config" x="532" y="30" width="128" height="70" rx="12"/>
+  <rect class="config" x="684" y="30" width="128" height="70" rx="12"/>
+  <text class="label" x="292" y="74">A1</text>
+  <text class="label" x="444" y="74">A2</text>
+  <text class="label" x="596" y="74">B1</text>
+  <text class="label" x="748" y="74">B2</text>
 
-  <path class="connector" d="M234 101 V128 M384 101 V128 M534 101 V128 M684 101 V128 M234 128 H684"/>
-  <path class="flow" d="M450 128 V154"/>
+  <path class="connector" d="M292 101 V128 M444 101 V128 M596 101 V128 M748 101 V128 M292 128 H748"/>
+  <path class="flow" d="M520 128 V154"/>
 
   <text class="count" x="28" y="210">1 SHARED</text>
-  <rect class="shared" x="285" y="160" width="330" height="92" rx="14"/>
-  <text class="label" x="450" y="198">Pretraining</text>
-  <text class="small" x="450" y="229">one compatible artifact</text>
+  <rect class="shared" x="355" y="160" width="330" height="92" rx="14"/>
+  <text class="label" x="520" y="198">Pretraining</text>
+  <text class="small" x="520" y="229">one compatible artifact</text>
 
-  <path class="connector" d="M450 253 V280 M340 280 H600"/>
-  <path class="flow" d="M340 280 V304"/>
-  <path class="flow" d="M600 280 V304"/>
+  <path class="flow" d="M520 253 C520 282 380 278 380 304"/>
+  <path class="flow" d="M520 253 C520 282 660 278 660 304"/>
 
   <text class="count" x="28" y="354">2 BRANCHES</text>
-  <rect class="branch" x="220" y="310" width="240" height="78" rx="14"/>
-  <rect class="branch" x="480" y="310" width="240" height="78" rx="14"/>
-  <text class="label" x="340" y="358">Post-train A</text>
-  <text class="label" x="600" y="358">Post-train B</text>
+  <rect class="branch" x="260" y="310" width="240" height="78" rx="14"/>
+  <rect class="branch" x="540" y="310" width="240" height="78" rx="14"/>
+  <text class="label" x="380" y="358">Post-train A</text>
+  <text class="label" x="660" y="358">Post-train B</text>
 
-  <path class="connector" d="M340 389 V414 M255 414 H405 M600 389 V414 M555 414 H705"/>
-  <path class="flow" d="M255 414 V432"/>
-  <path class="flow" d="M405 414 V432"/>
-  <path class="flow" d="M555 414 V432"/>
-  <path class="flow" d="M705 414 V432"/>
+  <path class="flow" d="M380 389 C380 415 295 408 295 432"/>
+  <path class="flow" d="M380 389 C380 415 445 408 445 432"/>
+  <path class="flow" d="M660 389 C660 415 595 408 595 432"/>
+  <path class="flow" d="M660 389 C660 415 745 408 745 432"/>
 
   <text class="count" x="28" y="481">4 RESULTS</text>
-  <rect class="eval" x="190" y="438" width="130" height="60" rx="12"/>
-  <rect class="eval" x="340" y="438" width="130" height="60" rx="12"/>
-  <rect class="eval" x="490" y="438" width="130" height="60" rx="12"/>
-  <rect class="eval" x="640" y="438" width="130" height="60" rx="12"/>
-  <text class="small" x="255" y="476">Eval A1</text>
-  <text class="small" x="405" y="476">Eval A2</text>
-  <text class="small" x="555" y="476">Eval B1</text>
-  <text class="small" x="705" y="476">Eval B2</text>
+  <rect class="eval" x="230" y="438" width="130" height="60" rx="12"/>
+  <rect class="eval" x="380" y="438" width="130" height="60" rx="12"/>
+  <rect class="eval" x="530" y="438" width="130" height="60" rx="12"/>
+  <rect class="eval" x="680" y="438" width="130" height="60" rx="12"/>
+  <text class="small" x="295" y="476">Eval A1</text>
+  <text class="small" x="445" y="476">Eval A2</text>
+  <text class="small" x="595" y="476">Eval B1</text>
+  <text class="small" x="745" y="476">Eval B2</text>
 </svg>
