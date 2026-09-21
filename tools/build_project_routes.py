@@ -35,7 +35,7 @@ PAGE_ROUTES = (
     PageRoute(
         path='/projects/voice-light/',
         title='Voice-Light — Full-Duplex Streaming Voice Agent — Bertil Braun',
-        description='A live full-duplex voice agent spanning conversational training data, model adaptation, causal evaluation, interruption-aware control, and two-GPU streaming deployment.',
+        description='A live full-duplex voice agent spanning conversational training data, model adaptation, causal evaluation, interruption-aware control, and two-GPU streaming deployment, documented in an arXiv paper.',
     ),
     PageRoute(
         path='/projects/scalable-llm-evaluation/',

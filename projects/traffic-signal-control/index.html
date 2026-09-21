@@ -1008,14 +1008,14 @@
               <img src="assets/voice-light-card.svg" alt="Tool-use and turn-taking data feed two focused adapters and a hybrid streaming runtime for the live full-duplex browser agent" loading="lazy" decoding="async">
             </figure>
             <div class="tile-body">
-              <span class="kicker">Speech · Real-time systems · Technical report</span>
+              <span class="kicker">Speech · Real-time systems · arXiv paper</span>
               <h4>Voice-Light — Full-Duplex Streaming Voice Agent</h4>
-              <p>A deployed full-duplex voice agent that keeps listening while it speaks, handles interruptions and backchannels, and executes structured tools. The project spans synthetic and human training data, two focused adapters, locked evaluation, and a two-GPU streaming runtime; in a warm eight-turn browser test, replies began playing a median 783 ms after the user stopped speaking.</p>
+              <p>A deployed full-duplex voice agent that keeps listening while it speaks, handles interruptions and backchannels, and executes structured tools. The arXiv paper covers the complete path from synthetic and human training data through two focused adapters, locked evaluation, and a two-GPU streaming deployment.</p>
               <div class="chips">
                 <a class="chip live" href="https://voice.bertil-braun.de" target="_blank" rel="noopener" data-stop>
                   <span class="dot" aria-hidden="true"></span> Live demo
                 </a>
-                <a class="chip paper" href="https://github.com/BertilBraun/Voice-Light/releases/download/v1.0.1/voice-light-technical-report.pdf" target="_blank" rel="noopener" data-stop>Technical report</a>
+                <a class="chip paper" href="https://arxiv.org/abs/2609.20995" target="_blank" rel="noopener" data-stop>arXiv paper</a>
                 <span class="chip">Full-duplex streaming</span>
                 <span class="chip">Causal turn-taking</span>
                 <span class="chip">Synthetic training data</span>
@@ -1064,7 +1064,7 @@
               </button>
             </figure>
             <div class="tile-body">
-              <span class="kicker">Graph RL · Technical report</span>
+              <span class="kicker">Graph RL · arXiv paper</span>
               <h4>Graph-Based Traffic Signal Control</h4>
               <p>
                 A graph-RL interface that scores individual traffic movements and deterministically
@@ -1073,7 +1073,7 @@
                 exceeded the recorded max-pressure baseline on an unseen 6×6 network at every tested demand.
               </p>
               <div class="chips">
-                <a class="chip paper" href="https://arxiv.org/abs/2607.21831" target="_blank" rel="noopener" data-stop>arXiv report</a>
+                <a class="chip paper" href="https://arxiv.org/abs/2607.21831" target="_blank" rel="noopener" data-stop>arXiv paper</a>
                 <span class="chip">Graph neural network</span>
                 <span class="chip">Variable action spaces</span>
                 <span class="chip">PPO · SUMO</span>
@@ -1383,7 +1383,7 @@
     </div>
   </template>
 
-  <template id="tpl-voice-light" data-kicker="Speech · Real-time systems · Technical report">
+  <template id="tpl-voice-light" data-kicker="Speech · Real-time systems · arXiv paper">
     <div class="cols">
       <div>
         <section class="detail-section">
@@ -1417,23 +1417,27 @@
         <section class="detail-section">
           <h3>What the evaluation changed</h3>
           <ul>
-            <li><strong>Responsive live path:</strong> a warm eight-turn microphone test completed every planned conversational and tool-using turn, with replies beginning in the browser a median 783 ms after the user stopped speaking.</li>
+            <li><strong>Responsive live path:</strong> across three instrumented, unscripted microphone sessions, 36 measured response turns began returning server audio a median 758 ms after the final detected end of speech.</li>
             <li><strong>Measured deployment:</strong> moving speech synthesis to its own GPU cut controlled warm first-word-to-audio time from roughly 0.6–0.7 seconds to about 0.35 seconds.</li>
             <li><strong>Evidence over novelty:</strong> the learned turn adapter did not outperform the strongest timing baselines on locked real conversations, so production uses it inside a hybrid controller rather than as a standalone replacement.</li>
           </ul>
           <p class="note">
-            The latency figure comes from one warm acceptance session, not a population estimate.
-            The report contains the complete locked-evaluation protocol, component results, and
-            deployment limitations.
+            These sessions are an instrumented case study, not a controlled user evaluation.
+            The paper contains the complete locked-evaluation protocol, component results, and
+            deployment limitations, and releases the supporting code, data, and model artifacts.
           </p>
         </section>
         <section class="detail-section">
-          <h3>Demo, report, and artifacts</h3>
+          <h3>Demo, paper, and artifacts</h3>
+          <p class="cite">
+            Bertil Braun. <span class="t">Voice-Light: A Full-Duplex Cascaded Voice Agent with
+            Causal Turn-Taking and Speculative Generation.</span> arXiv:2609.20995, 2026.
+          </p>
         <div class="actions">
           <a class="btn live" href="https://voice.bertil-braun.de" target="_blank" rel="noopener">
             <span class="dot" aria-hidden="true"></span> Live demo
           </a>
-          <a class="btn paper-link" href="https://github.com/BertilBraun/Voice-Light/releases/download/v1.0.1/voice-light-technical-report.pdf" target="_blank" rel="noopener">Technical report</a>
+          <a class="btn paper-link" href="https://arxiv.org/abs/2609.20995" target="_blank" rel="noopener">arXiv paper</a>
           <a class="btn" href="https://github.com/BertilBraun/Voice-Light" target="_blank" rel="noopener">GitHub &amp; docs</a>
           <a class="btn" href="https://huggingface.co/BertilBraun/qwen3-1.7b-voice-light-tool-use-lora" target="_blank" rel="noopener">Tool-use LoRA</a>
           <a class="btn" href="https://huggingface.co/datasets/BertilBraun/voice-light-tool-use-synthetic" target="_blank" rel="noopener">Tool-use dataset</a>
@@ -1552,7 +1556,7 @@
     </div>
   </template>
 
-  <template id="tpl-gnn" data-kicker="Graph reinforcement learning · Technical report">
+  <template id="tpl-gnn" data-kicker="Graph reinforcement learning · arXiv paper">
     <div class="cols">
       <div>
         <section class="detail-section">
@@ -1592,13 +1596,13 @@
           </p>
         </section>
         <section class="detail-section">
-          <h3>Report and code</h3>
+          <h3>Paper and code</h3>
           <p class="cite">
             Bertil Braun. <span class="t">A Graph-Based Control Interface for Traffic Signals on
             Heterogeneous Road Networks.</span> arXiv:2607.21831, 2026.
           </p>
         <div class="actions">
-          <a class="btn paper-link" href="https://arxiv.org/abs/2607.21831" target="_blank" rel="noopener">arXiv report</a>
+          <a class="btn paper-link" href="https://arxiv.org/abs/2607.21831" target="_blank" rel="noopener">arXiv paper</a>
           <a class="btn" href="https://github.com/BertilBraun/GNN-Traffic-Signal-Control" target="_blank" rel="noopener">GitHub repo</a>
         </div>
         </section>
@@ -1608,7 +1612,7 @@
           <button class="shot" type="button" data-src="assets/gnn-results.webp" data-caption="Left: sampled control versus max pressure on an unseen 6×6 grid, by demand. Right: each city normalised by its own strongest non-learned baseline.">
             <img src="assets/gnn-results.webp" alt="Two plots: throughput on an unseen 6x6 grid, and city results relative to the best non-learned baseline">
           </button>
-          <figcaption>Figure 4 from the technical report. Click to enlarge.</figcaption>
+          <figcaption>Figure 4 from the paper. Click to enlarge.</figcaption>
         </figure>
         <figure>
           <button class="shot" type="button" data-src="assets/gnn-traffic.webp" data-caption="Movement graph for a 3×3 grid: grey corridor nodes carry queue, speed and occupancy; red movement nodes are the controlled turns; typed edges connect each movement to its input and output corridors.">
@@ -1758,11 +1762,11 @@
       </article>
       <article class="writing-item">
         <div>
-          <p class="writing-meta">Technical report · Voice systems · 2026</p>
-          <h3>Voice-Light: From Conversational Data to a Deployed Streaming Voice Agent</h3>
+          <p class="writing-meta">arXiv paper · Voice systems · 2026</p>
+          <h3>Voice-Light: A Full-Duplex Cascaded Voice Agent with Causal Turn-Taking and Speculative Generation</h3>
           <p class="writing-summary">Data generation, causal turn-taking, latency evaluation, and deployment for a streaming voice agent.</p>
         </div>
-        <a class="btn paper-link" href="https://github.com/BertilBraun/Voice-Light/releases/download/v1.0.1/voice-light-technical-report.pdf" target="_blank" rel="noopener">Technical report</a>
+        <a class="btn paper-link" href="https://arxiv.org/abs/2609.20995" target="_blank" rel="noopener">arXiv paper</a>
       </article>
       <article class="writing-item">
         <div>
@@ -1782,11 +1786,11 @@
       </article>
       <article class="writing-item">
         <div>
-          <p class="writing-meta">arXiv report · Graph RL · 2026</p>
+          <p class="writing-meta">arXiv paper · Graph RL · 2026</p>
           <h3>A Graph-Based Control Interface for Traffic Signals on Heterogeneous Road Networks</h3>
           <p class="writing-summary">A topology-flexible reinforcement-learning interface for variable road networks and signal phase sets.</p>
         </div>
-        <a class="btn paper-link" href="https://arxiv.org/abs/2607.21831" target="_blank" rel="noopener">arXiv report</a>
+        <a class="btn paper-link" href="https://arxiv.org/abs/2607.21831" target="_blank" rel="noopener">arXiv paper</a>
       </article>
       <article class="writing-item">
         <div>
@@ -1855,7 +1859,7 @@
           path: '/projects/voice-light/',
           title: 'Voice-Light — Full-Duplex Streaming Voice Agent — Bertil Braun',
           heading: 'Voice-Light — Full-Duplex Streaming Voice Agent',
-          description: 'A live full-duplex voice agent spanning conversational training data, model adaptation, causal evaluation, interruption-aware control, and two-GPU streaming deployment.'
+          description: 'A live full-duplex voice agent spanning conversational training data, model adaptation, causal evaluation, interruption-aware control, and two-GPU streaming deployment, documented in an arXiv paper.'
         },
         'llm-eval': {
           path: '/projects/scalable-llm-evaluation/',
