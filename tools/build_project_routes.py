@@ -45,7 +45,7 @@ PAGE_ROUTES = (
     PageRoute(
         path='/projects/gybelock/',
         title='GybeLock — Offline Windsurfing Video Tracking — Bertil Braun',
-        description='An offline computer-vision system that preserves rider identity through difficult windsurfing footage and produces stable rider-focused videos in a live application.',
+        description='An offline computer-vision system that preserves rider identity through difficult windsurfing footage and produces stable rider-focused videos in a live application, documented in an arXiv paper.',
     ),
     PageRoute(
         path='/projects/traffic-signal-control/',
