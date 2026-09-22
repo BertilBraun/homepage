@@ -30,7 +30,7 @@ PAGE_ROUTES = (
     PageRoute(
         path='/projects/agentic-llm-systems/',
         title='Agentic LLM Systems — Bertil Braun',
-        description='Three distinct projects spanning durable workflow execution, evidence-gated coding, and an independent A2A/MCP multi-agent story narrator.',
+        description='Three distinct systems: self-hosted durable workflows, an evidence-gated coding runtime, and an independent voice-first multi-agent narrator built with A2A and MCP.',
     ),
     PageRoute(
         path='/projects/voice-light/',

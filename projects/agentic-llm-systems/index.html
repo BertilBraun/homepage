@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <base href="/">
   <title>Agentic LLM Systems — Bertil Braun</title>
-  <meta name="description" content="Three distinct projects spanning durable workflow execution, evidence-gated coding, and an independent A2A/MCP multi-agent story narrator.">
+  <meta name="description" content="Three distinct systems: self-hosted durable workflows, an evidence-gated coding runtime, and an independent voice-first multi-agent narrator built with A2A and MCP.">
   <meta name="author" content="Bertil Braun">
   <link rel="canonical" href="https://bertil-braun.de/projects/agentic-llm-systems/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Agentic LLM Systems — Bertil Braun">
-  <meta property="og:description" content="Three distinct projects spanning durable workflow execution, evidence-gated coding, and an independent A2A/MCP multi-agent story narrator.">
+  <meta property="og:description" content="Three distinct systems: self-hosted durable workflows, an evidence-gated coding runtime, and an independent voice-first multi-agent narrator built with A2A and MCP.">
   <meta property="og:url" content="https://bertil-braun.de/projects/agentic-llm-systems/">
   <meta property="og:image" content="https://bertil-braun.de/assets/social-card.png">
   <meta property="og:image:width" content="1200">
@@ -19,7 +19,7 @@
   <meta property="og:image:alt" content="Bertil Braun — Applied ML Research Engineer in Karlsruhe, working across language-model agents, scalable training, distributed systems, reinforcement learning, and evaluation.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Agentic LLM Systems — Bertil Braun">
-  <meta name="twitter:description" content="Three distinct projects spanning durable workflow execution, evidence-gated coding, and an independent A2A/MCP multi-agent story narrator.">
+  <meta name="twitter:description" content="Three distinct systems: self-hosted durable workflows, an evidence-gated coding runtime, and an independent voice-first multi-agent narrator built with A2A and MCP.">
   <meta name="twitter:image" content="https://bertil-braun.de/assets/social-card.png">
   <meta name="theme-color" content="#fbfaf7">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2316615a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' fill='%23fbfaf7' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
@@ -1241,60 +1241,69 @@
     <div class="cols">
       <div>
         <section class="detail-section">
-          <h3>Project thesis</h3>
-          <p>
-            A collection of three separate projects exploring different parts of agent engineering.
-            Temporal-Light is a self-hosted durable execution engine. The coding runtime uses it to
-            turn natural-language tasks into evidence-gated, reviewed diffs. The voice-first story
-            narrator is an independent multi-agent application built around A2A and MCP service
-            boundaries; it does not share the other projects' runtime or architecture.
-          </p>
-        </section>
-
-        <section class="detail-section">
           <h3>Durable execution with Temporal-Light</h3>
-          <p class="cite">
-            A lightweight workflow engine in which decorated async Python functions survive crashes,
-            worker restarts, and process migrations by replaying an append-only Postgres event log.
-            Stateless workers claim work with <code>FOR UPDATE SKIP LOCKED</code>; coroutine state is
-            re-derived rather than persisted.
+          <p>
+            Temporal-Light is a lightweight, self-hosted workflow engine for Python programs that
+            need to outlive process failures: long-running agents, scheduled work, workflows that
+            wait for external signals, and work that fans out before joining again. Developers write
+            ordinary async Python functions and decorate workflows and activities; a small FastAPI
+            service starts runs, accepts signals, and streams their progress to a live dashboard.
+          </p>
+          <p>
+            Postgres is the durable source of truth. Instead of serialising a live coroutine, a
+            worker reconstructs the workflow and replays its append-only event history: completed
+            activities return their recorded result and execution resumes at the first unfinished
+            step. Lease-based worker coordination prevents concurrent execution and lets another
+            worker recover expired work. The implementation deliberately favours a compact,
+            inspectable control plane over feature parity with established workflow platforms.
           </p>
         </section>
 
         <section class="detail-section">
           <h3>Evidence-gated coding runtime</h3>
-          <p class="cite">
-            Built on Temporal-Light, this separate runtime turns a natural-language coding task into
-            a reviewed diff through reproduction, rolling replanning, implementation, and review.
-            Diffs, command output, exit codes, test results, and review verdicts gate progress; the
-            model chooses what to try, while workspace evidence determines what actually happened.
+          <p>
+            Built on Temporal-Light as a real stress test for durable orchestration, this runtime
+            turns a natural-language coding task into a reviewed repository change. It first creates
+            a task contract, prepares an isolated workspace, and gathers repository context. For a
+            bug fix or feature with a reproducible behaviour, it can create a failing anchor test and
+            establish the failure before planning the implementation.
+          </p>
+          <p>
+            The agent does not simply narrate progress. It proposes one concrete next step at a time,
+            runs implementation candidates in bounded tool loops, and refreshes the diff, command
+            output, exit codes, test results, and review verdict after each step. Those observed
+            artifacts determine whether work advances, is replanned, or is rejected. The repository
+            includes a live-worker smoke workflow and SWE-Bench Light support, but it is presented as
+            a durable coding-runtime prototype rather than a benchmark submission.
           </p>
         </section>
 
         <section class="detail-section">
           <h3>Independent voice-first story narrator</h3>
-          <p class="cite">
-            A voice-first AI game master for tabletop-style roleplay. Five independent agent
-            services implement the Google A2A protocol, and four MCP tool servers expose state,
-            memory, knowledge, and media. Retrieval spans PostgreSQL for relational state, Qdrant
-            for vectors, and Neo4j for the knowledge graph, while LLM, image, speech synthesis, and
-            speech recognition each sit behind a swappable provider service.
+          <p>
+            This is a separate, voice-first AI game master for tabletop-style roleplay, not a client
+            of Temporal-Light. A React client talks to a FastAPI application that routes each player
+            message to one of five independently deployable agents: character creation, campaign
+            design, game mastering, NPC dialogue, and memory. The agents communicate through the
+            Google Agent-to-Agent protocol, so responsibilities remain service boundaries rather
+            than one large prompt or process.
+          </p>
+          <p>
+            Four MCP servers expose campaign state, semantic memory, world knowledge, and media.
+            PostgreSQL stores relational state, Qdrant retrieves relevant past events, and Neo4j
+            maintains the campaign knowledge graph; campaign scoping is applied at the tool-service
+            boundary. Typed events stream text, speech, and images back to the browser through SSE,
+            while LLM, image, speech-recognition, and speech-synthesis providers sit behind
+            replaceable service adapters. The result is an interactive product built to make
+            multi-agent coordination, memory, and media delivery observable end to end.
           </p>
         </section>
 
-        <section class="detail-section">
-          <h3>Repositories</h3>
-        <p class="note">
-          Each repository supplies its own inspectable evidence: replayable workflow state and
-          failure recovery, recorded coding-tool results and tested diffs, or interoperable A2A and
-          MCP services. A comparative agent benchmark or user study is outside the current scope.
-        </p>
         <div class="actions">
-          <a class="btn primary" href="https://github.com/BertilBraun/Agentic-LLM-DnD-GM" target="_blank" rel="noopener">Story narrator</a>
-          <a class="btn" href="https://github.com/BertilBraun/Durable-Agentic-Coding-Runtime" target="_blank" rel="noopener">Coding runtime</a>
-          <a class="btn" href="https://github.com/BertilBraun/Temporal-Light" target="_blank" rel="noopener">Temporal-Light</a>
+          <a class="btn accent" href="https://github.com/BertilBraun/Agentic-LLM-DnD-GM" target="_blank" rel="noopener">Story narrator</a>
+          <a class="btn accent" href="https://github.com/BertilBraun/Durable-Agentic-Coding-Runtime" target="_blank" rel="noopener">Coding runtime</a>
+          <a class="btn accent" href="https://github.com/BertilBraun/Temporal-Light" target="_blank" rel="noopener">Temporal-Light</a>
         </div>
-        </section>
       </div>
       <div class="modal-media">
         <figure>
@@ -1857,7 +1866,7 @@
           path: '/projects/agentic-llm-systems/',
           title: 'Agentic LLM Systems — Bertil Braun',
           heading: 'Agentic LLM Systems',
-          description: 'Multi-agent systems for voice-first interaction and evidence-gated coding, backed by A2A, MCP, durable workflows, and observable tool execution.'
+          description: 'Three distinct systems: self-hosted durable workflows, an evidence-gated coding runtime, and an independent voice-first multi-agent narrator built with A2A and MCP.'
         },
         'voice-light': {
           path: '/projects/voice-light/',
