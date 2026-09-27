@@ -1163,8 +1163,8 @@
             trained model, as the table shows; brackets give 95% confidence intervals.
           </p>
           <p class="note">
-            Superhuman chess on eight consumer GPUs and $43.20 in training-node rental—a far
-            smaller hardware budget than the thousands of TPUs used by
+            Superhuman chess on eight consumer GPUs and $43.20 in training-node rental—a hardware
+            deployment orders of magnitude smaller in accelerator count than the thousands of TPUs used by
             <a href="https://arxiv.org/abs/1712.01815" target="_blank" rel="noopener">the original AlphaZero</a>,
             though not equivalent playing strength. The rental figure excludes development
             experiments and evaluation.
@@ -1180,32 +1180,37 @@
           </ul>
         </section>
         <section class="detail-section">
-          <h3>Evaluation methodology</h3>
+          <h3>Research and experimentation</h3>
           <p>
-            Each search setting was tested against two fixed-node Stockfish 13 opponents, with
-            100 games per opponent over 50 colour-swapped opening pairs. The table uses the
-            opponent yielding the score closest to 50%, where the strength estimate is best
-            supported. Search settings also vary per-tree parallelism. Elo estimates use
-            <a href="https://www.melonimarco.it/en/2021/03/08/stockfish-and-lc0-test-at-different-number-of-nodes/" target="_blank" rel="noopener">Marco Meloni&#39;s Stockfish 13 node-strength calibration</a>;
-            confidence intervals represent paired-match sampling uncertainty, not uncertainty in
-            that historical calibration. The scale is not a
-            FIDE rating or a comparison with unrestricted modern Stockfish, and current
-            unrestricted engines remain substantially stronger.
+            The final system grew out of experiments across search, training data, network design,
+            and inference. Candidate ideas were tested through controlled model comparisons,
+            throughput measurements, and self-play training runs to establish whether they made
+            the learning system more effective—not just one component faster.
           </p>
+          <ul>
+            <li><strong>Where should search spend its effort?</strong> Experiments covered learned search allocation, early stopping, shared search graphs, and inference caches. A learned allocator produced targets closer to deep search but trained weaker players; early stopping saved search work without much improvement in the overall training cycle. These findings supported a staged fixed-budget search design.</li>
+            <li><strong>Which games teach the model most?</strong> The data strategy combines varied openings with restarts from unresolved alternatives in earlier games. Experiments examined replay size, freshness, and reuse. Investigating a failure to convert winning positions revealed that excluding searched endgames was depriving the model of essential experience, leading to changes in data admission and game-end targets.</li>
+            <li><strong>What should the network learn to represent?</strong> Comparisons covered convolutional and attention-based networks, three ways to represent moves, and auxiliary training objectives. The selected move head scores origin–destination square pairs, reducing parameter cost while improving policy fit in a controlled comparison. Convolution remained the practical choice for its serving speed and memory use.</li>
+            <li><strong>Can lower-precision inference preserve useful predictions?</strong> Simply converting the model to INT8 distorted its outputs. The work extended into residual-block design, quantization-aware training, and TensorRT compilation, producing a network compatible with efficient low-precision inference. Export checks compare predictions with the training model before an inference artifact is used.</li>
+            <li><strong>When is a larger—or smaller—model worthwhile?</strong> Progressive training successfully moved from a small network to a medium one; a further size increase did not establish stronger play. Separate distillation studies produced compact students and tested whether faster inference could compensate through more search. Measured playing strength, rather than parameter count or training loss alone, guided these decisions.</li>
+          </ul>
+        </section>
+        <section class="detail-section">
+          <h3>Evaluation</h3>
           <p>
-            Engineering decisions were tested against playing strength, not just speed or training
-            loss. The experiments exposed endgame weaknesses, prediction changes during model
-            export, and larger networks that learned less effectively. Fixes improved the training
-            data, checked exported models against their originals, and made promotion depend on
-            match results. The report documents those experiments and their trade-offs.
+            Each search setting faced two Stockfish 13 opponents at fixed node budgets, playing
+            100 games against each with colours swapped across 50 opening pairs. Ratings use
+            <a href="https://www.melonimarco.it/en/2021/03/08/stockfish-and-lc0-test-at-different-number-of-nodes/" target="_blank" rel="noopener">Meloni&#39;s calibration</a>;
+            the table’s intervals describe uncertainty from those paired matches. Current
+            unrestricted engines remain substantially stronger. The report provides the full
+            protocol, experiment results, and limitations.
           </p>
         </section>
         <section class="detail-section">
           <h3>Try the trained player</h3>
           <p>
             Play against the trained model in your browser, choosing quick responses or more time
-            to think. The live application makes the research directly usable beyond benchmark
-            matches; the player is also available through a Lichess bot.
+            to think. The player is also available through a Lichess bot.
           </p>
         </section>
         <section class="detail-section">
