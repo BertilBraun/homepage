@@ -1217,18 +1217,22 @@
         </section>
         <section class="detail-section">
           <h3>Demo and artifacts</h3>
-          <p class="note">The new technical report is being finalized; its button currently opens the repository. The training and evaluation records linked below document the previous three-day run, not the new results above.</p>
+          <p class="note">The new technical report is being finalized; its button currently opens the repository.</p>
         <div class="actions">
           <a class="btn paper-link" href="https://github.com/BertilBraun/Advanced-Techniques-in-Chess-Engines" target="_blank" rel="noopener" title="Draft report being finalized; opens the project repository">Report forthcoming</a>
           <a class="btn live" href="https://chess.bertil-braun.de/" target="_blank" rel="noopener"><span class="dot" aria-hidden="true"></span> Live demo</a>
           <a class="btn" href="https://github.com/BertilBraun/Advanced-Techniques-in-Chess-Engines" target="_blank" rel="noopener">GitHub repo</a>
           <a class="btn" href="https://huggingface.co/BertilBraun/alphazero-chess" target="_blank" rel="noopener">Model weights</a>
-          <a class="btn paper-link" href="https://github.com/BertilBraun/Advanced-Techniques-in-Chess-Engines/blob/master/documentation/benchmarks/chess-terminal-v34-generation1465-rtx4070s-20260911/README.md" target="_blank" rel="noopener">Evaluation record</a>
-          <a class="btn paper-link" href="https://github.com/BertilBraun/Advanced-Techniques-in-Chess-Engines/blob/master/documentation/benchmarks/chess-v34-training-dynamics-rtx4070s-20260912/README.md" target="_blank" rel="noopener">Training record</a>
         </div>
         </section>
       </div>
       <div class="modal-media">
+        <figure>
+          <button class="shot" type="button" data-src="assets/az-training-progress.svg" data-caption="Figure 11 from the draft report: smoothed 64-search training ladders across five chess campaigns. The final recipe reaches a higher plateau in 2.5 effective training days; the preceding baseline is plotted through three effective training days. These curves use a smaller search budget than the 100,000-search headline evaluation.">
+            <img src="assets/az-training-progress.svg" alt="Five smoothed training curves: the final chess recipe reaches a higher 64-search ladder Elo in 2.5 days than earlier training campaigns" width="841" height="451" loading="lazy">
+          </button>
+          <figcaption>Training progress across five runs (draft report, Figure 11). Smoothed 64-search ladder results, distinct from the 100,000-search headline evaluation. Click to enlarge.</figcaption>
+        </figure>
         <figure>
           <button class="shot" type="button" data-src="assets/chess-game.webp" data-caption="Round 8 of the three-day baseline evaluation at 10,000 searches per move, playing Black against Stockfish 13 at 40,000 nodes — roughly 2,900 on the calibration curve, a rung where the model scored 40% overall. Stockfish gives up its queen on move 26 and promotes to a second one; the model trades both off and mates on move 33.">
             <img src="assets/chess-game.webp" alt="Animated replay of an evaluation game in which the three-day model beats Stockfish 13 at 40,000 nodes by checkmate on move 33">
