@@ -929,6 +929,7 @@
             <span class="chip">MCTS</span>
             <span class="chip">C++ / CUDA</span>
             <span class="chip">Distributed training</span>
+            <span class="chip">Quantization-aware training</span>
           </div>
           <div class="actions">
             <a class="btn live" href="https://chess.bertil-braun.de/" target="_blank" rel="noopener" data-stop>
@@ -940,9 +941,9 @@
         </div>
         <figure>
           <button class="shot" type="button" data-stop
-                  data-src="assets/chess-game.webp?v=game74"
+                  data-src="assets/chess-game.webp?v=game74-elo"
                   data-caption="Game 74 of the final evaluation: checkpoint 1026 plays White at 100,000 searches per move against Stockfish 13 at 200,000 nodes. After the fixed eight-move opening, the game ends with 54. Qf7#. The model scored 25 wins, 56 draws, and 19 losses across this 100-game match.">
-            <img src="assets/chess-game.webp?v=game74" alt="AlphaZero playing White at 100,000 searches against Stockfish 13 at 200,000 nodes, winning with 54. Qf7 checkmate" width="883" height="962">
+            <img src="assets/chess-game.webp?v=game74-elo" alt="AlphaZero playing White at 100,000 searches against Stockfish 13 at 200,000 nodes, winning with 54. Qf7 checkmate" width="883" height="962">
           </button>
           <figcaption>White wins in 54 moves against Stockfish 13 at 200,000 nodes. Click to enlarge.</figcaption>
         </figure>
@@ -1217,11 +1218,11 @@
         <section class="detail-section">
           <h3>Demo and artifacts</h3>
         <div class="actions">
-          <a class="btn paper-link" href="https://github.com/BertilBraun/Advanced-Techniques-in-Chess-Engines" target="_blank" rel="noopener">Technical report</a>
           <a class="btn live" href="https://chess.bertil-braun.de/" target="_blank" rel="noopener"><span class="dot" aria-hidden="true"></span> Live demo</a>
+          <a class="btn paper-link" href="https://github.com/BertilBraun/Advanced-Techniques-in-Chess-Engines" target="_blank" rel="noopener">Technical report</a>
           <a class="btn" href="https://github.com/BertilBraun/Advanced-Techniques-in-Chess-Engines" target="_blank" rel="noopener">GitHub repo</a>
           <a class="btn" href="https://huggingface.co/BertilBraun/alphazero-chess" target="_blank" rel="noopener">Model weights</a>
-          <a class="btn paper-link" href="assets/alphazero-game-74.pgn" download>Game PGN</a>
+          <a class="btn accent" href="assets/alphazero-game-74.pgn" download>Game PGN</a>
         </div>
         </section>
       </div>
@@ -1233,8 +1234,8 @@
           <figcaption>Training progress across five runs (Figure 11). Smoothed 64-search ladder results, distinct from the 100,000-search headline evaluation. Click to enlarge.</figcaption>
         </figure>
         <figure>
-          <button class="shot" type="button" data-src="assets/chess-game.webp?v=game74" data-caption="Game 74 of the final evaluation: checkpoint 1026 plays White at 100,000 searches per move against Stockfish 13 at 200,000 nodes. After the fixed eight-move opening, the game ends with 54. Qf7#. The model scored 25 wins, 56 draws, and 19 losses across this 100-game match.">
-            <img src="assets/chess-game.webp?v=game74" alt="AlphaZero playing White at 100,000 searches against Stockfish 13 at 200,000 nodes, winning with 54. Qf7 checkmate" width="883" height="962">
+          <button class="shot" type="button" data-src="assets/chess-game.webp?v=game74-elo" data-caption="Game 74 of the final evaluation: checkpoint 1026 plays White at 100,000 searches per move against Stockfish 13 at 200,000 nodes. After the fixed eight-move opening, the game ends with 54. Qf7#. The model scored 25 wins, 56 draws, and 19 losses across this 100-game match.">
+            <img src="assets/chess-game.webp?v=game74-elo" alt="AlphaZero playing White at 100,000 searches against Stockfish 13 at 200,000 nodes, winning with 54. Qf7 checkmate" width="883" height="962">
           </button>
           <figcaption>White wins in 54 moves against Stockfish 13 at 200,000 nodes. Click to enlarge.</figcaption>
         </figure>
