@@ -1,0 +1,25 @@
+[Event "AlphaZero final evaluation: 100000 searches vs Stockfish 13 100000 nodes"]
+[Site "Local evaluation"]
+[Date "2026.09.23"]
+[Round "64"]
+[White "Stockfish 13"]
+[Black "AlphaZero checkpoint 1026"]
+[Result "1-0"]
+[GameId "63"]
+[OpeningId "8moves-v3-08343"]
+[ModelSearches "100000"]
+[ModelParallelSearches "16"]
+[StockfishNodes "100000"]
+[PlyCount "109"]
+[Termination "normal"]
+
+{ The first eight full moves are the fixed evaluation opening. GameId is zero-based. }
+1. d4 Nf6 2. Nf3 e6 3. c4 b6 4. g3 Ba6 5. Qc2 Bb7 6. Nc3 Bb4 7. Bg2 O-O 8. O-O
+a5 9. b3 Bxc3 10. Qxc3 Re8 11. Bb2 Be4 12. Rfe1 Nc6 13. Bf1 a4 14. b4 a3 15.
+Bxa3 Bxf3 16. exf3 Nxd4 17. Bb2 c5 18. a4 e5 19. Qd3 h5 20. a5 bxa5 21. bxc5
+Nc6 22. f4 exf4 23. Rxe8+ Nxe8 24. gxf4 Nf6 25. Bg2 Qe7 26. Bc3 Re8 27. Qf5 Qe6
+28. Qg5 Kf8 29. h3 Qxc4 30. Bxf6 gxf6 31. Qh6+ Kg8 32. Kh1 Ne7 33. c6 Qd3 34.
+Qxf6 dxc6 35. Rg1 Ng6 36. f5 Qd8 37. Qxc6 Ne5 38. Qh6 Ng4 39. Bf3 Re1 40. hxg4
+Qd3 41. Qg5+ Kf8 42. Qf4 Rxg1+ 43. Kxg1 hxg4 44. Be4 Qc3 45. f6 Ke8 46. Qb8+
+Kd7 47. Bf5+ Kc6 48. Qc8+ Kd5 49. Qxc3 g3 50. Qxa5+ Kd6 51. f4 g2 52. Be4 Kd7
+53. Qb6 Ke8 54. Bc6+ Kf8 55. Qb8# 1-0

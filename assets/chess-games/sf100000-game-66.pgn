@@ -1,0 +1,36 @@
+[Event "AlphaZero final evaluation: 100000 searches vs Stockfish 13 100000 nodes"]
+[Site "Local evaluation"]
+[Date "2026.09.23"]
+[Round "67"]
+[White "AlphaZero checkpoint 1026"]
+[Black "Stockfish 13"]
+[Result "1-0"]
+[GameId "66"]
+[OpeningId "8moves-v3-09015"]
+[ModelSearches "100000"]
+[ModelParallelSearches "16"]
+[StockfishNodes "100000"]
+[PlyCount "251"]
+[Termination "normal"]
+
+{ The first eight full moves are the fixed evaluation opening. GameId is zero-based. }
+1. d4 d6 2. e4 Nf6 3. Nc3 Nbd7 4. Nf3 e5 5. Bc4 Be7 6. O-O O-O 7. Re1 c6 8. a4
+exd4 9. Nxd4 Re8 10. Nf5 Nc5 11. Nxe7+ Qxe7 12. Bd2 h6 13. f3 Be6 14. Bf1 a5
+15. Qe2 Red8 16. Qf2 d5 17. exd5 Nxd5 18. Nxd5 Rxd5 19. Bc3 b6 20. Bc4 Rd7 21.
+Bxe6 fxe6 22. Qe3 Rd5 23. b3 Rf8 24. Rad1 Rfd8 25. Rd4 Qg5 26. Qxg5 hxg5 27.
+Rg4 Rf5 28. Bd4 Rdd5 29. Be3 Nd7 30. Re4 Kf7 31. Bf2 Nc5 32. Rc4 Rf4 33. Rc3 g4
+34. Bg3 Rb4 35. fxg4 Rxg4 36. Bc7 Rd2 37. g3 Rb4 38. Bxb6 Rxb6 39. Rxc5 Ke7 40.
+Re3 Kd6 41. Rec3 Rd5 42. R5c4 g5 43. Re4 Rb8 44. Kg2 Rd2+ 45. Kf3 c5 46. Rec4
+Rf8+ 47. Ke3 Rd5 48. Ke2 Rdf5 49. Rd3+ Ke7 50. Kd2 Rh8 51. h4 gxh4 52. gxh4
+Rfh5 53. Kc3 Rg8 54. Re4 Rg2 55. Rde3 Kd7 56. Re1 Kc7 57. Kb2 Kd7 58. Rxe6 c4
+59. R6e2 Rg4 60. Re7+ Kc8 61. Rf1 Rg8 62. Rff7 cxb3 63. cxb3 Rxh4 64. Rf5 Rh1
+65. Rxa5 Kb8 66. Rf5 Rhg1 67. Rf2 R8g2 68. Rxg2 Rxg2+ 69. Ka3 Rg5 70. Re3 Rg4
+71. b4 Kb7 72. Kb3 Ka6 73. Re6+ Ka7 74. a5 Rg7 75. Ka4 Rg3 76. Rh6 Rg7 77. Rc6
+Rg4 78. Rd6 Rg7 79. Rd4 Kb7 80. Re4 Rg1 81. Re6 Ka7 82. Re7+ Ka8 83. a6 Rg5 84.
+b5 Rg8 85. Ka5 Rg5 86. Rc7 Rf5 87. Rb7 Rd5 88. Rh7 Rg5 89. Rf7 Kb8 90. Rd7 Ka8
+91. Rb7 Rd5 92. Rg7 Rh5 93. Rc7 Kb8 94. Rd7 Rg5 95. Re7 Rf5 96. Rg7 Ka8 97. Rc7
+Kb8 98. Rd7 Rg5 99. Kb4 Rg2 100. Kc5 Rc2+ 101. Kb6 Rc8 102. Ka5 Rc5 103. Kb6
+Rc8 104. Rd5 Rg8 105. Ka5 Rg2 106. Rc5 Rh2 107. Rf5 Rh1 108. Rf8+ Kc7 109. b6+
+Kd6 110. b7 Kc5 111. Rc8+ Kd4 112. Kb6 Rb1+ 113. Ka7 Rf1 114. b8=Q Rf7+ 115.
+Ka8 Ke4 116. Qd6 Rf4 117. Rc4+ Ke3 118. Qxf4+ Ke2 119. Qe5+ Kd2 120. Rd4+ Kc2
+121. Kb7 Kb2 122. Kc7 Kc2 123. a7 Kc3 124. a8=Q Kb2 125. Qc5 Kb3 126. Qaa3# 1-0

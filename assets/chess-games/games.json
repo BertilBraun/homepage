@@ -1,0 +1,2021 @@
+{
+  "checkpoint": 1026,
+  "searches": 100000,
+  "parallel_searches": 16,
+  "sources": [
+    {
+      "opponent_nodes": 100000,
+      "archive_member": "final-evaluation/s100k-vs-100k-batched/result.json",
+      "sha256": "72001bb0c34660417ac625fec7cdbe73d331eff42eb3b5cf2c59aa6fa01ff457",
+      "source_revision": "51a7843722f4d477cb63f4f6d5a76a3b25c07f17"
+    },
+    {
+      "opponent_nodes": 200000,
+      "archive_member": "final-evaluation/s100k-vs-200k/result.json",
+      "sha256": "a4ff1eccc7f14baac7804b60d5e89f43597b38100288d256912515221e8f605c",
+      "source_revision": "51a7843722f4d477cb63f4f6d5a76a3b25c07f17"
+    }
+  ],
+  "games": [
+    {
+      "game_id": 0,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 169,
+      "termination": "natural",
+      "opening_id": "8moves-v3-00206",
+      "file": "sf100000-game-00.pgn"
+    },
+    {
+      "game_id": 1,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 124,
+      "termination": "natural",
+      "opening_id": "8moves-v3-00206",
+      "file": "sf100000-game-01.pgn"
+    },
+    {
+      "game_id": 2,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 131,
+      "termination": "natural",
+      "opening_id": "8moves-v3-00231",
+      "file": "sf100000-game-02.pgn"
+    },
+    {
+      "game_id": 3,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 140,
+      "termination": "natural",
+      "opening_id": "8moves-v3-00231",
+      "file": "sf100000-game-03.pgn"
+    },
+    {
+      "game_id": 4,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 163,
+      "termination": "natural",
+      "opening_id": "8moves-v3-00279",
+      "file": "sf100000-game-04.pgn"
+    },
+    {
+      "game_id": 5,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 222,
+      "termination": "natural",
+      "opening_id": "8moves-v3-00279",
+      "file": "sf100000-game-05.pgn"
+    },
+    {
+      "game_id": 6,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 163,
+      "termination": "natural",
+      "opening_id": "8moves-v3-00453",
+      "file": "sf100000-game-06.pgn"
+    },
+    {
+      "game_id": 7,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 122,
+      "termination": "natural",
+      "opening_id": "8moves-v3-00453",
+      "file": "sf100000-game-07.pgn"
+    },
+    {
+      "game_id": 8,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 173,
+      "termination": "natural",
+      "opening_id": "8moves-v3-00572",
+      "file": "sf100000-game-08.pgn"
+    },
+    {
+      "game_id": 9,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 120,
+      "termination": "natural",
+      "opening_id": "8moves-v3-00572",
+      "file": "sf100000-game-09.pgn"
+    },
+    {
+      "game_id": 10,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 193,
+      "termination": "natural",
+      "opening_id": "8moves-v3-00751",
+      "file": "sf100000-game-10.pgn"
+    },
+    {
+      "game_id": 11,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 196,
+      "termination": "natural",
+      "opening_id": "8moves-v3-00751",
+      "file": "sf100000-game-11.pgn"
+    },
+    {
+      "game_id": 12,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 123,
+      "termination": "natural",
+      "opening_id": "8moves-v3-00814",
+      "file": "sf100000-game-12.pgn"
+    },
+    {
+      "game_id": 13,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "loss",
+      "total_plies": 137,
+      "termination": "natural",
+      "opening_id": "8moves-v3-00814",
+      "file": "sf100000-game-13.pgn"
+    },
+    {
+      "game_id": 14,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 119,
+      "termination": "natural",
+      "opening_id": "8moves-v3-01398",
+      "file": "sf100000-game-14.pgn"
+    },
+    {
+      "game_id": 15,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 112,
+      "termination": "natural",
+      "opening_id": "8moves-v3-01398",
+      "file": "sf100000-game-15.pgn"
+    },
+    {
+      "game_id": 16,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 147,
+      "termination": "natural",
+      "opening_id": "8moves-v3-01741",
+      "file": "sf100000-game-16.pgn"
+    },
+    {
+      "game_id": 17,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 99,
+      "termination": "natural",
+      "opening_id": "8moves-v3-01741",
+      "file": "sf100000-game-17.pgn"
+    },
+    {
+      "game_id": 18,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "loss",
+      "total_plies": 176,
+      "termination": "natural",
+      "opening_id": "8moves-v3-02421",
+      "file": "sf100000-game-18.pgn"
+    },
+    {
+      "game_id": 19,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 141,
+      "termination": "natural",
+      "opening_id": "8moves-v3-02421",
+      "file": "sf100000-game-19.pgn"
+    },
+    {
+      "game_id": 20,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 129,
+      "termination": "natural",
+      "opening_id": "8moves-v3-02946",
+      "file": "sf100000-game-20.pgn"
+    },
+    {
+      "game_id": 21,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 136,
+      "termination": "natural",
+      "opening_id": "8moves-v3-02946",
+      "file": "sf100000-game-21.pgn"
+    },
+    {
+      "game_id": 22,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 101,
+      "termination": "natural",
+      "opening_id": "8moves-v3-03362",
+      "file": "sf100000-game-22.pgn"
+    },
+    {
+      "game_id": 23,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 164,
+      "termination": "natural",
+      "opening_id": "8moves-v3-03362",
+      "file": "sf100000-game-23.pgn"
+    },
+    {
+      "game_id": 24,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 151,
+      "termination": "natural",
+      "opening_id": "8moves-v3-03989",
+      "file": "sf100000-game-24.pgn"
+    },
+    {
+      "game_id": 25,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 108,
+      "termination": "natural",
+      "opening_id": "8moves-v3-03989",
+      "file": "sf100000-game-25.pgn"
+    },
+    {
+      "game_id": 26,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 179,
+      "termination": "natural",
+      "opening_id": "8moves-v3-04383",
+      "file": "sf100000-game-26.pgn"
+    },
+    {
+      "game_id": 27,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 164,
+      "termination": "natural",
+      "opening_id": "8moves-v3-04383",
+      "file": "sf100000-game-27.pgn"
+    },
+    {
+      "game_id": 28,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 209,
+      "termination": "natural",
+      "opening_id": "8moves-v3-04771",
+      "file": "sf100000-game-28.pgn"
+    },
+    {
+      "game_id": 29,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 186,
+      "termination": "natural",
+      "opening_id": "8moves-v3-04771",
+      "file": "sf100000-game-29.pgn"
+    },
+    {
+      "game_id": 30,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 239,
+      "termination": "natural",
+      "opening_id": "8moves-v3-04901",
+      "file": "sf100000-game-30.pgn"
+    },
+    {
+      "game_id": 31,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 100,
+      "termination": "natural",
+      "opening_id": "8moves-v3-04901",
+      "file": "sf100000-game-31.pgn"
+    },
+    {
+      "game_id": 32,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "loss",
+      "total_plies": 136,
+      "termination": "natural",
+      "opening_id": "8moves-v3-05300",
+      "file": "sf100000-game-32.pgn"
+    },
+    {
+      "game_id": 33,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 166,
+      "termination": "natural",
+      "opening_id": "8moves-v3-05300",
+      "file": "sf100000-game-33.pgn"
+    },
+    {
+      "game_id": 34,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 203,
+      "termination": "natural",
+      "opening_id": "8moves-v3-05487",
+      "file": "sf100000-game-34.pgn"
+    },
+    {
+      "game_id": 35,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 164,
+      "termination": "natural",
+      "opening_id": "8moves-v3-05487",
+      "file": "sf100000-game-35.pgn"
+    },
+    {
+      "game_id": 36,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "loss",
+      "total_plies": 108,
+      "termination": "natural",
+      "opening_id": "8moves-v3-05508",
+      "file": "sf100000-game-36.pgn"
+    },
+    {
+      "game_id": 37,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 94,
+      "termination": "natural",
+      "opening_id": "8moves-v3-05508",
+      "file": "sf100000-game-37.pgn"
+    },
+    {
+      "game_id": 38,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 117,
+      "termination": "natural",
+      "opening_id": "8moves-v3-05779",
+      "file": "sf100000-game-38.pgn"
+    },
+    {
+      "game_id": 39,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 232,
+      "termination": "natural",
+      "opening_id": "8moves-v3-05779",
+      "file": "sf100000-game-39.pgn"
+    },
+    {
+      "game_id": 40,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 171,
+      "termination": "natural",
+      "opening_id": "8moves-v3-05890",
+      "file": "sf100000-game-40.pgn"
+    },
+    {
+      "game_id": 41,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 194,
+      "termination": "natural",
+      "opening_id": "8moves-v3-05890",
+      "file": "sf100000-game-41.pgn"
+    },
+    {
+      "game_id": 42,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 90,
+      "termination": "natural",
+      "opening_id": "8moves-v3-06373",
+      "file": "sf100000-game-42.pgn"
+    },
+    {
+      "game_id": 43,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 118,
+      "termination": "natural",
+      "opening_id": "8moves-v3-06373",
+      "file": "sf100000-game-43.pgn"
+    },
+    {
+      "game_id": 44,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 217,
+      "termination": "natural",
+      "opening_id": "8moves-v3-06388",
+      "file": "sf100000-game-44.pgn"
+    },
+    {
+      "game_id": 45,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 94,
+      "termination": "natural",
+      "opening_id": "8moves-v3-06388",
+      "file": "sf100000-game-45.pgn"
+    },
+    {
+      "game_id": 46,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 251,
+      "termination": "natural",
+      "opening_id": "8moves-v3-06998",
+      "file": "sf100000-game-46.pgn"
+    },
+    {
+      "game_id": 47,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "loss",
+      "total_plies": 159,
+      "termination": "natural",
+      "opening_id": "8moves-v3-06998",
+      "file": "sf100000-game-47.pgn"
+    },
+    {
+      "game_id": 48,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 145,
+      "termination": "natural",
+      "opening_id": "8moves-v3-07073",
+      "file": "sf100000-game-48.pgn"
+    },
+    {
+      "game_id": 49,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 170,
+      "termination": "natural",
+      "opening_id": "8moves-v3-07073",
+      "file": "sf100000-game-49.pgn"
+    },
+    {
+      "game_id": 50,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 107,
+      "termination": "natural",
+      "opening_id": "8moves-v3-07291",
+      "file": "sf100000-game-50.pgn"
+    },
+    {
+      "game_id": 51,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "loss",
+      "total_plies": 101,
+      "termination": "natural",
+      "opening_id": "8moves-v3-07291",
+      "file": "sf100000-game-51.pgn"
+    },
+    {
+      "game_id": 52,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 151,
+      "termination": "natural",
+      "opening_id": "8moves-v3-07368",
+      "file": "sf100000-game-52.pgn"
+    },
+    {
+      "game_id": 53,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 237,
+      "termination": "natural",
+      "opening_id": "8moves-v3-07368",
+      "file": "sf100000-game-53.pgn"
+    },
+    {
+      "game_id": 54,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 143,
+      "termination": "natural",
+      "opening_id": "8moves-v3-07473",
+      "file": "sf100000-game-54.pgn"
+    },
+    {
+      "game_id": 55,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 190,
+      "termination": "natural",
+      "opening_id": "8moves-v3-07473",
+      "file": "sf100000-game-55.pgn"
+    },
+    {
+      "game_id": 56,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 103,
+      "termination": "natural",
+      "opening_id": "8moves-v3-07583",
+      "file": "sf100000-game-56.pgn"
+    },
+    {
+      "game_id": 57,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 140,
+      "termination": "natural",
+      "opening_id": "8moves-v3-07583",
+      "file": "sf100000-game-57.pgn"
+    },
+    {
+      "game_id": 58,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 144,
+      "termination": "natural",
+      "opening_id": "8moves-v3-07634",
+      "file": "sf100000-game-58.pgn"
+    },
+    {
+      "game_id": 59,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 174,
+      "termination": "natural",
+      "opening_id": "8moves-v3-07634",
+      "file": "sf100000-game-59.pgn"
+    },
+    {
+      "game_id": 60,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 119,
+      "termination": "natural",
+      "opening_id": "8moves-v3-08222",
+      "file": "sf100000-game-60.pgn"
+    },
+    {
+      "game_id": 61,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 196,
+      "termination": "natural",
+      "opening_id": "8moves-v3-08222",
+      "file": "sf100000-game-61.pgn"
+    },
+    {
+      "game_id": 62,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 112,
+      "termination": "natural",
+      "opening_id": "8moves-v3-08343",
+      "file": "sf100000-game-62.pgn"
+    },
+    {
+      "game_id": 63,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "loss",
+      "total_plies": 109,
+      "termination": "natural",
+      "opening_id": "8moves-v3-08343",
+      "file": "sf100000-game-63.pgn"
+    },
+    {
+      "game_id": 64,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 141,
+      "termination": "natural",
+      "opening_id": "8moves-v3-08422",
+      "file": "sf100000-game-64.pgn"
+    },
+    {
+      "game_id": 65,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 125,
+      "termination": "natural",
+      "opening_id": "8moves-v3-08422",
+      "file": "sf100000-game-65.pgn"
+    },
+    {
+      "game_id": 66,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 251,
+      "termination": "natural",
+      "opening_id": "8moves-v3-09015",
+      "file": "sf100000-game-66.pgn"
+    },
+    {
+      "game_id": 67,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "loss",
+      "total_plies": 249,
+      "termination": "natural",
+      "opening_id": "8moves-v3-09015",
+      "file": "sf100000-game-67.pgn"
+    },
+    {
+      "game_id": 68,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 143,
+      "termination": "natural",
+      "opening_id": "8moves-v3-09560",
+      "file": "sf100000-game-68.pgn"
+    },
+    {
+      "game_id": 69,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 50,
+      "termination": "natural",
+      "opening_id": "8moves-v3-09560",
+      "file": "sf100000-game-69.pgn"
+    },
+    {
+      "game_id": 70,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "loss",
+      "total_plies": 114,
+      "termination": "natural",
+      "opening_id": "8moves-v3-09667",
+      "file": "sf100000-game-70.pgn"
+    },
+    {
+      "game_id": 71,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 178,
+      "termination": "natural",
+      "opening_id": "8moves-v3-09667",
+      "file": "sf100000-game-71.pgn"
+    },
+    {
+      "game_id": 72,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 197,
+      "termination": "natural",
+      "opening_id": "8moves-v3-09942",
+      "file": "sf100000-game-72.pgn"
+    },
+    {
+      "game_id": 73,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 206,
+      "termination": "natural",
+      "opening_id": "8moves-v3-09942",
+      "file": "sf100000-game-73.pgn"
+    },
+    {
+      "game_id": 74,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 111,
+      "termination": "natural",
+      "opening_id": "8moves-v3-10473",
+      "file": "sf100000-game-74.pgn"
+    },
+    {
+      "game_id": 75,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 203,
+      "termination": "natural",
+      "opening_id": "8moves-v3-10473",
+      "file": "sf100000-game-75.pgn"
+    },
+    {
+      "game_id": 76,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 115,
+      "termination": "natural",
+      "opening_id": "8moves-v3-10563",
+      "file": "sf100000-game-76.pgn"
+    },
+    {
+      "game_id": 77,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 104,
+      "termination": "natural",
+      "opening_id": "8moves-v3-10563",
+      "file": "sf100000-game-77.pgn"
+    },
+    {
+      "game_id": 78,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 199,
+      "termination": "natural",
+      "opening_id": "8moves-v3-10720",
+      "file": "sf100000-game-78.pgn"
+    },
+    {
+      "game_id": 79,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 34,
+      "termination": "natural",
+      "opening_id": "8moves-v3-10720",
+      "file": "sf100000-game-79.pgn"
+    },
+    {
+      "game_id": 80,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 142,
+      "termination": "natural",
+      "opening_id": "8moves-v3-10967",
+      "file": "sf100000-game-80.pgn"
+    },
+    {
+      "game_id": 81,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 110,
+      "termination": "natural",
+      "opening_id": "8moves-v3-10967",
+      "file": "sf100000-game-81.pgn"
+    },
+    {
+      "game_id": 82,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 217,
+      "termination": "natural",
+      "opening_id": "8moves-v3-11323",
+      "file": "sf100000-game-82.pgn"
+    },
+    {
+      "game_id": 83,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 168,
+      "termination": "natural",
+      "opening_id": "8moves-v3-11323",
+      "file": "sf100000-game-83.pgn"
+    },
+    {
+      "game_id": 84,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 145,
+      "termination": "natural",
+      "opening_id": "8moves-v3-11842",
+      "file": "sf100000-game-84.pgn"
+    },
+    {
+      "game_id": 85,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 300,
+      "termination": "maximum_plies",
+      "opening_id": "8moves-v3-11842",
+      "file": "sf100000-game-85.pgn"
+    },
+    {
+      "game_id": 86,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 26,
+      "termination": "natural",
+      "opening_id": "8moves-v3-11872",
+      "file": "sf100000-game-86.pgn"
+    },
+    {
+      "game_id": 87,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "loss",
+      "total_plies": 105,
+      "termination": "natural",
+      "opening_id": "8moves-v3-11872",
+      "file": "sf100000-game-87.pgn"
+    },
+    {
+      "game_id": 88,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 63,
+      "termination": "natural",
+      "opening_id": "8moves-v3-12184",
+      "file": "sf100000-game-88.pgn"
+    },
+    {
+      "game_id": 89,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 229,
+      "termination": "natural",
+      "opening_id": "8moves-v3-12184",
+      "file": "sf100000-game-89.pgn"
+    },
+    {
+      "game_id": 90,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 239,
+      "termination": "natural",
+      "opening_id": "8moves-v3-12801",
+      "file": "sf100000-game-90.pgn"
+    },
+    {
+      "game_id": 91,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 101,
+      "termination": "natural",
+      "opening_id": "8moves-v3-12801",
+      "file": "sf100000-game-91.pgn"
+    },
+    {
+      "game_id": 92,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 70,
+      "termination": "natural",
+      "opening_id": "8moves-v3-12901",
+      "file": "sf100000-game-92.pgn"
+    },
+    {
+      "game_id": 93,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 182,
+      "termination": "natural",
+      "opening_id": "8moves-v3-12901",
+      "file": "sf100000-game-93.pgn"
+    },
+    {
+      "game_id": 94,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 125,
+      "termination": "natural",
+      "opening_id": "8moves-v3-12910",
+      "file": "sf100000-game-94.pgn"
+    },
+    {
+      "game_id": 95,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 186,
+      "termination": "natural",
+      "opening_id": "8moves-v3-12910",
+      "file": "sf100000-game-95.pgn"
+    },
+    {
+      "game_id": 96,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 147,
+      "termination": "natural",
+      "opening_id": "8moves-v3-13107",
+      "file": "sf100000-game-96.pgn"
+    },
+    {
+      "game_id": 97,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "loss",
+      "total_plies": 83,
+      "termination": "natural",
+      "opening_id": "8moves-v3-13107",
+      "file": "sf100000-game-97.pgn"
+    },
+    {
+      "game_id": 98,
+      "opponent_nodes": 100000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 153,
+      "termination": "natural",
+      "opening_id": "8moves-v3-13146",
+      "file": "sf100000-game-98.pgn"
+    },
+    {
+      "game_id": 99,
+      "opponent_nodes": 100000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 136,
+      "termination": "natural",
+      "opening_id": "8moves-v3-13146",
+      "file": "sf100000-game-99.pgn"
+    },
+    {
+      "game_id": 0,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 225,
+      "termination": "natural",
+      "opening_id": "8moves-v3-00206",
+      "file": "sf200000-game-00.pgn"
+    },
+    {
+      "game_id": 1,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "loss",
+      "total_plies": 117,
+      "termination": "natural",
+      "opening_id": "8moves-v3-00206",
+      "file": "sf200000-game-01.pgn"
+    },
+    {
+      "game_id": 2,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 185,
+      "termination": "natural",
+      "opening_id": "8moves-v3-00231",
+      "file": "sf200000-game-02.pgn"
+    },
+    {
+      "game_id": 3,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 150,
+      "termination": "natural",
+      "opening_id": "8moves-v3-00231",
+      "file": "sf200000-game-03.pgn"
+    },
+    {
+      "game_id": 4,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 77,
+      "termination": "natural",
+      "opening_id": "8moves-v3-00279",
+      "file": "sf200000-game-04.pgn"
+    },
+    {
+      "game_id": 5,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 120,
+      "termination": "natural",
+      "opening_id": "8moves-v3-00279",
+      "file": "sf200000-game-05.pgn"
+    },
+    {
+      "game_id": 6,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 158,
+      "termination": "natural",
+      "opening_id": "8moves-v3-00453",
+      "file": "sf200000-game-06.pgn"
+    },
+    {
+      "game_id": 7,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "loss",
+      "total_plies": 203,
+      "termination": "natural",
+      "opening_id": "8moves-v3-00453",
+      "file": "sf200000-game-07.pgn"
+    },
+    {
+      "game_id": 8,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 83,
+      "termination": "natural",
+      "opening_id": "8moves-v3-00572",
+      "file": "sf200000-game-08.pgn"
+    },
+    {
+      "game_id": 9,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 130,
+      "termination": "natural",
+      "opening_id": "8moves-v3-00572",
+      "file": "sf200000-game-09.pgn"
+    },
+    {
+      "game_id": 10,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 112,
+      "termination": "natural",
+      "opening_id": "8moves-v3-00751",
+      "file": "sf200000-game-10.pgn"
+    },
+    {
+      "game_id": 11,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 149,
+      "termination": "natural",
+      "opening_id": "8moves-v3-00751",
+      "file": "sf200000-game-11.pgn"
+    },
+    {
+      "game_id": 12,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 65,
+      "termination": "natural",
+      "opening_id": "8moves-v3-00814",
+      "file": "sf200000-game-12.pgn"
+    },
+    {
+      "game_id": 13,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "loss",
+      "total_plies": 151,
+      "termination": "natural",
+      "opening_id": "8moves-v3-00814",
+      "file": "sf200000-game-13.pgn"
+    },
+    {
+      "game_id": 14,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 155,
+      "termination": "natural",
+      "opening_id": "8moves-v3-01398",
+      "file": "sf200000-game-14.pgn"
+    },
+    {
+      "game_id": 15,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 70,
+      "termination": "natural",
+      "opening_id": "8moves-v3-01398",
+      "file": "sf200000-game-15.pgn"
+    },
+    {
+      "game_id": 16,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 123,
+      "termination": "natural",
+      "opening_id": "8moves-v3-01741",
+      "file": "sf200000-game-16.pgn"
+    },
+    {
+      "game_id": 17,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 83,
+      "termination": "natural",
+      "opening_id": "8moves-v3-01741",
+      "file": "sf200000-game-17.pgn"
+    },
+    {
+      "game_id": 18,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 119,
+      "termination": "natural",
+      "opening_id": "8moves-v3-02421",
+      "file": "sf200000-game-18.pgn"
+    },
+    {
+      "game_id": 19,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 144,
+      "termination": "natural",
+      "opening_id": "8moves-v3-02421",
+      "file": "sf200000-game-19.pgn"
+    },
+    {
+      "game_id": 20,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 239,
+      "termination": "natural",
+      "opening_id": "8moves-v3-02946",
+      "file": "sf200000-game-20.pgn"
+    },
+    {
+      "game_id": 21,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "loss",
+      "total_plies": 187,
+      "termination": "natural",
+      "opening_id": "8moves-v3-02946",
+      "file": "sf200000-game-21.pgn"
+    },
+    {
+      "game_id": 22,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 123,
+      "termination": "natural",
+      "opening_id": "8moves-v3-03362",
+      "file": "sf200000-game-22.pgn"
+    },
+    {
+      "game_id": 23,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 126,
+      "termination": "natural",
+      "opening_id": "8moves-v3-03362",
+      "file": "sf200000-game-23.pgn"
+    },
+    {
+      "game_id": 24,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 115,
+      "termination": "natural",
+      "opening_id": "8moves-v3-03989",
+      "file": "sf200000-game-24.pgn"
+    },
+    {
+      "game_id": 25,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 200,
+      "termination": "natural",
+      "opening_id": "8moves-v3-03989",
+      "file": "sf200000-game-25.pgn"
+    },
+    {
+      "game_id": 26,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 151,
+      "termination": "natural",
+      "opening_id": "8moves-v3-04383",
+      "file": "sf200000-game-26.pgn"
+    },
+    {
+      "game_id": 27,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 300,
+      "termination": "maximum_plies",
+      "opening_id": "8moves-v3-04383",
+      "file": "sf200000-game-27.pgn"
+    },
+    {
+      "game_id": 28,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 225,
+      "termination": "natural",
+      "opening_id": "8moves-v3-04771",
+      "file": "sf200000-game-28.pgn"
+    },
+    {
+      "game_id": 29,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 151,
+      "termination": "natural",
+      "opening_id": "8moves-v3-04771",
+      "file": "sf200000-game-29.pgn"
+    },
+    {
+      "game_id": 30,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "loss",
+      "total_plies": 124,
+      "termination": "natural",
+      "opening_id": "8moves-v3-04901",
+      "file": "sf200000-game-30.pgn"
+    },
+    {
+      "game_id": 31,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 174,
+      "termination": "natural",
+      "opening_id": "8moves-v3-04901",
+      "file": "sf200000-game-31.pgn"
+    },
+    {
+      "game_id": 32,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 192,
+      "termination": "natural",
+      "opening_id": "8moves-v3-05300",
+      "file": "sf200000-game-32.pgn"
+    },
+    {
+      "game_id": 33,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "loss",
+      "total_plies": 131,
+      "termination": "natural",
+      "opening_id": "8moves-v3-05300",
+      "file": "sf200000-game-33.pgn"
+    },
+    {
+      "game_id": 34,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 251,
+      "termination": "natural",
+      "opening_id": "8moves-v3-05487",
+      "file": "sf200000-game-34.pgn"
+    },
+    {
+      "game_id": 35,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "loss",
+      "total_plies": 145,
+      "termination": "natural",
+      "opening_id": "8moves-v3-05487",
+      "file": "sf200000-game-35.pgn"
+    },
+    {
+      "game_id": 36,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "loss",
+      "total_plies": 100,
+      "termination": "natural",
+      "opening_id": "8moves-v3-05508",
+      "file": "sf200000-game-36.pgn"
+    },
+    {
+      "game_id": 37,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 225,
+      "termination": "natural",
+      "opening_id": "8moves-v3-05508",
+      "file": "sf200000-game-37.pgn"
+    },
+    {
+      "game_id": 38,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 101,
+      "termination": "natural",
+      "opening_id": "8moves-v3-05779",
+      "file": "sf200000-game-38.pgn"
+    },
+    {
+      "game_id": 39,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "loss",
+      "total_plies": 133,
+      "termination": "natural",
+      "opening_id": "8moves-v3-05779",
+      "file": "sf200000-game-39.pgn"
+    },
+    {
+      "game_id": 40,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 127,
+      "termination": "natural",
+      "opening_id": "8moves-v3-05890",
+      "file": "sf200000-game-40.pgn"
+    },
+    {
+      "game_id": 41,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 156,
+      "termination": "natural",
+      "opening_id": "8moves-v3-05890",
+      "file": "sf200000-game-41.pgn"
+    },
+    {
+      "game_id": 42,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 171,
+      "termination": "natural",
+      "opening_id": "8moves-v3-06373",
+      "file": "sf200000-game-42.pgn"
+    },
+    {
+      "game_id": 43,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "loss",
+      "total_plies": 103,
+      "termination": "natural",
+      "opening_id": "8moves-v3-06373",
+      "file": "sf200000-game-43.pgn"
+    },
+    {
+      "game_id": 44,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 83,
+      "termination": "natural",
+      "opening_id": "8moves-v3-06388",
+      "file": "sf200000-game-44.pgn"
+    },
+    {
+      "game_id": 45,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 200,
+      "termination": "natural",
+      "opening_id": "8moves-v3-06388",
+      "file": "sf200000-game-45.pgn"
+    },
+    {
+      "game_id": 46,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 201,
+      "termination": "natural",
+      "opening_id": "8moves-v3-06998",
+      "file": "sf200000-game-46.pgn"
+    },
+    {
+      "game_id": 47,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "loss",
+      "total_plies": 159,
+      "termination": "natural",
+      "opening_id": "8moves-v3-06998",
+      "file": "sf200000-game-47.pgn"
+    },
+    {
+      "game_id": 48,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 73,
+      "termination": "natural",
+      "opening_id": "8moves-v3-07073",
+      "file": "sf200000-game-48.pgn"
+    },
+    {
+      "game_id": 49,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 106,
+      "termination": "natural",
+      "opening_id": "8moves-v3-07073",
+      "file": "sf200000-game-49.pgn"
+    },
+    {
+      "game_id": 50,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 197,
+      "termination": "natural",
+      "opening_id": "8moves-v3-07291",
+      "file": "sf200000-game-50.pgn"
+    },
+    {
+      "game_id": 51,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 204,
+      "termination": "natural",
+      "opening_id": "8moves-v3-07291",
+      "file": "sf200000-game-51.pgn"
+    },
+    {
+      "game_id": 52,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 71,
+      "termination": "natural",
+      "opening_id": "8moves-v3-07368",
+      "file": "sf200000-game-52.pgn"
+    },
+    {
+      "game_id": 53,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "loss",
+      "total_plies": 83,
+      "termination": "natural",
+      "opening_id": "8moves-v3-07368",
+      "file": "sf200000-game-53.pgn"
+    },
+    {
+      "game_id": 54,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 229,
+      "termination": "natural",
+      "opening_id": "8moves-v3-07473",
+      "file": "sf200000-game-54.pgn"
+    },
+    {
+      "game_id": 55,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 163,
+      "termination": "natural",
+      "opening_id": "8moves-v3-07473",
+      "file": "sf200000-game-55.pgn"
+    },
+    {
+      "game_id": 56,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 165,
+      "termination": "natural",
+      "opening_id": "8moves-v3-07583",
+      "file": "sf200000-game-56.pgn"
+    },
+    {
+      "game_id": 57,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 114,
+      "termination": "natural",
+      "opening_id": "8moves-v3-07583",
+      "file": "sf200000-game-57.pgn"
+    },
+    {
+      "game_id": 58,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 231,
+      "termination": "natural",
+      "opening_id": "8moves-v3-07634",
+      "file": "sf200000-game-58.pgn"
+    },
+    {
+      "game_id": 59,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 140,
+      "termination": "natural",
+      "opening_id": "8moves-v3-07634",
+      "file": "sf200000-game-59.pgn"
+    },
+    {
+      "game_id": 60,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 137,
+      "termination": "natural",
+      "opening_id": "8moves-v3-08222",
+      "file": "sf200000-game-60.pgn"
+    },
+    {
+      "game_id": 61,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 188,
+      "termination": "natural",
+      "opening_id": "8moves-v3-08222",
+      "file": "sf200000-game-61.pgn"
+    },
+    {
+      "game_id": 62,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 165,
+      "termination": "natural",
+      "opening_id": "8moves-v3-08343",
+      "file": "sf200000-game-62.pgn"
+    },
+    {
+      "game_id": 63,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 171,
+      "termination": "natural",
+      "opening_id": "8moves-v3-08343",
+      "file": "sf200000-game-63.pgn"
+    },
+    {
+      "game_id": 64,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 143,
+      "termination": "natural",
+      "opening_id": "8moves-v3-08422",
+      "file": "sf200000-game-64.pgn"
+    },
+    {
+      "game_id": 65,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 200,
+      "termination": "natural",
+      "opening_id": "8moves-v3-08422",
+      "file": "sf200000-game-65.pgn"
+    },
+    {
+      "game_id": 66,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 147,
+      "termination": "natural",
+      "opening_id": "8moves-v3-09015",
+      "file": "sf200000-game-66.pgn"
+    },
+    {
+      "game_id": 67,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 195,
+      "termination": "natural",
+      "opening_id": "8moves-v3-09015",
+      "file": "sf200000-game-67.pgn"
+    },
+    {
+      "game_id": 68,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 147,
+      "termination": "natural",
+      "opening_id": "8moves-v3-09560",
+      "file": "sf200000-game-68.pgn"
+    },
+    {
+      "game_id": 69,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "loss",
+      "total_plies": 113,
+      "termination": "natural",
+      "opening_id": "8moves-v3-09560",
+      "file": "sf200000-game-69.pgn"
+    },
+    {
+      "game_id": 70,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 150,
+      "termination": "natural",
+      "opening_id": "8moves-v3-09667",
+      "file": "sf200000-game-70.pgn"
+    },
+    {
+      "game_id": 71,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "loss",
+      "total_plies": 189,
+      "termination": "natural",
+      "opening_id": "8moves-v3-09667",
+      "file": "sf200000-game-71.pgn"
+    },
+    {
+      "game_id": 72,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 134,
+      "termination": "natural",
+      "opening_id": "8moves-v3-09942",
+      "file": "sf200000-game-72.pgn"
+    },
+    {
+      "game_id": 73,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "loss",
+      "total_plies": 111,
+      "termination": "natural",
+      "opening_id": "8moves-v3-09942",
+      "file": "sf200000-game-73.pgn"
+    },
+    {
+      "game_id": 74,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 107,
+      "termination": "natural",
+      "opening_id": "8moves-v3-10473",
+      "file": "sf200000-game-74.pgn"
+    },
+    {
+      "game_id": 75,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "loss",
+      "total_plies": 93,
+      "termination": "natural",
+      "opening_id": "8moves-v3-10473",
+      "file": "sf200000-game-75.pgn"
+    },
+    {
+      "game_id": 76,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 179,
+      "termination": "natural",
+      "opening_id": "8moves-v3-10563",
+      "file": "sf200000-game-76.pgn"
+    },
+    {
+      "game_id": 77,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 144,
+      "termination": "natural",
+      "opening_id": "8moves-v3-10563",
+      "file": "sf200000-game-77.pgn"
+    },
+    {
+      "game_id": 78,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 113,
+      "termination": "natural",
+      "opening_id": "8moves-v3-10720",
+      "file": "sf200000-game-78.pgn"
+    },
+    {
+      "game_id": 79,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 38,
+      "termination": "natural",
+      "opening_id": "8moves-v3-10720",
+      "file": "sf200000-game-79.pgn"
+    },
+    {
+      "game_id": 80,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 161,
+      "termination": "natural",
+      "opening_id": "8moves-v3-10967",
+      "file": "sf200000-game-80.pgn"
+    },
+    {
+      "game_id": 81,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 88,
+      "termination": "natural",
+      "opening_id": "8moves-v3-10967",
+      "file": "sf200000-game-81.pgn"
+    },
+    {
+      "game_id": 82,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 107,
+      "termination": "natural",
+      "opening_id": "8moves-v3-11323",
+      "file": "sf200000-game-82.pgn"
+    },
+    {
+      "game_id": 83,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 200,
+      "termination": "natural",
+      "opening_id": "8moves-v3-11323",
+      "file": "sf200000-game-83.pgn"
+    },
+    {
+      "game_id": 84,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 211,
+      "termination": "natural",
+      "opening_id": "8moves-v3-11842",
+      "file": "sf200000-game-84.pgn"
+    },
+    {
+      "game_id": 85,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 150,
+      "termination": "natural",
+      "opening_id": "8moves-v3-11842",
+      "file": "sf200000-game-85.pgn"
+    },
+    {
+      "game_id": 86,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 26,
+      "termination": "natural",
+      "opening_id": "8moves-v3-11872",
+      "file": "sf200000-game-86.pgn"
+    },
+    {
+      "game_id": 87,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 148,
+      "termination": "natural",
+      "opening_id": "8moves-v3-11872",
+      "file": "sf200000-game-87.pgn"
+    },
+    {
+      "game_id": 88,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 288,
+      "termination": "natural",
+      "opening_id": "8moves-v3-12184",
+      "file": "sf200000-game-88.pgn"
+    },
+    {
+      "game_id": 89,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "loss",
+      "total_plies": 109,
+      "termination": "natural",
+      "opening_id": "8moves-v3-12184",
+      "file": "sf200000-game-89.pgn"
+    },
+    {
+      "game_id": 90,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 209,
+      "termination": "natural",
+      "opening_id": "8moves-v3-12801",
+      "file": "sf200000-game-90.pgn"
+    },
+    {
+      "game_id": 91,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "loss",
+      "total_plies": 191,
+      "termination": "natural",
+      "opening_id": "8moves-v3-12801",
+      "file": "sf200000-game-91.pgn"
+    },
+    {
+      "game_id": 92,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 157,
+      "termination": "natural",
+      "opening_id": "8moves-v3-12901",
+      "file": "sf200000-game-92.pgn"
+    },
+    {
+      "game_id": 93,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 149,
+      "termination": "natural",
+      "opening_id": "8moves-v3-12901",
+      "file": "sf200000-game-93.pgn"
+    },
+    {
+      "game_id": 94,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 209,
+      "termination": "natural",
+      "opening_id": "8moves-v3-12910",
+      "file": "sf200000-game-94.pgn"
+    },
+    {
+      "game_id": 95,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "loss",
+      "total_plies": 97,
+      "termination": "natural",
+      "opening_id": "8moves-v3-12910",
+      "file": "sf200000-game-95.pgn"
+    },
+    {
+      "game_id": 96,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "draw",
+      "total_plies": 61,
+      "termination": "natural",
+      "opening_id": "8moves-v3-13107",
+      "file": "sf200000-game-96.pgn"
+    },
+    {
+      "game_id": 97,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "draw",
+      "total_plies": 92,
+      "termination": "natural",
+      "opening_id": "8moves-v3-13107",
+      "file": "sf200000-game-97.pgn"
+    },
+    {
+      "game_id": 98,
+      "opponent_nodes": 200000,
+      "colour": "white",
+      "outcome": "win",
+      "total_plies": 153,
+      "termination": "natural",
+      "opening_id": "8moves-v3-13146",
+      "file": "sf200000-game-98.pgn"
+    },
+    {
+      "game_id": 99,
+      "opponent_nodes": 200000,
+      "colour": "black",
+      "outcome": "win",
+      "total_plies": 170,
+      "termination": "natural",
+      "opening_id": "8moves-v3-13146",
+      "file": "sf200000-game-99.pgn"
+    }
+  ]
+}

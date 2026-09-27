@@ -1,0 +1,36 @@
+[Event "AlphaZero final evaluation: 100000 searches vs Stockfish 13 100000 nodes"]
+[Site "Local evaluation"]
+[Date "2026.09.23"]
+[Round "68"]
+[White "Stockfish 13"]
+[Black "AlphaZero checkpoint 1026"]
+[Result "1-0"]
+[GameId "67"]
+[OpeningId "8moves-v3-09015"]
+[ModelSearches "100000"]
+[ModelParallelSearches "16"]
+[StockfishNodes "100000"]
+[PlyCount "249"]
+[Termination "normal"]
+
+{ The first eight full moves are the fixed evaluation opening. GameId is zero-based. }
+1. d4 d6 2. e4 Nf6 3. Nc3 Nbd7 4. Nf3 e5 5. Bc4 Be7 6. O-O O-O 7. Re1 c6 8. a4
+exd4 9. Nxd4 Nc5 10. b4 d5 11. exd5 cxd5 12. Nxd5 Nxd5 13. Bxd5 Qxd5 14. Rxe7
+Ne6 15. Be3 Rd8 16. Qd3 Nxd4 17. Qxd4 Qxd4 18. Bxd4 Be6 19. Rd1 b6 20. c3 Re8
+21. Rxe8+ Rxe8 22. Ra1 Bc4 23. g4 f6 24. a5 bxa5 25. Rxa5 a6 26. Rc5 Be6 27. g5
+fxg5 28. Rxg5 g6 29. Ra5 Bh3 30. Be5 Rd8 31. Bd4 Re8 32. f3 Re2 33. Rxa6 Rg2+
+34. Kh1 Rb2 35. Ra8+ Kf7 36. Ra7+ Ke6 37. Rxh7 Bg2+ 38. Kg1 Bxf3 39. h3 g5 40.
+Rg7 Kf5 41. Be3 Rg2+ 42. Kf1 Rg3 43. Ke1 Ke4 44. Bd4 Kd3 45. b5 Rxh3 46. Rxg5
+Bb7 47. Re5 Be4 48. b6 Rh2 49. Re7 Rb2 50. Kf1 Bg2+ 51. Ke1 Be4 52. Rf7 Bc6 53.
+Rh7 Bg2 54. Rg7 Kc4 55. Re7 Bh1 56. Re3 Rh2 57. Kd1 Kb3 58. Bg7 Kc4 59. Be5 Ra2
+60. Kc1 Bb7 61. Rh3 Kb5 62. Bd4 Ka6 63. Re3 Rg2 64. c4 Ra2 65. Re7 Rg2 66. c5
+Rg4 67. Rd7 Rg5 68. Rc7 Rd5 69. Bg1 Rg5 70. Be3 Rg6 71. Kc2 Re6 72. Bd4 Re4 73.
+Kd3 Re6 74. Kc4 Re1 75. Kc3 Re6 76. Kb4 Re4 77. Kc4 Re1 78. Bf2 Re4+ 79. Kd3
+Re6 80. Bd4 Bd5 81. Bf2 Bc6 82. Kc4 Bb7 83. Rf7 Re4+ 84. Bd4 Re2 85. Rf1 Rc2+
+86. Kb4 Ra2 87. Re1 Ra5 88. Re6 Rb5+ 89. Kc4 Rb1 90. Re2 Rc1+ 91. Bc3 Bf3 92.
+Ra2+ Kb7 93. Ra7+ Kb8 94. Rf7 Be4 95. Kb4 Rb1+ 96. Ka5 Rc1 97. Be5+ Kc8 98. c6
+Bxc6 99. Rc7+ Kd8 100. b7 Rb1 101. Rc8+ Kd7 102. Rc7+ Kd8 103. Rc8+ Kd7 104.
+b8=Q Rxb8 105. Rxb8 Ke6 106. Rb6 Kd5 107. Kb4 Be8 108. Bh2 Bc6 109. Kc3 Kc5
+110. Rb4 Kd5 111. Rd4+ Kc5 112. Bd6+ Kb6 113. Kb4 Bg2 114. Bh2 Kc6 115. Rd6+
+Kb7 116. Kc5 Bf3 117. Rd7+ Kc8 118. Kd6 Bg2 119. Rc7+ Kd8 120. Rg7 Kc8 121.
+Rxg2 Kb7 122. Kc5 Kc8 123. Kc6 Kd8 124. Re2 Kc8 125. Re8# 1-0

@@ -1,0 +1,36 @@
+[Event "AlphaZero final evaluation: 100000 searches vs Stockfish 13 200000 nodes"]
+[Site "Local evaluation"]
+[Date "2026.09.23"]
+[Round "35"]
+[White "AlphaZero checkpoint 1026"]
+[Black "Stockfish 13"]
+[Result "1/2-1/2"]
+[GameId "34"]
+[OpeningId "8moves-v3-05487"]
+[ModelSearches "100000"]
+[ModelParallelSearches "16"]
+[StockfishNodes "200000"]
+[PlyCount "251"]
+[Termination "normal"]
+
+{ The first eight full moves are the fixed evaluation opening. GameId is zero-based. }
+1. d4 d5 2. Nf3 Nf6 3. c4 dxc4 4. Nc3 a6 5. e3 b5 6. a4 b4 7. Nb1 c5 8. Bxc4 e6
+9. Nbd2 cxd4 10. exd4 Bb7 11. Nb3 Bd6 12. O-O O-O 13. Bg5 Nbd7 14. a5 Qb8 15.
+Rc1 h6 16. Bh4 Bxf3 17. Qxf3 Bxh2+ 18. Kh1 Bf4 19. Rc2 Rc8 20. g3 Bg5 21. Bxg5
+hxg5 22. Kg1 g4 23. Qe3 Re8 24. Nc5 Qd8 25. Ra1 e5 26. Nxd7 Nxd7 27. d5 e4 28.
+d6 Qf6 29. Qf4 Re5 30. Be2 Rd5 31. Rd1 Qxf4 32. gxf4 Rxa5 33. Rc7 Rd8 34. Bxg4
+f5 35. Bh5 g5 36. fxg5 f4 37. Be2 Rxg5+ 38. Kf1 f3 39. Bc4+ Kg7 40. Rd4 Kf6 41.
+Rxe4 Ne5 42. Rd4 Rg4 43. Rxg4 Nxg4 44. d7 Ne5 45. Bxa6 Nxd7 46. Rc6+ Kg5 47.
+Rd6 Ra8 48. Ke1 Nf6 49. Bb7 Re8+ 50. Kf1 Re2 51. Bxf3 Rxb2 52. Rd4 Ne8 53. Be2
+Kf6 54. Bd3 Ke7 55. Re4+ Kd8 56. Re2 Rb3 57. Rd2 Kc7 58. Ke2 Kc6 59. Be4+ Kb5
+60. Rd5+ Kc4 61. Rd8 Nf6 62. Bg6 Kc5 63. Rc8+ Kb5 64. Rd8 Ng4 65. Rd5+ Kc6 66.
+Be4 Kc7 67. Rd2 Ra3 68. Bf5 Nf6 69. Be6 Nh5 70. Rd4 b3 71. Rb4 b2 72. Bf5 Kd6
+73. Bc2 Rc3 74. Kd2 Rf3 75. Ke1 Rh3 76. Rxb2 Kd5 77. Rb5+ Kd6 78. Rb6+ Ke5 79.
+Rb5+ Kd6 80. Rb6+ Ke5 81. Ra6 Nf4 82. Ra5+ Nd5 83. Bg6 Kd4 84. Ra4+ Ke5 85. Ra5
+Kd4 86. Bc2 Rh1+ 87. Kd2 Nc3 88. Rf5 Rh3 89. Rf4+ Ke5 90. Rg4 Nd5 91. Rg5+ Kd4
+92. Rg1 Nf6 93. Ke2 Ra3 94. Rg7 Rc3 95. Kd1 Rf3 96. Ke1 Rc3 97. Kd2 Rf3 98. Ke1
+Rc3 99. Kd1 Nd5 100. Rg4+ Ke5 101. Re4+ Kf6 102. Re8 Rh3 103. Kd2 Nb6 104. Rf8+
+Ke5 105. Re8+ Kf6 106. Rf8+ Ke7 107. Rf5 Ra3 108. Kd1 Kd6 109. Rf6+ Kc5 110.
+Rf8 Nd5 111. Ke1 Kd4 112. Bh7 Ra1+ 113. Kd2 Ra2+ 114. Ke1 Rb2 115. Bg8 Ne7 116.
+Bh7 Nd5 117. Kf1 Ke5 118. Rf5+ Ke6 119. Rf3 Ke5 120. Ke1 Rb4 121. Bc2 Rh4 122.
+Rf8 Nb4 123. Bd1 Rh1+ 124. Kd2 Rh2 125. Be2 Nd5 126. Bg4 1/2-1/2

@@ -1,0 +1,40 @@
+[Event "AlphaZero final evaluation: 100000 searches vs Stockfish 13 200000 nodes"]
+[Site "Local evaluation"]
+[Date "2026.09.23"]
+[Round "89"]
+[White "AlphaZero checkpoint 1026"]
+[Black "Stockfish 13"]
+[Result "1/2-1/2"]
+[GameId "88"]
+[OpeningId "8moves-v3-12184"]
+[ModelSearches "100000"]
+[ModelParallelSearches "16"]
+[StockfishNodes "200000"]
+[PlyCount "288"]
+[Termination "normal"]
+
+{ The first eight full moves are the fixed evaluation opening. GameId is zero-based. }
+1. g3 d5 2. Nf3 Nc6 3. d4 Bg4 4. Bg2 Qd7 5. h3 Bxf3 6. Bxf3 g6 7. Bg2 Bg7 8. e3
+Nf6 9. O-O e5 10. dxe5 Nxe5 11. Nc3 c6 12. Re1 O-O 13. e4 Nxe4 14. Nxe4 dxe4
+15. Qxd7 Nxd7 16. Rxe4 Rfe8 17. Kf1 Rxe4 18. Bxe4 Rd8 19. c3 Bf6 20. Bc2 Ne5
+21. Ke2 Nc4 22. a4 Re8+ 23. Kf1 Rd8 24. Ke2 Re8+ 25. Kf1 Rd8 26. Ra2 a5 27. Ke2
+h5 28. Bb3 Re8+ 29. Kf1 Rd8 30. Ke2 Re8+ 31. Kd1 Ne5 32. Be3 Nf3 33. Ke2 Ng1+
+34. Kf1 Nxh3 35. Ra1 Ng5 36. Rd1 Ne4 37. Kg2 h4 38. gxh4 Bxh4 39. Bb6 Kf8 40.
+f3 Nf6 41. Bc4 Re5 42. Rd8+ Kg7 43. Rb8 Nd5 44. Bd4 Bf6 45. Rxb7 Rg5+ 46. Kf2
+Bxd4+ 47. cxd4 Rf5 48. Ra7 Nb4 49. Kg3 Rg5+ 50. Kf4 Rf5+ 51. Ke4 Kf8 52. Bf1
+Nd5 53. Be2 Kg7 54. Kd3 g5 55. b3 Kf8 56. Kc2 Nb4+ 57. Kd2 Kg7 58. Kd1 Kf8 59.
+Bc4 f6 60. Kd2 Rxf3 61. Rxa5 g4 62. Ra8+ Ke7 63. a5 Rf2+ 64. Kc3 Na2+ 65. Kd3
+g3 66. Ke3 f5 67. a6 Nb4 68. Ra7+ Kf6 69. Rf7+ Kg6 70. Rf8 f4+ 71. Ke4 Nxa6 72.
+Bxa6 Kg7 73. Rf5 g2 74. Rg5+ Kf6 75. Rxg2 Rxg2 76. Kxf4 Ke6 77. Bc4+ Kd6 78.
+Ke3 Rg3+ 79. Kd2 c5 80. dxc5+ Kxc5 81. Ke2 Kd4 82. Kf2 Re3 83. Bd5 Re5 84. Bc4
+Re7 85. Kf3 Re3+ 86. Kf4 Rh3 87. Kf5 Rh8 88. Kf6 Rh6+ 89. Kf5 Rb6 90. Bf7 Rb5+
+91. Kf6 Rb4 92. Kf5 Rb5+ 93. Kf6 Ke4 94. Ke6 Rxb3 95. Kd6 Rb8 96. Kc5 Rc8+ 97.
+Kd6 Kd4 98. Ke6 Rc2 99. Be8 Re2+ 100. Kd7 Ke5 101. Bf7 Rf2 102. Bc4 Rd2+ 103.
+Kc6 Kd4 104. Be6 Rf2 105. Kd6 Rf6 106. Kd7 Ke4 107. Kd6 Rh6 108. Kd7 Ke5 109.
+Bc4 Rh3 110. Kc6 Rc3 111. Kb5 Rc1 112. Kc5 Ra1 113. Bf7 Rf1 114. Bb3 Rc1+ 115.
+Kb5 Rc7 116. Ba2 Rc8 117. Bb3 Ke4 118. Be6 Rc1 119. Ka4 Rb1 120. Bf7 Ke3 121.
+Be6 Kd4 122. Bg8 Rb7 123. Be6 Rb1 124. Bg8 Kc5 125. Bf7 Rb7 126. Bg8 Rg7 127.
+Be6 Re7 128. Bg8 Re8 129. Bf7 Rf8 130. Be6 Rf6 131. Bg8 Rf8 132. Be6 Re8 133.
+Bf7 Re7 134. Bg8 Re1 135. Kb3 Rg1 136. Bf7 Rg3+ 137. Kc2 Kd4 138. Be8 Rg1 139.
+Bf7 Rg2+ 140. Kb3 Rf2 141. Bg6 Rf6 142. Be8 Rf1 143. Ba4 Rb1+ 144. Ka2 Ra1+
+1/2-1/2

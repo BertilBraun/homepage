@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AlphaZero Evaluation Games — Bertil Braun</title>
+  <meta name="description" content="All 200 games from AlphaZero checkpoint 1026 at 100,000 searches against fixed-node Stockfish 13, with individual and combined PGN downloads.">
+  <link rel="canonical" href="https://bertil-braun.de/projects/alphazero/games/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AlphaZero Evaluation Games — Bertil Braun">
+  <meta property="og:description" content="Explore every win, draw, and loss from the two final 100,000-search evaluation matches. Copy or download any game as PGN.">
+  <meta property="og:url" content="https://bertil-braun.de/projects/alphazero/games/">
+  <meta property="og:image" content="https://bertil-braun.de/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AlphaZero Evaluation Games — Bertil Braun">
+  <meta name="twitter:description" content="All 200 games from the final 100,000-search evaluation matches, with PGN downloads.">
+  <meta name="twitter:image" content="https://bertil-braun.de/assets/social-card.png">
+  <meta name="theme-color" content="#fbfaf7">
+  <link rel="stylesheet" href="/assets/chess-games.css">
+  <script src="/assets/chess-games.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#games">Skip to games</a>
+  <div class="page">
+    <header class="topbar">
+      <a href="/">bertil-braun.de</a>
+      <a href="/projects/alphazero/">← AlphaZero project</a>
+    </header>
+    <main>
+      <p class="kicker">AlphaZero · Evaluation archive</p>
+      <h1>All 200 games.</h1>
+      <p class="intro">Every win, draw, and loss from the two final matches at <strong>100,000 searches per move</strong>. Explore the games, copy a PGN into an analysis board, or download the complete collection.</p>
+      <div class="summaries" aria-label="Match results from AlphaZero's perspective">
+        <section><h2>Stockfish 13 · 100,000 nodes</h2><p><strong>51 wins · 38 draws · 11 losses</strong></p></section>
+        <section><h2>Stockfish 13 · 200,000 nodes</h2><p><strong>25 wins · 56 draws · 19 losses</strong></p></section>
+      </div>
+      <p class="context">Checkpoint 1026 · 50 opening pairs per match, played with both colours · 16 parallel searches per tree. Stockfish uses one thread and 1 GiB hash. These are the complete two high-search matches, not all experiments in the report.</p>
+      <div class="actions">
+        <a class="button accent" href="/assets/chess-games/all-200-games.pgn" download>Download all 200 games</a>
+        <a class="button report" href="https://github.com/BertilBraun/Advanced-Techniques-in-Chess-Engines/releases/download/final-chess-report/engineering-efficient-self-play-chess.pdf" target="_blank" rel="noopener">Technical report</a>
+      </div>
+      <section id="games" aria-labelledby="games-heading">
+        <h2 id="games-heading">Browse the games</h2>
+        <div class="filters">
+          <label>Stockfish nodes<select id="opponent-filter"><option value="all">Both matches</option><option value="100000">100,000 nodes</option><option value="200000">200,000 nodes</option></select></label>
+          <label>Our result<select id="outcome-filter"><option value="all">All results</option><option value="win">Wins</option><option value="draw">Draws</option><option value="loss">Losses</option></select></label>
+          <label>Our colour<select id="colour-filter"><option value="all">Both colours</option><option value="white">White</option><option value="black">Black</option></select></label>
+          <label>Sort by<select id="sort-order"><option value="match">Match / game ID</option><option value="shortest">Shortest first</option><option value="longest">Longest first</option></select></label>
+        </div>
+        <p class="context">Lengths include the eight-move opening. A half-move is one move by either player. Game IDs are zero-based within each match; game 74 versus 200,000 nodes is the homepage replay.</p>
+        <p id="game-count" role="status">Loading games…</p>
+        <p id="copy-status" role="status" class="copy-status"></p>
+        <noscript><p>The filterable list needs JavaScript. All 200 games remain available in the combined PGN download above.</p></noscript>
+        <div class="table-wrap">
+          <table>
+            <caption class="sr-only">Individual evaluation games; results and colours refer to AlphaZero.</caption>
+            <thead><tr><th scope="col">Game ID</th><th scope="col">SF nodes</th><th scope="col">Our colour</th><th scope="col">Our result</th><th scope="col">Length</th><th scope="col">PGN</th></tr></thead>
+            <tbody id="game-list"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <footer><a href="/projects/alphazero/">← Back to AlphaZero</a><span>Bertil Braun</span></footer>
+  </div>
+  <dialog id="copy-dialog" aria-labelledby="copy-heading">
+    <h2 id="copy-heading">Copy PGN</h2>
+    <p>Automatic copying isn’t available. Select and copy the game below.</p>
+    <label for="copy-text" class="sr-only">Game PGN</label>
+    <textarea id="copy-text" readonly spellcheck="false"></textarea>
+    <form method="dialog"><button class="button accent">Close</button></form>
+  </dialog>
+</body>
+</html>

@@ -1,0 +1,57 @@
+:root { color-scheme: light; --bg: #fbfaf7; --ink: #16181d; --muted: #6a7180; --rule: #e4e0d7; --accent: #16615a; --soft: #e7f0ee; --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color: inherit; }
+button, select, textarea { font: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.page { width: min(1180px, calc(100% - 48px)); margin: auto; }
+.topbar, footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 24px 0; color: var(--muted); font-size: 14px; }
+.topbar { border-bottom: 1px solid var(--rule); }
+.topbar a, footer a { text-decoration: none; }
+main { padding: 56px 0; }
+.kicker { color: var(--accent); text-transform: uppercase; font-size: 12px; font-weight: 700; letter-spacing: .12em; }
+h1, h2 { font-family: var(--serif); font-weight: 400; line-height: 1.2; }
+h1 { font-size: clamp(42px, 6vw, 68px); margin: 16px 0 24px; }
+h2 { font-size: 28px; }
+.intro { max-width: 790px; font-size: 20px; color: #3d434e; }
+.summaries { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 36px; }
+.summaries section { border-top: 1px solid var(--rule); padding-top: 16px; }
+.summaries h2 { font-family: inherit; font-size: 16px; font-weight: 500; }
+.context { font-size: 14px; color: var(--muted); max-width: 900px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 24px 0 48px; }
+.button { display: inline-block; border: 1px solid var(--rule); border-radius: 24px; padding: 9px 16px; background: white; text-decoration: none; cursor: pointer; color: var(--ink); font-size: 14px; white-space: nowrap; }
+.button:hover { border-color: var(--accent); }
+.accent { background: var(--soft); color: #0f4a45; border-color: #cbded9; }
+.report { background: #fbf5df; color: #715715; border-color: #e5d8ac; }
+.filters { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.filters label { font-size: 13px; color: var(--muted); }
+select { display: block; margin-top: 6px; width: 100%; padding: 10px; border: 1px solid var(--rule); border-radius: 8px; color: var(--ink); background: white; font-size: 15px; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+th { text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+td, th { padding: 14px 10px; border-bottom: 1px solid var(--rule); }
+td:first-child { font-variant-numeric: tabular-nums; }
+.game-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.game-actions .button { padding: 6px 12px; }
+.featured { display: block; color: var(--accent); font-size: 12px; }
+.length-note { display: block; color: var(--muted); font-size: 12px; }
+.copy-status { color: var(--accent); font-size: 14px; min-height: 23px; }
+footer { border-top: 1px solid var(--rule); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.skip { position: absolute; top: -100px; background: white; padding: 12px; }
+.skip:focus { top: 8px; left: 8px; }
+dialog { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; width: min(680px, calc(100% - 32px)); color: var(--ink); }
+dialog::backdrop { background: #16181d99; }
+textarea { width: 100%; height: 280px; resize: vertical; font: 13px/1.6 monospace; margin-bottom: 16px; }
+@media (max-width: 760px) {
+  .page { width: calc(100% - 32px); }
+  main { padding-top: 32px; }
+  .summaries, .filters { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .summaries { grid-template-columns: 1fr; }
+  table, tbody { display: block; }
+  thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  tr { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid var(--rule); border-radius: 12px; padding: 12px; margin-bottom: 12px; background: white; }
+  td { display: block; border: 0; padding: 6px; min-width: 0; }
+  td::before { content: attr(data-label); display: block; color: var(--muted); font-size: 11px; text-transform: uppercase; }
+  td:last-child { grid-column: 1 / -1; }
+  .intro { font-size: 18px; }
+}
