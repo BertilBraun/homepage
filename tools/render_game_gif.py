@@ -11,93 +11,106 @@ Pacing is heuristic: the opening is skimmed, the last 14 plies are slowed down,
 and captures, checks and promotions each add a beat. Forced replies (three legal
 moves or fewer) snap through.
 """
-import argparse, sys
-import io, json, re
-import chess, chess.pgn, chess.svg
+
+import argparse
+import sys
+import io
+import os
+import chess
+import chess.pgn
+import chess.svg
 import cairosvg
 from PIL import Image, ImageDraw, ImageFont
 
 ap = argparse.ArgumentParser()
-ap.add_argument("pgn", help="path to a PGN file (first game is used)")
-ap.add_argument("--out", default="assets/chess-game.webp")
-ap.add_argument("--white", default="AlphaZero")
-ap.add_argument("--white-sub", default="self-play model, White")
-ap.add_argument("--black", default="Stockfish")
-ap.add_argument("--black-sub", default="2200 Elo, 1 s/move, Black")
-ap.add_argument("--winner", default="AlphaZero", help="name used in the checkmate caption")
-ap.add_argument("--orientation", default="white", choices=("white", "black"),
-                help="which side is at the bottom of the board")
-ap.add_argument("--scale", type=float, default=2.0,
-                help="render scale; 2.0 keeps it crisp on HiDPI screens")
-ap.add_argument("--speed", type=float, default=1.0,
-                help="playback speed multiplier; below 1.0 is slower")
-ap.add_argument("--move-ms", type=int, default=700,
-                help="milliseconds per move (uniform pacing, the default)")
-ap.add_argument("--start-ms", type=int, default=1500, help="hold on the starting position")
-ap.add_argument("--end-ms", type=int, default=3500, help="hold on the final position")
-ap.add_argument("--adaptive", action="store_true",
-                help="vary the pace per move instead of holding every move equally: "
-                     "skim the opening, linger on captures, checks and the finish")
-ap.add_argument("--quality", type=int, default=82, help="WebP quality, 0-100")
+ap.add_argument('pgn', help='path to a PGN file (first game is used)')
+ap.add_argument('--out', default='assets/chess-game.webp')
+ap.add_argument('--white', default='AlphaZero')
+ap.add_argument('--white-sub', default='self-play model, White')
+ap.add_argument('--black', default='Stockfish')
+ap.add_argument('--black-sub', default='2200 Elo, 1 s/move, Black')
+ap.add_argument('--winner', default='AlphaZero', help='name used in the checkmate caption')
+ap.add_argument(
+    '--orientation', default='white', choices=('white', 'black'), help='which side is at the bottom of the board'
+)
+ap.add_argument('--scale', type=float, default=2.0, help='render scale; 2.0 keeps it crisp on HiDPI screens')
+ap.add_argument('--speed', type=float, default=1.0, help='playback speed multiplier; below 1.0 is slower')
+ap.add_argument('--move-ms', type=int, default=700, help='milliseconds per move (uniform pacing, the default)')
+ap.add_argument('--start-ms', type=int, default=1500, help='hold on the starting position')
+ap.add_argument('--end-ms', type=int, default=3500, help='hold on the final position')
+ap.add_argument(
+    '--adaptive',
+    action='store_true',
+    help='vary the pace per move instead of holding every move equally: '
+    'skim the opening, linger on captures, checks and the finish',
+)
+ap.add_argument('--quality', type=int, default=82, help='WebP quality, 0-100')
+ap.add_argument('--font-dir', default='/usr/share/fonts/truetype/dejavu/', help='Directory containing DejaVu fonts')
 args = ap.parse_args()
 OUT = args.out
 
 # ---- site palette -------------------------------------------------------
-BG        = (251, 250, 247)
-PANEL     = (255, 255, 255)
-INK       = (22, 24, 29)
-MUTED     = (106, 113, 128)
-RULE      = (228, 224, 215)
-TEAL      = (22, 97, 90)
+BG = (251, 250, 247)
+PANEL = (255, 255, 255)
+INK = (22, 24, 29)
+MUTED = (106, 113, 128)
+RULE = (228, 224, 215)
+TEAL = (22, 97, 90)
 
 BOARD_COLORS = {
-    "square light":          "#ece9e1",
-    "square dark":           "#9fb3ad",
-    "square light lastmove": "#cfe0d6",
-    "square dark lastmove":  "#7fa298",
-    "margin":                "#ffffff",
-    "coord":                 "#6a7180",
-    "inner border":          "#dcd8cf",
-    "outer border":          "#ffffff",
-    "arrow green":           "#16615a80",
+    'square light': '#ece9e1',
+    'square dark': '#9fb3ad',
+    'square light lastmove': '#cfe0d6',
+    'square dark lastmove': '#7fa298',
+    'margin': '#ffffff',
+    'coord': '#6a7180',
+    'inner border': '#dcd8cf',
+    'outer border': '#ffffff',
+    'arrow green': '#16615a80',
 }
 
 S = args.scale
 
 
-def px(v):
+def px(v: float) -> int:
     return int(round(v * S))
 
 
 BOARD_PX = px(452)
-PAD_X    = px(26)
-HEADER   = px(52)
-FOOTER   = px(46)
+PAD_X = px(26)
+HEADER = px(52)
+FOOTER = px(46)
 W = BOARD_PX + 2 * PAD_X
 H = HEADER + BOARD_PX + FOOTER
 
-F = "/usr/share/fonts/truetype/dejavu/"
-f_name   = ImageFont.truetype(F + "DejaVuSans-Bold.ttf", px(15))
-f_sub    = ImageFont.truetype(F + "DejaVuSans.ttf", px(11))
-f_move   = ImageFont.truetype(F + "DejaVuSansMono-Bold.ttf", px(15))
-f_small  = ImageFont.truetype(F + "DejaVuSans.ttf", px(11))
+F = args.font_dir.rstrip('/\\') + '/'
+f_name = ImageFont.truetype(F + 'DejaVuSans-Bold.ttf', px(15))
+f_sub = ImageFont.truetype(F + 'DejaVuSans.ttf', px(11))
+f_move = ImageFont.truetype(F + 'DejaVuSansMono-Bold.ttf', px(15))
+f_small = ImageFont.truetype(F + 'DejaVuSans.ttf', px(11))
 
 
-ORIENTATION = chess.WHITE if args.orientation == "white" else chess.BLACK
+ORIENTATION = chess.WHITE if args.orientation == 'white' else chess.BLACK
 
 
-def board_png(board, lastmove):
+def board_png(board: chess.Board, lastmove: chess.Move | None) -> Image.Image:
     check_sq = board.king(board.turn) if board.is_check() else None
     svg = chess.svg.board(
-        board, lastmove=lastmove, check=check_sq, orientation=ORIENTATION,
-        size=BOARD_PX, colors=BOARD_COLORS, coordinates=True, borders=False,
+        board,
+        lastmove=lastmove,
+        check=check_sq,
+        orientation=ORIENTATION,
+        size=BOARD_PX,
+        colors=BOARD_COLORS,
+        coordinates=True,
+        borders=False,
     )
     png = cairosvg.svg2png(bytestring=svg.encode(), output_width=BOARD_PX, output_height=BOARD_PX)
-    return Image.open(io.BytesIO(png)).convert("RGB")
+    return Image.open(io.BytesIO(png)).convert('RGB')
 
 
-def frame(board, lastmove, san, movetext, status):
-    im = Image.new("RGB", (W, H), BG)
+def frame(board: chess.Board, lastmove: chess.Move | None, san: str | None, movetext: str, status: str) -> Image.Image:
+    im = Image.new('RGB', (W, H), BG)
     d = ImageDraw.Draw(im)
 
     # header
@@ -119,12 +132,11 @@ def frame(board, lastmove, san, movetext, status):
         d.text((PAD_X, fy), movetext, font=f_move, fill=INK)
     if status:
         sw = d.textlength(status, font=f_small)
-        d.text((W - PAD_X - sw, fy + px(3)), status, font=f_small,
-               fill=TEAL if "mate" in status.lower() else MUTED)
+        d.text((W - PAD_X - sw, fy + px(3)), status, font=f_small, fill=TEAL if 'mate' in status.lower() else MUTED)
     return im
 
 
-def duration_ms(board_before, move, ply, total, is_last):
+def duration_ms(board_before: chess.Board, move: chess.Move, ply: int, total: int, is_last: bool) -> int:
     """Milliseconds to hold the position after `move`.
 
     Uniform by default: every move gets the same beat, which is easier to follow
@@ -140,11 +152,11 @@ def duration_ms(board_before, move, ply, total, is_last):
     board_after.push(move)
     check = board_after.is_check()
 
-    if ply < 20:                 # opening, largely book
+    if ply < 20:  # opening, largely book
         d = 240
-    elif ply < total - 14:       # middlegame
+    elif ply < total - 14:  # middlegame
         d = 300
-    else:                        # the finishing combination
+    else:  # the finishing combination
         d = 480
 
     if capture:
@@ -153,41 +165,43 @@ def duration_ms(board_before, move, ply, total, is_last):
         d += 200
     if move.promotion:
         d += 280
-    if legal <= 3:               # forced reply — snap through it
+    if legal <= 3:  # forced reply — snap through it
         d -= 80
     return int(max(180, min(950, d)) / args.speed)
 
 
-def main():
-    with open(args.pgn, encoding="utf-8", errors="ignore") as fh:
+def main() -> None:
+    with open(args.pgn, encoding='utf-8', errors='ignore') as fh:
         game = chess.pgn.read_game(fh)
     if game is None:
-        sys.exit(f"no game found in {args.pgn}")
+        sys.exit(f'no game found in {args.pgn}')
+    if game.errors:
+        raise ValueError(f'Invalid PGN: {game.errors}')
 
     board = game.board()
     frames, durs = [], []
 
-    frames.append(frame(board, None, None, "", "starting position"))
+    frames.append(frame(board, None, None, '', 'starting position'))
     durs.append(int(args.start_ms / args.speed))
 
     moves = list(game.mainline_moves())
     for i, mv in enumerate(moves):
         san = board.san(mv)
         num = board.fullmove_number
-        prefix = f"{num}." if board.turn == chess.WHITE else f"{num}..."
+        prefix = f'{num}.' if board.turn == chess.WHITE else f'{num}...'
         before = board.copy()
         board.push(mv)
 
         if board.is_checkmate():
-            status = f"checkmate — {args.winner} wins"
+            status = f'checkmate — {args.winner} wins'
         elif board.is_check():
-            status = "check"
+            status = 'check'
         elif before.is_capture(mv):
-            status = "capture"
+            status = 'capture'
         else:
-            status = ""
+            status = ''
 
-        frames.append(frame(board, mv, san, f"{prefix} {san}", status))
+        frames.append(frame(board, mv, san, f'{prefix} {san}', status))
         durs.append(duration_ms(before, mv, i, len(moves), i == len(moves) - 1))
 
     # hold the final position
@@ -195,11 +209,16 @@ def main():
     durs.append(int(args.end_ms / args.speed))
 
     frames[0].save(
-        OUT, format="WEBP", save_all=True, append_images=frames[1:],
-        duration=durs, loop=0, quality=args.quality, method=6,
+        OUT,
+        format='WEBP',
+        save_all=True,
+        append_images=frames[1:],
+        duration=durs,
+        loop=0,
+        quality=args.quality,
+        method=6,
     )
-    import os
-    print(f"{len(frames)} frames, {sum(durs)/1000:.1f}s, {os.path.getsize(OUT)//1024} KB, {W}x{H}")
+    print(f'{len(frames)} frames, {sum(durs) / 1000:.1f}s, {os.path.getsize(OUT) // 1024} KB, {W}x{H}')
 
 
 main()
