@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <base href="/">
   <title>AlphaZero-Style Chess & Go Engine — Bertil Braun</title>
-  <meta name="description" content="A native C++ and distributed self-play learning system reaching superhuman calibrated chess strength in 2.5 days on eight consumer GPUs, with a live application and a forthcoming technical report.">
+  <meta name="description" content="A native C++ and distributed self-play learning system reaching superhuman calibrated chess strength in 2.5 days on eight consumer GPUs, with a live application and technical report.">
   <meta name="author" content="Bertil Braun">
   <link rel="canonical" href="https://bertil-braun.de/projects/alphazero/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="AlphaZero-Style Chess & Go Engine — Bertil Braun">
-  <meta property="og:description" content="A native C++ and distributed self-play learning system reaching superhuman calibrated chess strength in 2.5 days on eight consumer GPUs, with a live application and a forthcoming technical report.">
+  <meta property="og:description" content="A native C++ and distributed self-play learning system reaching superhuman calibrated chess strength in 2.5 days on eight consumer GPUs, with a live application and technical report.">
   <meta property="og:url" content="https://bertil-braun.de/projects/alphazero/">
   <meta property="og:image" content="https://bertil-braun.de/assets/social-card.png">
   <meta property="og:image:width" content="1200">
@@ -19,7 +19,7 @@
   <meta property="og:image:alt" content="Bertil Braun — Applied ML Research Engineer in Karlsruhe, working across language-model agents, scalable training, distributed systems, reinforcement learning, and evaluation.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="AlphaZero-Style Chess & Go Engine — Bertil Braun">
-  <meta name="twitter:description" content="A native C++ and distributed self-play learning system reaching superhuman calibrated chess strength in 2.5 days on eight consumer GPUs, with a live application and a forthcoming technical report.">
+  <meta name="twitter:description" content="A native C++ and distributed self-play learning system reaching superhuman calibrated chess strength in 2.5 days on eight consumer GPUs, with a live application and technical report.">
   <meta name="twitter:image" content="https://bertil-braun.de/assets/social-card.png">
   <meta name="theme-color" content="#fbfaf7">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2316615a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' fill='%23fbfaf7' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
@@ -934,8 +934,7 @@
             <a class="btn live" href="https://chess.bertil-braun.de/" target="_blank" rel="noopener" data-stop>
               <span class="dot" aria-hidden="true"></span> Live demo
             </a>
-            <a class="btn" href="https://github.com/BertilBraun/Advanced-Techniques-in-Chess-Engines" target="_blank" rel="noopener" data-stop>Code</a>
-            <a class="btn paper-link" href="https://github.com/BertilBraun/Advanced-Techniques-in-Chess-Engines" target="_blank" rel="noopener" data-stop title="Draft report being finalized; opens the project repository">Report forthcoming</a>
+            <a class="btn paper-link" href="https://github.com/BertilBraun/Advanced-Techniques-in-Chess-Engines" target="_blank" rel="noopener" data-stop>Technical report</a>
             <a class="btn accent" href="/projects/alphazero/" data-project-link="chess">Project details</a>
           </div>
         </div>
@@ -1165,23 +1164,20 @@
             trained model, as the table shows; brackets give 95% confidence intervals.
           </p>
           <p class="note">
-            Training-node rental cost $43.20 at $0.72 per hour. That is the cost of executing the
-            final recipe, excluding development experiments and separate evaluation. For scale, the
-            <a href="https://arxiv.org/abs/1712.01815" target="_blank" rel="noopener">original AlphaZero paper</a>
-            reports 5,000 first-generation TPUs generating self-play games and 64 second-generation
-            TPUs training the networks; this project used one eight-GPU consumer node. The hardware,
-            training objectives, evaluation protocols, and achieved playing strength differ, so a
-            direct cost or efficiency ratio would be misleading. The new results are documented
-            in a draft report being finalized for release.
+            Superhuman chess on eight consumer GPUs and $43.20 in training-node rental—a far
+            smaller hardware budget than the thousands of TPUs used by
+            <a href="https://arxiv.org/abs/1712.01815" target="_blank" rel="noopener">the original AlphaZero</a>,
+            though not equivalent playing strength. The rental figure excludes development
+            experiments and evaluation.
           </p>
         </section>
         <section class="detail-section">
           <h3>System and training architecture</h3>
           <ul>
-            <li><strong>Search and inference.</strong> C++ owns game rules, encodings, tree search, and neural work queues. Interleaved games fill GPU batches; CUDA graphs and quantization-aware TensorRT inference reduce the cost of serving the model.</li>
-            <li><strong>Replay at scale.</strong> A circular, memory-mapped store feeds training from a continuously changing collection of self-play positions. Prioritized sampling revisits informative positions, while fresh-data credits limit repeated training on stale experience.</li>
-            <li><strong>Overlapping generation and learning.</strong> Persistent Python-managed workers and eight-GPU distributed training share the node. Some self-play actors continue generating games during training, and updated inference models are published without restarting the whole system.</li>
-            <li><strong>Growing the model.</strong> Training starts with a smaller network and transfers to a larger candidate using the same replay. Head-to-head matches decide whether to promote it, so lower training loss alone cannot replace a stronger player.</li>
+            <li><strong>Making self-play affordable.</strong> A native C++ engine searches many games concurrently and batches their neural-network requests on the GPU. Optimized TensorRT inference helps turn limited hardware into a steady supply of training games.</li>
+            <li><strong>Learning from the right experience.</strong> A shared replay store retains millions of positions, revisits informative examples, and limits repeated training when fresh games are scarce. This connects data generation to the pace of learning.</li>
+            <li><strong>Keeping eight GPUs productive.</strong> Python coordinates distributed training while part of the system continues playing games. Updated models return to the players without restarting the full pipeline.</li>
+            <li><strong>Growing capacity when it helps.</strong> Training begins with a smaller network, then transfers its experience to a larger candidate. Head-to-head matches determine whether that candidate is actually a stronger player before it takes over.</li>
           </ul>
         </section>
         <section class="detail-section">
@@ -1198,28 +1194,25 @@
             unrestricted engines remain substantially stronger.
           </p>
           <p>
-            The research also tests whether local improvements survive the full learning loop.
-            Faster search or better agreement with deeper searches did not always produce a
-            stronger trained player. Diagnosing endgame failures, inference-export mismatches,
-            and weaker model promotions led to changes in replay, output-fidelity checks, and
-            match-based promotion. The report separates these experiments from the final
-            integrated result rather than attributing its strength to any one component.
+            Engineering decisions were tested against playing strength, not just speed or training
+            loss. The experiments exposed endgame weaknesses, prediction changes during model
+            export, and larger networks that learned less effectively. Fixes improved the training
+            data, checked exported models against their originals, and made promotion depend on
+            match results. The report documents those experiments and their trade-offs.
           </p>
         </section>
         <section class="detail-section">
-          <h3>Playing and deployment experience</h3>
+          <h3>Try the trained player</h3>
           <p>
-            The browser application and Lichess bot share the native interactive engine. A typed
-            FastAPI service provides scale-to-zero GPU inference, supports instant raw-policy moves
-            or 1–30 seconds of MCTS, and reconstructs state from browser-supplied move history so a
-            game survives reloads and cold starts.
+            Play against the trained model in your browser, choosing quick responses or more time
+            to think. The live application makes the research directly usable beyond benchmark
+            matches; the player is also available through a Lichess bot.
           </p>
         </section>
         <section class="detail-section">
           <h3>Demo and artifacts</h3>
-          <p class="note">The new technical report is being finalized; its button currently opens the repository.</p>
         <div class="actions">
-          <a class="btn paper-link" href="https://github.com/BertilBraun/Advanced-Techniques-in-Chess-Engines" target="_blank" rel="noopener" title="Draft report being finalized; opens the project repository">Report forthcoming</a>
+          <a class="btn paper-link" href="https://github.com/BertilBraun/Advanced-Techniques-in-Chess-Engines" target="_blank" rel="noopener">Technical report</a>
           <a class="btn live" href="https://chess.bertil-braun.de/" target="_blank" rel="noopener"><span class="dot" aria-hidden="true"></span> Live demo</a>
           <a class="btn" href="https://github.com/BertilBraun/Advanced-Techniques-in-Chess-Engines" target="_blank" rel="noopener">GitHub repo</a>
           <a class="btn" href="https://huggingface.co/BertilBraun/alphazero-chess" target="_blank" rel="noopener">Model weights</a>
@@ -1228,10 +1221,10 @@
       </div>
       <div class="modal-media">
         <figure>
-          <button class="shot" type="button" data-src="assets/az-training-progress.svg" data-caption="Figure 11 from the draft report: smoothed 64-search training ladders across five chess campaigns. The final recipe reaches a higher plateau in 2.5 effective training days; the preceding baseline is plotted through three effective training days. These curves use a smaller search budget than the 100,000-search headline evaluation.">
+          <button class="shot" type="button" data-src="assets/az-training-progress.svg" data-caption="Figure 11 from the technical report: smoothed 64-search training ladders across five chess campaigns. The final recipe reaches a higher plateau in 2.5 effective training days; the preceding baseline is plotted through three effective training days. These curves use a smaller search budget than the 100,000-search headline evaluation.">
             <img src="assets/az-training-progress.svg" alt="Five smoothed training curves: the final chess recipe reaches a higher 64-search ladder Elo in 2.5 days than earlier training campaigns" width="841" height="451" loading="lazy">
           </button>
-          <figcaption>Training progress across five runs (draft report, Figure 11). Smoothed 64-search ladder results, distinct from the 100,000-search headline evaluation. Click to enlarge.</figcaption>
+          <figcaption>Training progress across five runs (Figure 11). Smoothed 64-search ladder results, distinct from the 100,000-search headline evaluation. Click to enlarge.</figcaption>
         </figure>
         <figure>
           <button class="shot" type="button" data-src="assets/chess-game.webp" data-caption="Round 8 of the three-day baseline evaluation at 10,000 searches per move, playing Black against Stockfish 13 at 40,000 nodes — roughly 2,900 on the calibration curve, a rung where the model scored 40% overall. Stockfish gives up its queen on move 26 and promotes to a second one; the model trades both off and mates on move 33.">
@@ -1786,11 +1779,11 @@
     <div class="writing-list">
       <article class="writing-item">
         <div>
-          <p class="writing-meta">Draft technical report · Self-play RL · 2026</p>
+          <p class="writing-meta">Technical report · Self-play RL · 2026</p>
           <h3>Engineering Efficient Self-Play Chess: Search, Replay, and Throughput Under Limited Compute</h3>
-          <p class="writing-summary">The search, replay, and distributed training system behind a 2.5-day self-play chess run. Report being finalized; the link currently opens the project repository.</p>
+          <p class="writing-summary">The search, replay, and distributed training system behind superhuman chess learned entirely from self-play on eight consumer GPUs.</p>
         </div>
-        <a class="btn paper-link" href="https://github.com/BertilBraun/Advanced-Techniques-in-Chess-Engines" target="_blank" rel="noopener">Report forthcoming</a>
+        <a class="btn paper-link" href="https://github.com/BertilBraun/Advanced-Techniques-in-Chess-Engines" target="_blank" rel="noopener">Technical report</a>
       </article>
       <article class="writing-item">
         <div>
@@ -1881,7 +1874,7 @@
           path: '/projects/alphazero/',
           title: 'AlphaZero-Style Chess & Go Engine — Bertil Braun',
           heading: 'AlphaZero-Style Chess & Go Engine',
-          description: 'A native C++ and distributed self-play learning system reaching superhuman calibrated chess strength in 2.5 days on eight consumer GPUs, with a live application and a forthcoming technical report.'
+          description: 'A native C++ and distributed self-play learning system reaching superhuman calibrated chess strength in 2.5 days on eight consumer GPUs, with a live application and technical report.'
         },
         'llm-light': {
           path: '/projects/llm-light/',
