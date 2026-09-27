@@ -20,7 +20,7 @@ PAGE_ROUTES = (
     PageRoute(
         path='/projects/alphazero/',
         title='AlphaZero-Style Chess & Go Engine — Bertil Braun',
-        description='A production-oriented AlphaZero-style chess and Go system with native C++ search, distributed self-play training, rigorous Stockfish evaluation, and a live application.',
+        description='A native C++ and distributed self-play learning system reaching superhuman calibrated chess strength in 2.5 days on eight consumer GPUs, with a live application and a forthcoming technical report.',
     ),
     PageRoute(
         path='/projects/llm-light/',
