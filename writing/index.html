@@ -910,7 +910,7 @@
       <!-- ============ hero project ============ -->
       <article class="hero" data-open="chess">
         <div>
-          <span class="kicker">Featured research system · Distributed self-play RL</span>
+          <span class="kicker">Featured research system · Distributed self-play RL · arXiv paper</span>
           <h2>AlphaZero-Style Chess &amp; Go Engine</h2>
           <p>
             An end-to-end AlphaZero-style research platform combining native C++ tree search,
@@ -935,7 +935,7 @@
             <a class="btn live" href="https://chess.bertil-braun.de/" target="_blank" rel="noopener" data-stop>
               <span class="dot" aria-hidden="true"></span> Live demo
             </a>
-            <a class="btn paper-link" href="https://github.com/BertilBraun/Advanced-Techniques-in-Chess-Engines/releases/download/final-chess-report/engineering-efficient-self-play-chess.pdf" target="_blank" rel="noopener" data-stop>Technical report</a>
+            <a class="btn paper-link" href="https://arxiv.org/abs/2609.37447" target="_blank" rel="noopener" data-stop>arXiv paper</a>
             <a class="btn accent" href="/projects/alphazero/" data-project-link="chess">Project details</a>
           </div>
         </div>
@@ -1133,7 +1133,7 @@
 
   <!-- ==================== detail templates ==================== -->
 
-  <template id="tpl-chess" data-kicker="Self-play reinforcement learning">
+  <template id="tpl-chess" data-kicker="Self-play reinforcement learning · arXiv paper">
     <div class="cols">
       <div>
         <section class="detail-section">
@@ -1204,7 +1204,7 @@
             100 games against each with colours swapped across 50 opening pairs. Ratings use
             <a href="https://www.melonimarco.it/en/2021/03/08/stockfish-and-lc0-test-at-different-number-of-nodes/" target="_blank" rel="noopener">Meloni&#39;s calibration</a>;
             the table’s intervals describe uncertainty from those paired matches. Current
-            unrestricted engines remain substantially stronger. The report provides the full
+            unrestricted engines remain substantially stronger. The paper provides the full
             protocol, experiment results, and limitations.
           </p>
         </section>
@@ -1219,7 +1219,7 @@
           <h3>Demo and artifacts</h3>
         <div class="actions">
           <a class="btn live" href="https://chess.bertil-braun.de/" target="_blank" rel="noopener"><span class="dot" aria-hidden="true"></span> Live demo</a>
-          <a class="btn paper-link" href="https://github.com/BertilBraun/Advanced-Techniques-in-Chess-Engines/releases/download/final-chess-report/engineering-efficient-self-play-chess.pdf" target="_blank" rel="noopener">Technical report</a>
+          <a class="btn paper-link" href="https://arxiv.org/abs/2609.37447" target="_blank" rel="noopener">arXiv paper</a>
           <a class="btn" href="https://github.com/BertilBraun/Advanced-Techniques-in-Chess-Engines" target="_blank" rel="noopener">GitHub repo</a>
           <a class="btn" href="https://huggingface.co/BertilBraun/alphazero-chess" target="_blank" rel="noopener">Model weights</a>
           <a class="btn accent" href="/projects/alphazero/games/">All 200 evaluation games</a>
@@ -1228,7 +1228,7 @@
       </div>
       <div class="modal-media">
         <figure>
-          <button class="shot" type="button" data-src="assets/az-training-progress.svg" data-caption="Figure 11 from the technical report: smoothed 64-search training ladders across five chess campaigns. The final recipe reaches a higher plateau in 2.5 effective training days; the preceding baseline is plotted through three effective training days. These curves use a smaller search budget than the 100,000-search headline evaluation.">
+          <button class="shot" type="button" data-src="assets/az-training-progress.svg" data-caption="Figure 11 from the paper: smoothed 64-search training ladders across five chess campaigns. The final recipe reaches a higher plateau in 2.5 effective training days; the preceding baseline is plotted through three effective training days. These curves use a smaller search budget than the 100,000-search headline evaluation.">
             <img src="assets/az-training-progress.svg" alt="Five smoothed training curves: the final chess recipe reaches a higher 64-search ladder Elo in 2.5 days than earlier training campaigns" width="841" height="451" loading="lazy">
           </button>
           <figcaption>Training progress across five runs (Figure 11). Smoothed 64-search ladder results, distinct from the 100,000-search headline evaluation. Click to enlarge.</figcaption>
@@ -1792,11 +1792,11 @@
     <div class="writing-list">
       <article class="writing-item">
         <div>
-          <p class="writing-meta">Technical report · Self-play RL · 2026</p>
+          <p class="writing-meta">arXiv paper · Self-play RL · 2026</p>
           <h3>Engineering Efficient Self-Play Chess: Search, Replay, and Throughput Under Limited Compute</h3>
           <p class="writing-summary">The search, replay, and distributed training system behind superhuman chess learned entirely from self-play on eight consumer GPUs.</p>
         </div>
-        <a class="btn paper-link" href="https://github.com/BertilBraun/Advanced-Techniques-in-Chess-Engines/releases/download/final-chess-report/engineering-efficient-self-play-chess.pdf" target="_blank" rel="noopener">Technical report</a>
+        <a class="btn paper-link" href="https://arxiv.org/abs/2609.37447" target="_blank" rel="noopener">arXiv paper</a>
       </article>
       <article class="writing-item">
         <div>
@@ -1887,7 +1887,7 @@
           path: '/projects/alphazero/',
           title: 'AlphaZero-Style Chess & Go Engine — Bertil Braun',
           heading: 'AlphaZero-Style Chess & Go Engine',
-          description: 'A native C++ and distributed self-play learning system reaching superhuman calibrated chess strength in 2.5 days on eight consumer GPUs, with a live application and technical report.'
+          description: 'A native C++ and distributed self-play learning system reaching superhuman calibrated chess strength in 2.5 days on eight consumer GPUs, with a live application and arXiv paper.'
         },
         'llm-light': {
           path: '/projects/llm-light/',
