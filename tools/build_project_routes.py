@@ -20,7 +20,7 @@ PAGE_ROUTES = (
     PageRoute(
         path='/projects/alphazero/',
         title='AlphaZero-Style Chess & Go Engine — Bertil Braun',
-        description='A native C++ and distributed self-play learning system reaching superhuman calibrated chess strength in 2.5 days on eight consumer GPUs, with a live application and arXiv paper.',
+        description='A native C++ and distributed self-play learning system reaching superhuman calibrated chess strength in 2.5 days on eight consumer GPUs, with a live application and arXiv report.',
     ),
     PageRoute(
         path='/projects/llm-light/',
@@ -35,7 +35,7 @@ PAGE_ROUTES = (
     PageRoute(
         path='/projects/voice-light/',
         title='Voice-Light — Full-Duplex Streaming Voice Agent — Bertil Braun',
-        description='A live full-duplex voice agent spanning conversational training data, model adaptation, causal evaluation, interruption-aware control, and two-GPU streaming deployment, documented in an arXiv paper.',
+        description='A live full-duplex voice agent spanning conversational training data, model adaptation, causal evaluation, interruption-aware control, and two-GPU streaming deployment, documented in an arXiv report.',
     ),
     PageRoute(
         path='/projects/scalable-llm-evaluation/',
@@ -45,7 +45,7 @@ PAGE_ROUTES = (
     PageRoute(
         path='/projects/gybelock/',
         title='GybeLock — Offline Windsurfing Video Tracking — Bertil Braun',
-        description='An offline computer-vision system that preserves rider identity through difficult windsurfing footage and produces stable rider-focused videos in a live application, documented in an arXiv paper.',
+        description='An offline computer-vision system that preserves rider identity through difficult windsurfing footage and produces stable rider-focused videos in a live application, documented in an arXiv report.',
     ),
     PageRoute(
         path='/projects/traffic-signal-control/',
